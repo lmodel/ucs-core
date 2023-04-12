@@ -200,81 +200,23 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-annotation">Class: Annotation</h1>
-<p><em>An annotation is an assertion made in relation to one or more objects.</em></p>
-<p>URI: <a href="core:Annotation">core:Annotation</a></p>
+<p><em>Model root class for entity annotations.</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
+<p>URI: <a href="https://w3id.org/lmodel/uco-core/Annotation">uco-core:Annotation</a></p>
 <div class="mermaid"> classDiagram
     class Annotation
-      Assertion &lt;|-- Annotation
-
-
       Annotation &lt;|-- QuantityValue
       Annotation &lt;|-- Attribute
-
-
-      Annotation : createdBy
-
-          Annotation ..&gt; string : createdBy
-
-      Annotation : description
-
-          Annotation ..&gt; string : description
-
-      Annotation : externalReference
-
-          Annotation ..&gt; string : externalReference
-
-      Annotation : hasFacet
-
-          Annotation ..&gt; string : hasFacet
-
-      Annotation : modifiedTime
-
-          Annotation ..&gt; datetime : modifiedTime
-
-      Annotation : name
-
-          Annotation ..&gt; string : name
-
-      Annotation : object
-
-          Annotation ..&gt; UcoObject : object
-
-      Annotation : objectCreatedTime
-
-          Annotation ..&gt; datetime : objectCreatedTime
-
-      Annotation : objectMarking
-
-          Annotation ..&gt; MarkingDefinitionAbstraction : objectMarking
-
-      Annotation : specVersion
-
-          Annotation ..&gt; string : specVersion
-
-      Annotation : statement
-
-          Annotation ..&gt; string : statement
-
-      Annotation : tag
-
-          Annotation ..&gt; string : tag
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../UcoThing/">UcoThing</a><ul>
-<li><a href="../UcoObject/">UcoObject</a><ul>
-<li><a href="../Assertion/">Assertion</a><ul>
 <li><strong>Annotation</strong><ul>
 <li><a href="../QuantityValue/">QuantityValue</a></li>
 <li><a href="../Attribute/">Attribute</a> [ <a href="../OntologyClass/">OntologyClass</a>]</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -290,83 +232,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../object/">object</a></td>
-<td>0..1 <br/> <a href="../UcoObject/">UcoObject</a></td>
-<td>Specifies one or more UcoObjects</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../statement/">statement</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A textual statement of an assertion</td>
-<td><a href="../Assertion/">Assertion</a></td>
-</tr>
-<tr>
-<td><a href="../createdBy/">createdBy</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The identity that created a characterization of a concept</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A human-readable description of an entity</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../externalReference/">externalReference</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Specifies a reference to a resource outside of the UCO</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../hasFacet/">hasFacet</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Further sets of properties characterizing a concept based on the particular c...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../modifiedTime/">modifiedTime</a></td>
-<td>0..* <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>Specifies the time that this particular version of the object was modified</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The name of a particular concept characterization</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectMarking/">objectMarking</a></td>
-<td>0..* <br/> <a href="../MarkingDefinitionAbstraction/">MarkingDefinitionAbstraction</a></td>
-<td>Marking definitions to be applied to a particular concept characterization in...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectCreatedTime/">objectCreatedTime</a></td>
-<td>0..1 <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>The time at which a characterization of a concept is created</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../specVersion/">specVersion</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The version of UCO ontology or subontology specification used to characterize...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../tag/">tag</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A generic tag/label</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/lmodel/uco-core</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -379,11 +255,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>core:Annotation</td>
+<td>uco-core:Annotation</td>
 </tr>
 <tr>
 <td>native</td>
-<td>core:Annotation</td>
+<td>ucs-core:Annotation</td>
 </tr>
 <tr>
 <td>exact</td>
@@ -396,209 +272,30 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Annotation
-description: An annotation is an assertion made in relation to one or more objects.
-from_schema: https://w3id.org/lmodel/uco-core
+description: Model root class for entity annotations.
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
 - NCIT:C44272
 - SIO:001166
 - wikidata:Q857525
-is_a: Assertion
-slots:
-- object
-slot_usage:
-  object:
-    name: object
-    multivalued: true
-    domain_of:
-    - Annotation
-    - ContextualCompilation
-    - EnclosingCompilation
-    - Action
-    required: true
+rank: 1000
+abstract: true
+class_uri: uco-core:Annotation
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Annotation
-description: An annotation is an assertion made in relation to one or more objects.
-from_schema: https://w3id.org/lmodel/uco-core
+description: Model root class for entity annotations.
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
 - NCIT:C44272
 - SIO:001166
 - wikidata:Q857525
-is_a: Assertion
-slot_usage:
-  object:
-    name: object
-    multivalued: true
-    domain_of:
-    - Annotation
-    - ContextualCompilation
-    - EnclosingCompilation
-    - Action
-    required: true
-attributes:
-  object:
-    name: object
-    description: Specifies one or more UcoObjects.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: object
-    owner: Annotation
-    domain_of:
-    - Annotation
-    - ContextualCompilation
-    - EnclosingCompilation
-    - Action
-    range: UcoObject
-    required: true
-  statement:
-    name: statement
-    description: A textual statement of an assertion.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: statement
-    owner: Annotation
-    domain_of:
-    - Assertion
-    range: string
-  createdBy:
-    name: createdBy
-    description: The identity that created a characterization of a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: IdentityAbstraction
-    alias: createdBy
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 0
-  description:
-    name: description
-    description: A human-readable description of an entity
-    from_schema: https://w3id.org/lmodel/uco-core
-    slot_uri: dcterms:description
-    multivalued: true
-    alias: description
-    owner: Annotation
-    domain_of:
-    - Entity
-    - UcoObject
-    range: string
-  externalReference:
-    name: externalReference
-    description: Specifies a reference to a resource outside of the UCO.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: ExternalReference
-    multivalued: true
-    alias: externalReference
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: string
-    required: false
-    minimum_cardinality: 0
-  hasFacet:
-    name: hasFacet
-    description: Further sets of properties characterizing a concept based on the
-      particular context of the class and of the particular instance of the concept
-      being characterized.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: Facet
-    multivalued: true
-    alias: hasFacet
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: string
-  modifiedTime:
-    name: modifiedTime
-    description: Specifies the time that this particular version of the object was
-      modified. The object creator can use the time it deems most appropriate as the
-      time this version of the object was modified. The value of the modified property
-      for a given object version MUST be later than or equal to the value of the created
-      property. Object creators MUST update the modified property when creating a
-      new version of an object. The modified timestamp MUST be precise to the nearest
-      millisecond (exactly three digits after the decimal place in seconds).
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: modifiedTime
-    owner: Annotation
-    domain_of:
-    - AccountFacet
-    - BrowserBookmarkFacet
-    - CalendarEntryFacet
-    - EmailMessageFacet
-    - FileFacet
-    - NoteFacet
-    - WindowsRegistrykeyFacet
-    - UcoObject
-    range: datetime
-  name:
-    name: name
-    description: The name of a particular concept characterization.
-    from_schema: https://w3id.org/lmodel/uco-core
-    slot_uri: rdfs:label
-    alias: name
-    owner: Annotation
-    domain_of:
-    - Attribute
-    - Entity
-    - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
-  objectMarking:
-    name: objectMarking
-    description: Marking definitions to be applied to a particular concept characterization
-      in its entirety.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: objectMarking
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: MarkingDefinitionAbstraction
-  objectCreatedTime:
-    name: objectCreatedTime
-    description: The time at which a characterization of a concept is created. This
-      time pertains to the time of creating the record object, and is not an intrinsic
-      characteristic of the concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: objectCreatedTime
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: datetime
-    maximum_cardinality: 1
-  specVersion:
-    name: specVersion
-    description: The version of UCO ontology or subontology specification used to
-      characterize a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: specVersion
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
-  tag:
-    name: tag
-    description: A generic tag/label.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: tag
-    owner: Annotation
-    domain_of:
-    - UcoObject
-    range: string
+rank: 1000
+abstract: true
+class_uri: uco-core:Annotation
 
 </code></pre>
 </details>

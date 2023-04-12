@@ -317,7 +317,8 @@
 
 
 <h1 id="slot-address">Slot: address</h1>
-<p>URI: <a href="identity:address">identity:address</a></p>
+<p><em>Collection of information that describes the location of a building, apartment, or other structure</em></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-identity/address">uco-identity:address</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -334,10 +335,6 @@
 <td>person, group, organization or project that provides a piece of information (...</td>
 </tr>
 <tr>
-<td><a href="../AddressFacet/">AddressFacet</a></td>
-<td>An Address Facet is a grouping of characteristics unique to an administrative...</td>
-</tr>
-<tr>
 <td><a href="../Project/">Project</a></td>
 <td>Collaborative enterprise, frequently involving research or design, that is ca...</td>
 </tr>
@@ -345,28 +342,31 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Location/">Location</a></li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/lmodel/uco-identity</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: address
-description: ''
-from_schema: https://w3id.org/lmodel/uco-identity
+description: Collection of information that describes the location of a building,
+  apartment, or other structure
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
-- wikidata.property:P6375
+- wikidata:Q64826646
 narrow_mappings:
-- wikidata.property:P2918
+- NCIT:C25407
+- sumo:AddressFn
+rank: 1000
+slot_uri: uco-identity:address
 alias: address
 domain_of:
 - Agent
-- AddressFacet
-range: Location
+range: string
 
 </code></pre>
 

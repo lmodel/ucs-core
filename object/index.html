@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -317,10 +324,15 @@
 
 
 <h1 id="slot-object">Slot: object</h1>
-<p><em>Specifies one or more UcoObjects.</em></p>
-<p>URI: <a href="core:object">core:object</a></p>
-<!-- no inheritance hierarchy -->
-
+<p><em>Connects an association to the object of the association. For example, in a apple-to-orange assocation, the apple is subject and orange is object.</em></p>
+<p>URI: <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../associationSlot/">associationSlot</a><ul>
+<li><strong>object</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -331,79 +343,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Annotation/">Annotation</a></td>
-<td>An annotation is an assertion made in relation to one or more objects</td>
-</tr>
-<tr>
-<td><a href="../ContextualCompilation/">ContextualCompilation</a></td>
-<td>A contextual compilation is a grouping of things sharing some context (e</td>
-</tr>
-<tr>
-<td><a href="../EnclosingCompilation/">EnclosingCompilation</a></td>
-<td>An enclosing compilation is a container for a grouping of things</td>
-</tr>
-<tr>
-<td><a href="../Action/">Action</a></td>
-<td>"An action is something that may be done or performed</td>
-</tr>
-<tr>
-<td><a href="../QuantityValue/">QuantityValue</a></td>
-<td>A value of an attribute that is quantitative and measurable, available as a c...</td>
-</tr>
-<tr>
-<td><a href="../Attribute/">Attribute</a></td>
-<td>A property or characteristic of an entity</td>
-</tr>
-<tr>
-<td><a href="../ObservableAction/">ObservableAction</a></td>
-<td>"An observable action is a grouping of characteristics unique to something th...</td>
-</tr>
-<tr>
-<td><a href="../Observation/">Observation</a></td>
-<td>"An observation is a temporal perception of an observable</td>
-</tr>
-<tr>
-<td><a href="../Bundle/">Bundle</a></td>
-<td>A bundle is a container for a grouping of UCO content with no presumption of ...</td>
-</tr>
-<tr>
-<td><a href="../Grouping/">Grouping</a></td>
-<td>A grouping is a compilation of referenced UCO content with a shared context</td>
-</tr>
-<tr>
-<td><a href="../ActionLifecycle/">ActionLifecycle</a></td>
-<td>"An action lifecycle is an action pattern consisting of an ordered set of mul...</td>
-</tr>
-<tr>
-<td><a href="../ActionPattern/">ActionPattern</a></td>
-<td>"An action pattern is a grouping of characteristics unique to a combination o...</td>
+<td><a href="../Association/">Association</a></td>
+<td>A typed association between two entities, supported by evidence</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../UcoObject/">UcoObject</a></li>
+<li>Range: <a href="../NamedThing/">NamedThing</a></li>
+<li>Required: True</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/lmodel/uco-core</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: object
-description: Specifies one or more UcoObjects.
-from_schema: https://w3id.org/lmodel/uco-core
+local_names:
+  ga4gh:
+    local_name_source: ga4gh
+    local_name_value: descriptor
+  neo4j:
+    local_name_source: neo4j
+    local_name_value: node with incoming relationship
+description: Connects an association to the object of the association. For example,
+  in a apple-to-orange assocation, the apple is subject and orange is object.
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
-- lm_core:entity
+- owl:annotatedTarget
+- OBAN:association_has_object
+rank: 1000
+is_a: associationSlot
+domain: Association
+slot_uri: rdf:object
 alias: object
 domain_of:
-- Annotation
-- ContextualCompilation
-- EnclosingCompilation
-- Action
-range: UcoObject
+- Association
+range: NamedThing
+required: true
 
 </code></pre>
 

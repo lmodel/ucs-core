@@ -219,11 +219,9 @@
 
       OpenSource : creationDate
 
-          OpenSource ..&gt; datetime : creationDate
+          OpenSource ..&gt; date : creationDate
 
       OpenSource : description
-
-          OpenSource ..&gt; string : description
 
       OpenSource : hasAttribute
 
@@ -235,11 +233,7 @@
 
       OpenSource : iri
 
-          OpenSource ..&gt; iri type : iri
-
       OpenSource : name
-
-          OpenSource ..&gt; string : name
 
       OpenSource : providedBy
 
@@ -278,25 +272,25 @@
 <tbody>
 <tr>
 <td><a href="../creationDate/">creationDate</a></td>
-<td>0..1 <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>"Specifies the date in which the registered domain was created</td>
+<td>0..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></td>
+<td>date on which an entity was created</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../providedBy/">providedBy</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..* <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>The value in this nodeProperty represents the knowledge provider that created...</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../xref/">xref</a></td>
-<td>0..* <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..* <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>Alternate CURIEs for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>A unique identifier for an entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
@@ -314,20 +308,20 @@
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>Anchoring point (of a name) in taxonomy</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The name of a particular concept characterization</td>
+<td>0..1 <br/> <a href="../LabelType/">LabelType</a></td>
+<td>A human-readable name for an attribute or entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A human-readable description of an entity</td>
+<td>0..1 <br/> <a href="../NarrativeText/">NarrativeText</a></td>
+<td>a human-readable description of an entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
@@ -411,29 +405,34 @@ mixin: true
 attributes:
   creationDate:
     name: creationDate
-    description: '"Specifies the date in which the registered domain was created."'
-    from_schema: https://w3id.org/linkmodel/uco-observable
+    description: date on which an entity was created. This can be applied to nodes
+      or edges
+    from_schema: https://w3id.org/lmodel/ucs-core
     aliases:
-    - publication date
+    - publicationDate
     exact_mappings:
     - dcterms:createdOn
-    - lm_core:CreationDate
     - schema:dateCreated
+    - dwc:dateIdentified
     - schema:datePublished
     - sumo:dateEstablished
-    - WIKIDATA_PROPERTY:P577
+    - wikidata.property:P577
     narrow_mappings:
     - dwc:eventDate
     - dwc:verbatimEventDate
     - dwc:relationshipEstablishedDate
     broad_mappings:
     - sumo:date
+    rank: 1000
+    is_a: nodeProperty
+    domain: NamedThing
+    slot_uri: uco-observable:creationDate
     alias: creationDate
     owner: OpenSource
     domain_of:
+    - InformationContentEntity
     - OpenSource
-    - WhoisFacet
-    range: datetime
+    range: date
   providedBy:
     name: providedBy
     description: The value in this nodeProperty represents the knowledge provider
@@ -477,6 +476,7 @@ attributes:
     owner: OpenSource
     domain_of:
     - NamedThing
+    - Publication
     range: uriorcurie
   id:
     name: id
@@ -500,8 +500,6 @@ attributes:
     - CSO:bicm-id
     - SIO:000672
     - SIO:000674
-    - ERO:0000044
-    - ERO:0000480
     - NCIT:C94069
     - REPR:doi
     - SIO:000328
@@ -622,25 +620,21 @@ attributes:
     range: string
   name:
     name: name
-    description: The name of a particular concept characterization.
-    comments:
-    - This annotation is typically used to describe an artifact such as a controlled
-      vocabulary, document, ontology, or other similar resource.
-    from_schema: https://w3id.org/lmodel/uco-core
+    description: A human-readable name for an attribute or entity.
+    from_schema: https://w3id.org/lmodel/ucs-core
     aliases:
     - label
     - display name
     - title
-    - alt label
     exact_mappings:
     - CSO:named_entity
     - gr:name
-    - lm_core:name
-    - om:name
+    - OM:name
     - REPR:name
     - schema:name
     broad_mappings:
     - CSO:named_entity
+    rank: 1000
     slot_uri: rdfs:label
     alias: name
     owner: OpenSource
@@ -648,28 +642,20 @@ attributes:
     - Attribute
     - Entity
     - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
-    range: string
+    range: label type
   description:
     name: description
-    description: A human-readable description of an entity
-    from_schema: https://w3id.org/lmodel/uco-core
+    description: a human-readable description of an entity
+    from_schema: https://w3id.org/lmodel/ucs-core
     aliases:
     - definition
     exact_mappings:
     - dcterms:description
     - IAO:0000115
-    - lm_core:description
     - schema:description
     - skos:definitions
     - sumo:NarrativeText
-    - WIKIDATA:Q1200750
+    - wikidata:Q1200750
     close_mappings:
     - sumo:Descriptor
     narrow_mappings:
@@ -677,14 +663,14 @@ attributes:
     - CSO:architecture_description
     - CSO:concept_description
     - CSO:shape_description
-    - om:longcomment
+    - OM:longcomment
+    rank: 1000
     slot_uri: dcterms:description
     alias: description
     owner: OpenSource
     domain_of:
     - Entity
-    - UcoObject
-    range: string
+    range: narrative text
   hasAttribute:
     name: hasAttribute
     description: connects any entity to an attribute

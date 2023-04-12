@@ -256,8 +256,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
   </a>
   
 </li>
@@ -265,13 +265,6 @@
         <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aliases" class="md-nav__link">
-    Aliases
   </a>
   
 </li>
@@ -324,53 +317,40 @@
 
 
 <h1 id="slot-volume">Slot: volume</h1>
-<p><em>"The volume from which the prefetch application was run. If the applicatin was run from multiple volumes, there will be a separate prefetch file for each."</em></p>
-<p>URI: <a href="observable:volume">observable:volume</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../WindowsPrefetchFacet/">WindowsPrefetchFacet</a></td>
-<td>"A Windows prefetch facet is a grouping of characteristics unique to entries ...</td>
-</tr>
-</tbody>
-</table>
+<p><em>volume of a book or music release in a collection/series or a published collection of journal issues in a serial publication</em></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-observable/volume">uco-observable:volume</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../nodeProperty/">nodeProperty</a><ul>
+<li><strong>volume</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../ObservableObject/">ObservableObject</a></li>
-</ul>
-<h2 id="aliases">Aliases</h2>
-<ul>
-<li>volumes</li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkmodel/uco-observable</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: volume
-description: '&quot;The volume from which the prefetch application was run. If the applicatin
-  was run from multiple volumes, there will be a separate prefetch file for each.&quot;'
-from_schema: https://w3id.org/linkmodel/uco-observable
-aliases:
-- volumes
+description: volume of a book or music release in a collection/series or a published
+  collection of journal issues in a serial publication
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
-- WIKIDATA:Q1125653
+- schema:PublicationVolume
+- wikidata.property:P478
+rank: 1000
+is_a: nodeProperty
+domain: Publication
+slot_uri: uco-observable:volume
 alias: volume
-domain_of:
-- WindowsPrefetchFacet
-range: ObservableObject
+range: string
 
 </code></pre>
 

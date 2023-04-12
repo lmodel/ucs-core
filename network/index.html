@@ -256,22 +256,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aliases" class="md-nav__link">
-    Aliases
   </a>
   
 </li>
@@ -324,54 +310,31 @@
 
 
 <h1 id="slot-network">Slot: network</h1>
-<p><em>Network allowing computers to share resources and communicate with each other</em></p>
-<p>URI: <a href="observable:network">observable:network</a></p>
+<p><em>Network that allows computers to share resources and communicate with each other</em></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-observable/network">uco-observable:network</a></p>
 <!-- no inheritance hierarchy -->
 
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../MobileDeviceFacet/">MobileDeviceFacet</a></td>
-<td>"A mobile device facet is a grouping of characteristics unique to a portable ...</td>
-</tr>
-</tbody>
-</table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="xsd:string">xsd:string</a></li>
-</ul>
-<h2 id="aliases">Aliases</h2>
-<ul>
-<li>net</li>
-<li>network_mode</li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkmodel/uco-observable</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: network
-description: Network allowing computers to share resources and communicate with each
-  other
-from_schema: https://w3id.org/linkmodel/uco-observable
-aliases:
-- net
-- network_mode
+description: Network that allows computers to share resources and communicate with
+  each other
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
 - wikidata:Q1301371
+rank: 1000
+slot_uri: uco-observable:network
 alias: network
-domain_of:
-- MobileDeviceFacet
 range: string
 
 </code></pre>

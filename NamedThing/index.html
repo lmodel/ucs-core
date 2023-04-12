@@ -213,6 +213,7 @@
 
 
       NamedThing &lt;|-- AdministrativeEntity
+      NamedThing &lt;|-- InformationContentEntity
       NamedThing &lt;|-- System
       NamedThing &lt;|-- OpenSource
 
@@ -220,8 +221,6 @@
       NamedThing : category
 
       NamedThing : description
-
-          NamedThing ..&gt; string : description
 
       NamedThing : hasAttribute
 
@@ -233,11 +232,7 @@
 
       NamedThing : iri
 
-          NamedThing ..&gt; iri type : iri
-
       NamedThing : name
-
-          NamedThing ..&gt; string : name
 
       NamedThing : providedBy
 
@@ -258,6 +253,7 @@
 <li><a href="../Entity/">Entity</a><ul>
 <li><strong>NamedThing</strong><ul>
 <li><a href="../AdministrativeEntity/">AdministrativeEntity</a></li>
+<li><a href="../InformationContentEntity/">InformationContentEntity</a></li>
 <li><a href="../System/">System</a> [ <a href="../ThingWithTaxon/">ThingWithTaxon</a>]</li>
 <li><a href="../OpenSource/">OpenSource</a></li>
 </ul>
@@ -278,19 +274,19 @@
 <tbody>
 <tr>
 <td><a href="../providedBy/">providedBy</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..* <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>The value in this nodeProperty represents the knowledge provider that created...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../xref/">xref</a></td>
-<td>0..* <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..* <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>Alternate CURIEs for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>A unique identifier for an entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
@@ -308,20 +304,20 @@
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>Anchoring point (of a name) in taxonomy</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The name of a particular concept characterization</td>
+<td>0..1 <br/> <a href="../LabelType/">LabelType</a></td>
+<td>A human-readable name for an attribute or entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A human-readable description of an entity</td>
+<td>0..1 <br/> <a href="../NarrativeText/">NarrativeText</a></td>
+<td>a human-readable description of an entity</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 <tr>
@@ -392,6 +388,60 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td><a href="../creationDate/">creationDate</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Publication/">Publication</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Publication/">Publication</a></td>
+<td><a href="../creationDate/">creationDate</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Publication/">Publication</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td><a href="../creationDate/">creationDate</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
 <td><a href="../Project/">Project</a></td>
 <td><a href="../providedBy/">providedBy</a></td>
 <td>domain</td>
@@ -440,6 +490,24 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
+<td><a href="../Software/">Software</a></td>
+<td><a href="../inTaxon/">inTaxon</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Software/">Software</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Software/">Software</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
 <td><a href="../Hardware/">Hardware</a></td>
 <td><a href="../inTaxon/">inTaxon</a></td>
 <td>range</td>
@@ -459,6 +527,12 @@
 </tr>
 <tr>
 <td><a href="../OpenSource/">OpenSource</a></td>
+<td><a href="../creationDate/">creationDate</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../OpenSource/">OpenSource</a></td>
 <td><a href="../providedBy/">providedBy</a></td>
 <td>domain</td>
 <td><a href="./">NamedThing</a></td>
@@ -470,6 +544,54 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
+<td><a href="../OperatingSystem/">OperatingSystem</a></td>
+<td><a href="../inTaxon/">inTaxon</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../OperatingSystem/">OperatingSystem</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../OperatingSystem/">OperatingSystem</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Solaris/">Solaris</a></td>
+<td><a href="../inTaxon/">inTaxon</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Solaris/">Solaris</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Solaris/">Solaris</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Linux/">Linux</a></td>
+<td><a href="../creationDate/">creationDate</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Linux/">Linux</a></td>
+<td><a href="../inTaxon/">inTaxon</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
 <td><a href="../Linux/">Linux</a></td>
 <td><a href="../providedBy/">providedBy</a></td>
 <td>domain</td>
@@ -479,6 +601,36 @@
 <td><a href="../Linux/">Linux</a></td>
 <td><a href="../xref/">xref</a></td>
 <td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Windows/">Windows</a></td>
+<td><a href="../inTaxon/">inTaxon</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Windows/">Windows</a></td>
+<td><a href="../providedBy/">providedBy</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Windows/">Windows</a></td>
+<td><a href="../xref/">xref</a></td>
+<td>domain</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Association/">Association</a></td>
+<td><a href="../subject/">subject</a></td>
+<td>range</td>
+<td><a href="./">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../Association/">Association</a></td>
+<td><a href="../object/">object</a></td>
+<td>range</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
 </tbody>
@@ -600,6 +752,7 @@ attributes:
     owner: NamedThing
     domain_of:
     - NamedThing
+    - Publication
     range: uriorcurie
   id:
     name: id
@@ -623,8 +776,6 @@ attributes:
     - CSO:bicm-id
     - SIO:000672
     - SIO:000674
-    - ERO:0000044
-    - ERO:0000480
     - NCIT:C94069
     - REPR:doi
     - SIO:000328
@@ -745,25 +896,21 @@ attributes:
     range: string
   name:
     name: name
-    description: The name of a particular concept characterization.
-    comments:
-    - This annotation is typically used to describe an artifact such as a controlled
-      vocabulary, document, ontology, or other similar resource.
-    from_schema: https://w3id.org/lmodel/uco-core
+    description: A human-readable name for an attribute or entity.
+    from_schema: https://w3id.org/lmodel/ucs-core
     aliases:
     - label
     - display name
     - title
-    - alt label
     exact_mappings:
     - CSO:named_entity
     - gr:name
-    - lm_core:name
-    - om:name
+    - OM:name
     - REPR:name
     - schema:name
     broad_mappings:
     - CSO:named_entity
+    rank: 1000
     slot_uri: rdfs:label
     alias: name
     owner: NamedThing
@@ -771,28 +918,20 @@ attributes:
     - Attribute
     - Entity
     - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
-    range: string
+    range: label type
   description:
     name: description
-    description: A human-readable description of an entity
-    from_schema: https://w3id.org/lmodel/uco-core
+    description: a human-readable description of an entity
+    from_schema: https://w3id.org/lmodel/ucs-core
     aliases:
     - definition
     exact_mappings:
     - dcterms:description
     - IAO:0000115
-    - lm_core:description
     - schema:description
     - skos:definitions
     - sumo:NarrativeText
-    - WIKIDATA:Q1200750
+    - wikidata:Q1200750
     close_mappings:
     - sumo:Descriptor
     narrow_mappings:
@@ -800,14 +939,14 @@ attributes:
     - CSO:architecture_description
     - CSO:concept_description
     - CSO:shape_description
-    - om:longcomment
+    - OM:longcomment
+    rank: 1000
     slot_uri: dcterms:description
     alias: description
     owner: NamedThing
     domain_of:
     - Entity
-    - UcoObject
-    range: string
+    range: narrative text
   hasAttribute:
     name: hasAttribute
     description: connects any entity to an attribute

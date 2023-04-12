@@ -217,25 +217,9 @@
       OntologyClass &lt;|-- Attribute
       Annotation &lt;|-- Attribute
 
-      Attribute : createdBy
-
-          Attribute ..&gt; string : createdBy
-
-      Attribute : description
-
-          Attribute ..&gt; string : description
-
-      Attribute : externalReference
-
-          Attribute ..&gt; string : externalReference
-
       Attribute : hasAttributeType
 
           Attribute ..&gt; OntologyClass : hasAttributeType
-
-      Attribute : hasFacet
-
-          Attribute ..&gt; string : hasFacet
 
       Attribute : hasQualitativeValue
 
@@ -247,59 +231,18 @@
 
       Attribute : iri
 
-          Attribute ..&gt; iri type : iri
-
-      Attribute : modifiedTime
-
-          Attribute ..&gt; datetime : modifiedTime
-
       Attribute : name
 
-          Attribute ..&gt; string : name
+      Attribute : src
 
-      Attribute : object
-
-          Attribute ..&gt; UcoObject : object
-
-      Attribute : objectCreatedTime
-
-          Attribute ..&gt; datetime : objectCreatedTime
-
-      Attribute : objectMarking
-
-          Attribute ..&gt; MarkingDefinitionAbstraction : objectMarking
-
-      Attribute : source
-
-          Attribute ..&gt; UcoObject : source
-
-      Attribute : specVersion
-
-          Attribute ..&gt; string : specVersion
-
-      Attribute : statement
-
-          Attribute ..&gt; string : statement
-
-      Attribute : tag
-
-          Attribute ..&gt; string : tag
+          Attribute ..&gt; string : src
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../UcoThing/">UcoThing</a><ul>
-<li><a href="../UcoObject/">UcoObject</a><ul>
-<li><a href="../Assertion/">Assertion</a><ul>
 <li><a href="../Annotation/">Annotation</a><ul>
 <li><strong>Attribute</strong> [ <a href="../OntologyClass/">OntologyClass</a>]</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -316,8 +259,8 @@
 <tbody>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The name of a particular concept characterization</td>
+<td>0..1 <br/> <a href="../LabelType/">LabelType</a></td>
+<td>A human-readable name for an attribute or entity</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -345,76 +288,10 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../source/">source</a></td>
-<td>0..1 <br/> <a href="../UcoObject/">UcoObject</a></td>
-<td>The originating node of a specified relationship</td>
+<td><a href="../src/">src</a></td>
+<td>0..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>Object (person, place, text, thing, etc</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../object/">object</a></td>
-<td>1..* <br/> <a href="../UcoObject/">UcoObject</a></td>
-<td>Specifies one or more UcoObjects</td>
-<td><a href="../Annotation/">Annotation</a></td>
-</tr>
-<tr>
-<td><a href="../statement/">statement</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A textual statement of an assertion</td>
-<td><a href="../Assertion/">Assertion</a></td>
-</tr>
-<tr>
-<td><a href="../createdBy/">createdBy</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The identity that created a characterization of a concept</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A human-readable description of an entity</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../externalReference/">externalReference</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Specifies a reference to a resource outside of the UCO</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../hasFacet/">hasFacet</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Further sets of properties characterizing a concept based on the particular c...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../modifiedTime/">modifiedTime</a></td>
-<td>0..* <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>Specifies the time that this particular version of the object was modified</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectMarking/">objectMarking</a></td>
-<td>0..* <br/> <a href="../MarkingDefinitionAbstraction/">MarkingDefinitionAbstraction</a></td>
-<td>Marking definitions to be applied to a particular concept characterization in...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectCreatedTime/">objectCreatedTime</a></td>
-<td>0..1 <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>The time at which a characterization of a concept is created</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../specVersion/">specVersion</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The version of UCO ontology or subontology specification used to characterize...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../tag/">tag</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A generic tag/label</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -472,6 +349,24 @@
 <td><a href="./">Attribute</a></td>
 </tr>
 <tr>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
+<td><a href="../Publication/">Publication</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
 <td><a href="../Project/">Project</a></td>
 <td><a href="../hasAttribute/">hasAttribute</a></td>
 <td>range</td>
@@ -490,6 +385,12 @@
 <td><a href="./">Attribute</a></td>
 </tr>
 <tr>
+<td><a href="../Software/">Software</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
 <td><a href="../Hardware/">Hardware</a></td>
 <td><a href="../hasAttribute/">hasAttribute</a></td>
 <td>range</td>
@@ -502,7 +403,31 @@
 <td><a href="./">Attribute</a></td>
 </tr>
 <tr>
+<td><a href="../OperatingSystem/">OperatingSystem</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
+<td><a href="../Solaris/">Solaris</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
 <td><a href="../Linux/">Linux</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
+<td><a href="../Windows/">Windows</a></td>
+<td><a href="../hasAttribute/">hasAttribute</a></td>
+<td>range</td>
+<td><a href="./">Attribute</a></td>
+</tr>
+<tr>
+<td><a href="../Association/">Association</a></td>
 <td><a href="../hasAttribute/">hasAttribute</a></td>
 <td>range</td>
 <td><a href="./">Attribute</a></td>
@@ -597,7 +522,7 @@ slots:
 - hasQuantitativeValue
 - hasQualitativeValue
 - iri
-- source
+- src
 slot_usage:
   name:
     name: name
@@ -609,13 +534,6 @@ slot_usage:
     - Attribute
     - Entity
     - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
 
 </code></pre>
 </details>
@@ -658,13 +576,6 @@ slot_usage:
     - Attribute
     - Entity
     - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
 attributes:
   name:
     name: name
@@ -672,7 +583,8 @@ attributes:
       reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence
       annotation or it can default to the name associated with the 'has attribute
       type' slot ontology term.
-    from_schema: https://w3id.org/lmodel/uco-core
+    from_schema: https://w3id.org/lmodel/ucs-core
+    rank: 1000
     slot_uri: rdfs:label
     alias: name
     owner: Attribute
@@ -680,15 +592,7 @@ attributes:
     - Attribute
     - Entity
     - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
+    range: label type
   hasAttributeType:
     name: hasAttributeType
     description: connects an attribute to a class that describes it
@@ -780,157 +684,21 @@ attributes:
     - Attribute
     - Entity
     range: iri type
-  source:
-    name: source
-    description: The originating node of a specified relationship.
-    from_schema: https://w3id.org/lmodel/uco-core
+  src:
+    name: src
+    description: Object (person, place, text, thing, etc.) from which something (information,
+      goods, etc.) comes or is acquired
+    from_schema: https://w3id.org/lmodel/ucs-core
+    aliases:
+    - source
     exact_mappings:
-    - lm_core:subject
-    alias: source
+    - wikidata:Q31464082
+    rank: 1000
+    slot_uri: uco-observable:src
+    alias: src
     owner: Attribute
     domain_of:
     - Attribute
-    - Relationship
-    range: UcoObject
-  object:
-    name: object
-    description: Specifies one or more UcoObjects.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: object
-    owner: Attribute
-    domain_of:
-    - Annotation
-    - ContextualCompilation
-    - EnclosingCompilation
-    - Action
-    range: UcoObject
-    required: true
-  statement:
-    name: statement
-    description: A textual statement of an assertion.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: statement
-    owner: Attribute
-    domain_of:
-    - Assertion
-    range: string
-  createdBy:
-    name: createdBy
-    description: The identity that created a characterization of a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: IdentityAbstraction
-    alias: createdBy
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 0
-  description:
-    name: description
-    description: A human-readable description of an entity
-    from_schema: https://w3id.org/lmodel/uco-core
-    slot_uri: dcterms:description
-    multivalued: true
-    alias: description
-    owner: Attribute
-    domain_of:
-    - Entity
-    - UcoObject
-    range: string
-  externalReference:
-    name: externalReference
-    description: Specifies a reference to a resource outside of the UCO.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: ExternalReference
-    multivalued: true
-    alias: externalReference
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: string
-    required: false
-    minimum_cardinality: 0
-  hasFacet:
-    name: hasFacet
-    description: Further sets of properties characterizing a concept based on the
-      particular context of the class and of the particular instance of the concept
-      being characterized.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: Facet
-    multivalued: true
-    alias: hasFacet
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: string
-  modifiedTime:
-    name: modifiedTime
-    description: Specifies the time that this particular version of the object was
-      modified. The object creator can use the time it deems most appropriate as the
-      time this version of the object was modified. The value of the modified property
-      for a given object version MUST be later than or equal to the value of the created
-      property. Object creators MUST update the modified property when creating a
-      new version of an object. The modified timestamp MUST be precise to the nearest
-      millisecond (exactly three digits after the decimal place in seconds).
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: modifiedTime
-    owner: Attribute
-    domain_of:
-    - AccountFacet
-    - BrowserBookmarkFacet
-    - CalendarEntryFacet
-    - EmailMessageFacet
-    - FileFacet
-    - NoteFacet
-    - WindowsRegistrykeyFacet
-    - UcoObject
-    range: datetime
-  objectMarking:
-    name: objectMarking
-    description: Marking definitions to be applied to a particular concept characterization
-      in its entirety.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: objectMarking
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: MarkingDefinitionAbstraction
-  objectCreatedTime:
-    name: objectCreatedTime
-    description: The time at which a characterization of a concept is created. This
-      time pertains to the time of creating the record object, and is not an intrinsic
-      characteristic of the concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: objectCreatedTime
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: datetime
-    maximum_cardinality: 1
-  specVersion:
-    name: specVersion
-    description: The version of UCO ontology or subontology specification used to
-      characterize a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: specVersion
-    owner: Attribute
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
-  tag:
-    name: tag
-    description: A generic tag/label.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: tag
-    owner: Attribute
-    domain_of:
-    - UcoObject
     range: string
 
 </code></pre>

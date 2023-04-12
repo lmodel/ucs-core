@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -317,10 +324,14 @@
 
 
 <h1 id="slot-format">Slot: format</h1>
-<p><em>"The format of the audio. For example: mp3 or flac."</em></p>
-<p>URI: <a href="observable:format">observable:format</a></p>
-<!-- no inheritance hierarchy -->
-
+<p>URI: <a href="https://w3id.org/lmodel/uco-observable/format">uco-observable:format</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../nodeProperty/">nodeProperty</a><ul>
+<li><strong>format</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -331,35 +342,51 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AudioFacet/">AudioFacet</a></td>
-<td>"An audio facet is a grouping of characteristics unique to a digital represen...</td>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td>A piece of information that typically describes some topic of discourse or is...</td>
+</tr>
+<tr>
+<td><a href="../Publication/">Publication</a></td>
+<td>Any published piece of information</td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td>Class of evidence that supports an association</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="xsd:string">xsd:string</a></li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkmodel/uco-observable</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: format
-description: '&quot;The format of the audio. For example: mp3 or flac.&quot;'
-from_schema: https://w3id.org/linkmodel/uco-observable
+from_schema: https://w3id.org/lmodel/ucs-core
 exact_mappings:
-- wikidata:Q758871
-broad_mappings:
-- edam.format:1915
+- dcterms:format
 - NCIT:C42761
-- WIKIDATA:Q45109547
+- sumo:format
+- SWO:0004002
+narrow_mappings:
+- CSO:storage_formats
+- REPR:ImageFormat
+- schema:fileFormat
+- wikidata.property:P2701
+- wikidata:Q935809
+rank: 1000
+is_a: nodeProperty
+domain: InformationContentEntity
+slot_uri: uco-observable:format
 alias: format
 domain_of:
-- AudioFacet
+- InformationContentEntity
 range: string
 
 </code></pre>

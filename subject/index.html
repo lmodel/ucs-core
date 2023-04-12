@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -317,10 +324,15 @@
 
 
 <h1 id="slot-subject">Slot: subject</h1>
-<p><em>"The subject of the email."</em></p>
-<p>URI: <a href="observable:subject">observable:subject</a></p>
-<!-- no inheritance hierarchy -->
-
+<p><em>Connects an association to the subject of the association. For example, in a apple-to-orange association, the apple is subject and orange is object.</em></p>
+<p>URI: <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../associationSlot/">associationSlot</a><ul>
+<li><strong>subject</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -331,40 +343,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../CalendarEntryFacet/">CalendarEntryFacet</a></td>
-<td>"A calendar entry facet is a grouping of characteristics unique to an appoint...</td>
-</tr>
-<tr>
-<td><a href="../EmailMessageFacet/">EmailMessageFacet</a></td>
-<td>"An email message facet is a grouping of characteristics unique to a message ...</td>
-</tr>
-<tr>
-<td><a href="../X509CertificateFacet/">X509CertificateFacet</a></td>
-<td>"A X</td>
+<td><a href="../Association/">Association</a></td>
+<td>A typed association between two entities, supported by evidence</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="xsd:string">xsd:string</a></li>
+<li>Range: <a href="../NamedThing/">NamedThing</a></li>
+<li>Required: True</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkmodel/uco-observable</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: subject
-description: '&quot;The subject of the email.&quot;'
-from_schema: https://w3id.org/linkmodel/uco-observable
+local_names:
+  ga4gh:
+    local_name_source: ga4gh
+    local_name_value: annotation subject
+  neo4j:
+    local_name_source: neo4j
+    local_name_value: node with outgoing relationship
+description: Connects an association to the subject of the association. For example,
+  in a apple-to-orange association, the apple is subject and orange is object.
+from_schema: https://w3id.org/lmodel/ucs-core
+exact_mappings:
+- owl:annotatedSource
+- OBAN:association_has_subjec
+rank: 1000
+is_a: associationSlot
+domain: Association
+slot_uri: rdf:subject
 alias: subject
 domain_of:
-- CalendarEntryFacet
-- EmailMessageFacet
-- X509CertificateFacet
-range: string
+- Association
+range: NamedThing
+required: true
 
 </code></pre>
 

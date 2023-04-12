@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -324,10 +331,15 @@
 
 
 <h1 id="slot-creationdate">Slot: creationDate</h1>
-<p><em>"Specifies the date in which the registered domain was created."</em></p>
-<p>URI: <a href="observable:creationDate">observable:creationDate</a></p>
-<!-- no inheritance hierarchy -->
-
+<p><em>date on which an entity was created. This can be applied to nodes or edges</em></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-observable/creationDate">uco-observable:creationDate</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../nodeProperty/">nodeProperty</a><ul>
+<li><strong>creationDate</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -338,12 +350,20 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td>A piece of information that typically describes some topic of discourse or is...</td>
+</tr>
+<tr>
 <td><a href="../OpenSource/">OpenSource</a></td>
 <td>Philosophy about free redistribution and access to a product</td>
 </tr>
 <tr>
-<td><a href="../WhoisFacet/">WhoisFacet</a></td>
-<td>"A Whois facet is a grouping of characteristics unique to a response record c...</td>
+<td><a href="../Publication/">Publication</a></td>
+<td>Any published piece of information</td>
+</tr>
+<tr>
+<td><a href="../EvidenceType/">EvidenceType</a></td>
+<td>Class of evidence that supports an association</td>
 </tr>
 <tr>
 <td><a href="../Linux/">Linux</a></td>
@@ -353,43 +373,48 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="xsd:dateTime">xsd:dateTime</a></li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></li>
 </ul>
 <h2 id="aliases">Aliases</h2>
 <ul>
-<li>publication date</li>
+<li>publicationDate</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkmodel/uco-observable</li>
+<li>from schema: https://w3id.org/lmodel/ucs-core</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: creationDate
-description: '&quot;Specifies the date in which the registered domain was created.&quot;'
-from_schema: https://w3id.org/linkmodel/uco-observable
+description: date on which an entity was created. This can be applied to nodes or
+  edges
+from_schema: https://w3id.org/lmodel/ucs-core
 aliases:
-- publication date
+- publicationDate
 exact_mappings:
 - dcterms:createdOn
-- lm_core:CreationDate
 - schema:dateCreated
+- dwc:dateIdentified
 - schema:datePublished
 - sumo:dateEstablished
-- WIKIDATA_PROPERTY:P577
+- wikidata.property:P577
 narrow_mappings:
 - dwc:eventDate
 - dwc:verbatimEventDate
 - dwc:relationshipEstablishedDate
 broad_mappings:
 - sumo:date
+rank: 1000
+is_a: nodeProperty
+domain: NamedThing
+slot_uri: uco-observable:creationDate
 alias: creationDate
 domain_of:
+- InformationContentEntity
 - OpenSource
-- WhoisFacet
-range: datetime
+range: date
 
 </code></pre>
 

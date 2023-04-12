@@ -211,75 +211,18 @@
     class QuantityValue
       Annotation &lt;|-- QuantityValue
 
-      QuantityValue : createdBy
-
-          QuantityValue ..&gt; string : createdBy
-
-      QuantityValue : description
-
-          QuantityValue ..&gt; string : description
-
-      QuantityValue : externalReference
-
-          QuantityValue ..&gt; string : externalReference
-
-      QuantityValue : hasFacet
-
-          QuantityValue ..&gt; string : hasFacet
-
       QuantityValue : hasNumericValue
 
           QuantityValue ..&gt; double : hasNumericValue
 
       QuantityValue : hasUnit
 
-      QuantityValue : modifiedTime
-
-          QuantityValue ..&gt; datetime : modifiedTime
-
-      QuantityValue : name
-
-          QuantityValue ..&gt; string : name
-
-      QuantityValue : object
-
-          QuantityValue ..&gt; UcoObject : object
-
-      QuantityValue : objectCreatedTime
-
-          QuantityValue ..&gt; datetime : objectCreatedTime
-
-      QuantityValue : objectMarking
-
-          QuantityValue ..&gt; MarkingDefinitionAbstraction : objectMarking
-
-      QuantityValue : specVersion
-
-          QuantityValue ..&gt; string : specVersion
-
-      QuantityValue : statement
-
-          QuantityValue ..&gt; string : statement
-
-      QuantityValue : tag
-
-          QuantityValue ..&gt; string : tag
-
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../UcoThing/">UcoThing</a><ul>
-<li><a href="../UcoObject/">UcoObject</a><ul>
-<li><a href="../Assertion/">Assertion</a><ul>
 <li><a href="../Annotation/">Annotation</a><ul>
 <li><strong>QuantityValue</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -302,81 +245,9 @@
 </tr>
 <tr>
 <td><a href="../hasNumericValue/">hasNumericValue</a></td>
-<td>0..1 <br/> <a href="xsd:double">xsd:double</a></td>
+<td>0..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#double">xsd:double</a></td>
 <td>connects a quantity value to a number</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../object/">object</a></td>
-<td>1..* <br/> <a href="../UcoObject/">UcoObject</a></td>
-<td>Specifies one or more UcoObjects</td>
-<td><a href="../Annotation/">Annotation</a></td>
-</tr>
-<tr>
-<td><a href="../statement/">statement</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A textual statement of an assertion</td>
-<td><a href="../Assertion/">Assertion</a></td>
-</tr>
-<tr>
-<td><a href="../createdBy/">createdBy</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The identity that created a characterization of a concept</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A human-readable description of an entity</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../externalReference/">externalReference</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Specifies a reference to a resource outside of the UCO</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../hasFacet/">hasFacet</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>Further sets of properties characterizing a concept based on the particular c...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../modifiedTime/">modifiedTime</a></td>
-<td>0..* <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>Specifies the time that this particular version of the object was modified</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The name of a particular concept characterization</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectMarking/">objectMarking</a></td>
-<td>0..* <br/> <a href="../MarkingDefinitionAbstraction/">MarkingDefinitionAbstraction</a></td>
-<td>Marking definitions to be applied to a particular concept characterization in...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../objectCreatedTime/">objectCreatedTime</a></td>
-<td>0..1 <br/> <a href="xsd:dateTime">xsd:dateTime</a></td>
-<td>The time at which a characterization of a concept is created</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../specVersion/">specVersion</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td>The version of UCO ontology or subontology specification used to characterize...</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
-</tr>
-<tr>
-<td><a href="../tag/">tag</a></td>
-<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
-<td>A generic tag/label</td>
-<td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -527,166 +398,6 @@ attributes:
     domain_of:
     - QuantityValue
     range: double
-  object:
-    name: object
-    description: Specifies one or more UcoObjects.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: object
-    owner: QuantityValue
-    domain_of:
-    - Annotation
-    - ContextualCompilation
-    - EnclosingCompilation
-    - Action
-    range: UcoObject
-    required: true
-  statement:
-    name: statement
-    description: A textual statement of an assertion.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: statement
-    owner: QuantityValue
-    domain_of:
-    - Assertion
-    range: string
-  createdBy:
-    name: createdBy
-    description: The identity that created a characterization of a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: IdentityAbstraction
-    alias: createdBy
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 0
-  description:
-    name: description
-    description: A human-readable description of an entity
-    from_schema: https://w3id.org/lmodel/uco-core
-    slot_uri: dcterms:description
-    multivalued: true
-    alias: description
-    owner: QuantityValue
-    domain_of:
-    - Entity
-    - UcoObject
-    range: string
-  externalReference:
-    name: externalReference
-    description: Specifies a reference to a resource outside of the UCO.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: ExternalReference
-    multivalued: true
-    alias: externalReference
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: string
-    required: false
-    minimum_cardinality: 0
-  hasFacet:
-    name: hasFacet
-    description: Further sets of properties characterizing a concept based on the
-      particular context of the class and of the particular instance of the concept
-      being characterized.
-    from_schema: https://w3id.org/lmodel/uco-core
-    domain: Facet
-    multivalued: true
-    alias: hasFacet
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: string
-  modifiedTime:
-    name: modifiedTime
-    description: Specifies the time that this particular version of the object was
-      modified. The object creator can use the time it deems most appropriate as the
-      time this version of the object was modified. The value of the modified property
-      for a given object version MUST be later than or equal to the value of the created
-      property. Object creators MUST update the modified property when creating a
-      new version of an object. The modified timestamp MUST be precise to the nearest
-      millisecond (exactly three digits after the decimal place in seconds).
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: modifiedTime
-    owner: QuantityValue
-    domain_of:
-    - AccountFacet
-    - BrowserBookmarkFacet
-    - CalendarEntryFacet
-    - EmailMessageFacet
-    - FileFacet
-    - NoteFacet
-    - WindowsRegistrykeyFacet
-    - UcoObject
-    range: datetime
-  name:
-    name: name
-    description: The name of a particular concept characterization.
-    from_schema: https://w3id.org/lmodel/uco-core
-    slot_uri: rdfs:label
-    alias: name
-    owner: QuantityValue
-    domain_of:
-    - Attribute
-    - Entity
-    - Agent
-    - AlternateDataStreamFacet
-    - EnvironmentVariable
-    - OnlineServiceFacet
-    - ProfileFacet
-    - WindowsPESection
-    - WindowsRegistryValue
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
-  objectMarking:
-    name: objectMarking
-    description: Marking definitions to be applied to a particular concept characterization
-      in its entirety.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: objectMarking
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: MarkingDefinitionAbstraction
-  objectCreatedTime:
-    name: objectCreatedTime
-    description: The time at which a characterization of a concept is created. This
-      time pertains to the time of creating the record object, and is not an intrinsic
-      characteristic of the concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: objectCreatedTime
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: datetime
-    maximum_cardinality: 1
-  specVersion:
-    name: specVersion
-    description: The version of UCO ontology or subontology specification used to
-      characterize a concept.
-    from_schema: https://w3id.org/lmodel/uco-core
-    alias: specVersion
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: string
-    maximum_cardinality: 1
-  tag:
-    name: tag
-    description: A generic tag/label.
-    from_schema: https://w3id.org/lmodel/uco-core
-    multivalued: true
-    alias: tag
-    owner: QuantityValue
-    domain_of:
-    - UcoObject
-    range: string
 
 </code></pre>
 </details>
