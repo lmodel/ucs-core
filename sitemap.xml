@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lmodel.github.io/ucs-core/MetaObject/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lmodel.github.io/ucs-core/NamedThing/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
@@ -317,6 +322,11 @@
     </url>
     <url>
          <loc>https://lmodel.github.io/ucs-core/driver/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lmodel.github.io/ucs-core/driver_opts/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -577,6 +587,11 @@
     </url>
     <url>
          <loc>https://lmodel.github.io/ucs-core/opt/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lmodel.github.io/ucs-core/options/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
