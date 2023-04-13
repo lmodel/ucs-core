@@ -726,6 +726,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lmodel.github.io/ucs-core/tls_verify/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lmodel.github.io/ucs-core/tlsverify/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
