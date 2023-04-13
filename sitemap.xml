@@ -301,6 +301,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lmodel.github.io/ucs-core/dns_opt/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lmodel.github.io/ucs-core/dns_option/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
