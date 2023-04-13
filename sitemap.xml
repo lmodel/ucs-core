@@ -711,6 +711,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lmodel.github.io/ucs-core/tag/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lmodel.github.io/ucs-core/taxonOf/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
