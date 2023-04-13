@@ -186,6 +186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lmodel.github.io/ucs-core/auth_file/</loc>
+         <lastmod>2023-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lmodel.github.io/ucs-core/authfile/</loc>
          <lastmod>2023-04-13</lastmod>
          <changefreq>daily</changefreq>
