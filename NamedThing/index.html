@@ -215,7 +215,6 @@
       NamedThing &lt;|-- AdministrativeEntity
       NamedThing &lt;|-- InformationContentEntity
       NamedThing &lt;|-- System
-      NamedThing &lt;|-- OpenSource
 
 
       NamedThing : category
@@ -255,7 +254,6 @@
 <li><a href="../AdministrativeEntity/">AdministrativeEntity</a></li>
 <li><a href="../InformationContentEntity/">InformationContentEntity</a></li>
 <li><a href="../System/">System</a> [ <a href="../ThingWithTaxon/">ThingWithTaxon</a>]</li>
-<li><a href="../OpenSource/">OpenSource</a></li>
 </ul>
 </li>
 </ul>
@@ -526,24 +524,6 @@
 <td><a href="./">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../OpenSource/">OpenSource</a></td>
-<td><a href="../creationDate/">creationDate</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../OpenSource/">OpenSource</a></td>
-<td><a href="../providedBy/">providedBy</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../OpenSource/">OpenSource</a></td>
-<td><a href="../xref/">xref</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
 <td><a href="../OperatingSystem/">OperatingSystem</a></td>
 <td><a href="../inTaxon/">inTaxon</a></td>
 <td>range</td>
@@ -576,12 +556,6 @@
 <tr>
 <td><a href="../Solaris/">Solaris</a></td>
 <td><a href="../xref/">xref</a></td>
-<td>domain</td>
-<td><a href="./">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../Linux/">Linux</a></td>
-<td><a href="../creationDate/">creationDate</a></td>
 <td>domain</td>
 <td><a href="./">NamedThing</a></td>
 </tr>
@@ -809,7 +783,6 @@ attributes:
     owner: NamedThing
     domain_of:
     - Entity
-    - Agent
     range: string
     required: true
   iri:
@@ -917,7 +890,6 @@ attributes:
     domain_of:
     - Attribute
     - Entity
-    - Agent
     range: label type
   description:
     name: description
