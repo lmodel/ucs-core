@@ -1,0 +1,7 @@
+---
+name: ucs_core
+author: Noel McLoughlin <noel.mcloughlin@gmail.com>
+description: Classes and Properties shared across Usecases Framework
+source_schema_path: src/ucs_core/schema/ucs_core.yaml
+google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
+google_sheet_tabs: system enums

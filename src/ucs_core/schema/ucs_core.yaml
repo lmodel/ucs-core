@@ -1,0 +1,2080 @@
+---
+id: https://w3id.org/lmodel/ucs-core
+name: ucs-core
+title: UCS Core
+description: |-
+  Classes and Properties shared across Usecases Framework
+license: Apache Software License 2.0
+see_also:
+  - https://lmodel.github.io/ucs-core
+
+prefixes:
+  aml: 'https://w3id.org/i40/aml#'
+  CDAO: 'http://purl.obolibrary.org/obo/CDAO_'
+  CSO: 'https://cso.kmi.open.ac.uk/topics/'
+  csrc: 'https://csrc.nist.gov/glossary/term/'
+  ctrl: 'https://w3id.org/ibp/CTRLont#'
+  dcterms: 'http://purl.org/dc/terms/'
+  dcid: 'https://datacommons.org/browser/'
+  dwc: 'https://dwc.tdwg.org/terms/#dc:'
+  EFO: 'http://identifiers.org/efo/'
+  geolink: 'http://schema.geolink.org/1.0/base/main.html#'
+  gr: 'http://purl.org/goodrelations/v1#'
+  gvp: 'http://vocab.getty.edu/ontology#'
+  IAO: 'http://purl.obolibrary.org/obo/IAO_'
+  linkml: 'https://w3id.org/linkml/'
+  LCSH: 'http://id.loc.gov/authorities/subjects/'
+  LOINC: 'http://loinc.org/rdf/'
+  om: 'http://www.ontology-of-units-of-measure.org/resource/om-2/'
+  ONTOAVIDA: 'http://purl.obolibrary.org/obo/ONTOAVIDA_'
+  pav: 'http://purl.org/pav/'
+  edam.data: 'http://edamontology.org/data_'
+  edam.format: 'http://edamontology.org/format_'
+  edam.operation: 'http://edamontology.org/operation_'
+  edam.topic: 'http://edamontology.org/topic_'
+  GSSO: 'http://purl.obolibrary.org/obo/GSSO_'
+  MS: 'http://purl.obolibrary.org/obo/MS_'
+  NCIT: 'http://purl.obolibrary.org/obo/NCIT_'
+  qud: 'http://qudt.org/1.1/schema/qudt#'
+  REPR: 'https://w3id.org/reproduceme#'
+  RO: 'http://purl.obolibrary.org/obo/RO_'
+  rr: 'http://www.w3.org/ns/r2rml#'
+  SAN: 'https://www.irit.fr/recherches/MELODI/ontologies/SAN.html#'
+  schema: 'http://schema.org/'
+  SIO: 'http://semanticscience.org/resource/SIO_'
+  sosa: 'http://www.w3.org/ns/sosa/'
+  ssn: 'http://www.w3.org/ns/ssn/'
+  ssn-system: 'http://www.w3.org/ns/ssn/systems/'
+  sumo: 'https://w3id.org/sumo/kb/'
+  SWO: 'http://purl.obolibrary.org/obo/SWO_'
+  UO: 'http://purl.obolibrary.org/obo/UO_'
+  wikidata: 'http://identifiers.org/wikidata/'
+  wikidata.property: 'https://www.wikidata.org/wiki/Property:'
+  XAPI: 'http://ns.inria.fr/ludo/v1/docs/xapi.html#'
+
+  core: 'https://w3id.org/lmodel/ucs-core/'
+  uco-core: 'https://w3id.org/lmodel/uco-core/'
+  uco-types: 'https://w3id.org/lmodel/uco-types/'
+  uco-identity: 'https://w3id.org/lmodel/uco-identity/'
+  uco-observable: 'https://w3id.org/lmodel/uco-observable/'
+
+default_prefix: core
+default_range: string
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+emit_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+  - SO
+
+imports:
+  - linkml:types
+
+subsets:
+
+  ansible:
+    description: >-
+      open-source software platform for remote configuring and managing computers
+    exact_mappings:
+      - wikidata:Q2852503
+
+  salt:
+    description: >-
+      Configuration management software
+    exact_mappings:
+      - wikidata:Q7405800
+
+
+types:
+
+  category type:
+    typeof: uriorcurie
+    description: >-
+      A primitive type in which the value denotes a class within the universal model.  The value must be a URI or a CURIE. In a Neo4j representation, the value should be the CURIE for the universal class, for example universal:Service. For an RDF representation, the value should be a URI such as https://w3id.org/lmodel/base/vocab/Service
+    exact_mappings:
+      - NCIT:C115618    # Category Type
+      - schema:categoryCode
+      - sumo:categoryID
+    narrow_mappings:
+      - aml:InterfaceClass
+      - aml:RoleClass
+      - aml:SystemUnitClass
+      - schema:MapCategoryType
+      - schema:occupationalCode
+
+  iri type:
+    typeof: uriorcurie
+    description: >-
+      An IRI
+
+  label type:
+    typeof: string
+    description: >-
+      A string that provides a human-readable name for an entity
+
+  predicate type:
+    typeof: uriorcurie
+    description: >-
+      A CURIE from the csolink related_to hierarchy. For example, schema:related_to
+
+  narrative text:
+    typeof: string
+    description: >-
+      A string that provides a human-readable description of something
+    exact_mappings:
+      - sumo:NarrativeText
+    close_mappings:
+      - geolink:description
+      - schema:description
+
+  unit:
+    typeof: string
+    uri: UO:0000000   # unit
+    id_prefixes:
+      - UO
+    broad_mappings:
+      - schema:unitText
+    exact_mappings:
+      - CTRL:Unit
+      - qud:Unit
+      - schema:unit
+      - sumo:UnitOfInformation
+    close_mappings:
+      - SIO:000074       # unit of measurement
+      - sumo:UnitOfMeasure
+    narrow_mappings:
+      - sumo:Bit
+      - sumo:Byte
+      - sumo:businessUnit
+      - sumo:UnitFn
+      - sumo:UnitOfAngularMeasure
+      - sumo:UnitOfArea
+      - sumo:UnitOfAtmosphericPressure
+      - sumo:UnitOfCurrency
+      - sumo:UnitOfDuration
+      - sumo:UnitOfFrequency
+      - sumo:UnitOfInformation
+      - sumo:UnitOfLength
+      - sumo:UnitOfMass
+      - sumo:UnitOfMeasure
+      - sumo:UnitOfMeasureMultiplier
+      - sumo:UnitOfTemperature
+      - sumo:UnitOfVolume
+      - wikidata.property:P8111  # recommended unit of measurement
+ 
+enums: {}
+
+slots:
+
+  ## --------------------
+  ## ATTRIBUTE SLOTS
+  ## --------------------
+
+  hasAttribute:
+    description: >-
+      connects any entity to an attribute
+    domain: Entity
+    range: Attribute
+    multivalued: true
+    close_mappings:
+      - sumo:hasVariable
+      - sumo:property
+      # specifices value of
+    exact_mappings:
+      - aml:hasAttribute
+      - ctrl:hasParameter
+      - ssn:hasProperty
+      - SIO:000008    # hasAttribute
+    narrow_mappings:
+      - aml:hasAttributeName
+      - aml:hasDescription
+      - aml:hasICID    # uid for interface class
+      - aml:hasName
+      - aml:hasProject
+      - aml:hasUnit
+      - aml:hasSchemaVersion
+      - aml:hasVersionSUC        # system unit class
+      - aml:hasWriterVersion     # writer=tool
+      - schema:hasPart
+      - CDAO:has_Character
+      - CDAO:has_Root
+      - CDAO:has_First_Coordinate_Item
+      - CDAO:has_Coordinate
+      - CDAO:has_Change_Component
+      - CDAO:has_Datum
+      - CDAO:has_Node
+      - CDAO:has_Annotation
+      - CDAO:has_Remaining_Coordinate_List
+      - CDAO:has_State
+      - CDAO:has_Element
+      - ctrl:hasApplicationLogic
+      - ctrl:hasInput
+      - ctrl:hasMedium
+      - ctrl:hasOutput
+      - ctrl:isConnectedTo
+      - ctrl:isSupervisedBy
+      - dcterms:hasPart
+      - dcterms:hasFormat
+      - dcterms:hasVersion
+      - EFO:is_executed_in
+      - EFO:0006351    # has_about_it
+      - geolink:hasAuthoritativeDigitalRepository
+      - geolink:hasRelatedSample
+      - geolink:hasAffiliation
+      - geolink:hasAuthor
+      - geolink:hasCollector
+      - geolink:hasContact
+      - geolink:hasContributor
+      - geolink:hasCollectionEndDate
+      - geolink:hasCollectionStartDate
+      - geolink:hasCreator
+      - geolink:hasDataset
+      - geolink:hasEditor
+      - geolink:hasEducator
+      - geolink:hasFirstAppearance
+      - geolink:hasIdentifierScheme
+      - geolink:hasObserver
+      - geolink:hasObservationArea
+      - geolink:hasOwner
+      - geolink:hasParticipant
+      - geolink:hasParticipationEndTime
+      - geolink:hasParticipationStartTime
+      - geolink:hasPart
+      - geolink:hasPublicationDate
+      - geolink:hasRegistrationDate
+      - geolink:hasStartDate
+      - geolink:hasRepository
+      - geolink:hasRightsHolder
+      - geolink:hasScheduler
+      - geolink:hasTimeStamp
+      - geolink:hasVendor
+      - gr:hasBusinessFunction
+      - gr:hasBrand
+      - gr:hasCurrency
+      - gr:hasEligibleQuantity
+      - gr:hasGlobalLocationNumber
+      - gr:hasInventoryLevel
+      - gr:hasManufacturer
+      - gr:hasMakeAndModel
+      - gr:hasNext
+      - gr:hasPrevious
+      - gr:hasUnitOfMeasurement
+      - gr:hasValue
+      - IAO:0000039   # has measurement unit label
+      - IAO:0000407   # has coordinate unit label
+      - LOINC:has_action_guidance
+      - LOINC:has_adjustment
+      - LOINC:has_aggregation_view
+      - LOINC:has_approach_guidance
+      - LOINC:has_divisor
+      - LOINC:has_exam
+      - LOINC:has_method
+      - LOINC:has_modality_subtype
+      - LOINC:has_object_guidance
+      - LOINC:has_scale
+      - LOINC:has_suffix
+      - LOINC:has_time_aspect
+      - LOINC:has_time_modifier
+      - LOINC:has_timing_of
+      - NCIT:is_qualified_by
+      - NCIT:qualifier_applies_to
+      - NCIT:has_data_element
+      - NCIT:role_has_domain
+      - NCIT:role_has_range
+      - NCIT:C62618   # single, computer programming object attribute
+      - om:hasPhenomenon
+      - RO:0002002    # has boundary
+      - RO:0000053    # bearer of
+      - RO:0000086    # has quality
+      - RO:0000087    # has role
+      - RO:0002520    # is consecutive sequence of
+      - RO:0002018    # has component process
+      - RO:0002017    # has component activity
+      - RO:0002013    # has regulatory component activity
+      - RO:0002016    # has necessary component activity
+      - RO:0002025    # has effector activity
+      - RO:0002521    # is sequentially aligned with
+      - RO:0002348    # results in commitment to
+      - RO:0002566    # causally influences
+      - RO:0002002    # has 2d boundary
+      - RO:0002338    # has target start location
+      - RO:0002339    # has target end location
+      - RO:0002573    # has modifier
+      - RO:0009004    # has consumer
+      - SAN:hasActuatingCapability
+      - SAN:hasActuatingProperty
+      - SAN:hasDateTime
+      - SAN:hasEffect
+      - SAN:hasWriter
+      - SIO:000011    # is attribute of
+      - SIO:000586    # has capability
+      - SIO:001277    # has data item
+      - SIO:000671    # has identifier
+      - SIO:000312    # has product
+      - SIO:000552    # has parameter
+      - SIO:000420    # has Expression
+      - SIO:000253    # has source
+      - SIO:000132    # has participant
+      - SIO:000255    # has annotation
+      - SIO:000008    # hasAttribute
+      - SIO:000364    # has creator
+      - SIO:000230    # has input
+      - SIO:000235    # has disposition
+      - SIO:000234    # has implementation
+      - SIO:000228    # has role
+      - SIO:000229    # has output
+      - SIO:000900    # has frequency
+      - SIO:000905    # has substrate
+      - SIO:000221    # has unit
+      - SIO:000225    # has function
+      - SIO:000223    # has property
+      - SIO:000217    # has quality
+      - SIO:000291    # has target
+      - SIO:000054    # has boundary
+      - SIO:000059    # has member
+      - SIO:000028    # has part
+      - SIO:000139    # has agent
+      - SIO:000772    # has evidence
+      - SIO:000641    # has basis
+      - SIO:000635    # has trigger
+      - SIO:000066    # has provider
+      - SIO:001279    # has observable feature
+      - SIO:000300    # has value
+      - SIO:001278    # is data item in
+      - SIO:000680    # has start time
+      - SIO:000681    # has end time
+      - SIO:000679    # has time boundary
+      - SIO:000673    # has unique identifier
+      - SIO:000369    # has component part
+      - SIO:000053    # has proper part
+      - SIO:000972    # has last part
+      - SIO:000971    # has first part
+      - SIO:000273    # has direct part
+      - SIO:000644    # has realizable property
+      - SIO:000974    # has ordered part
+      - SIO:000553    # is parameter in
+      - SIO:000145    # is location of
+      - SWO:0004000   # has version
+      - sosa:hasFeatureOfInterest
+      - sosa:hasSample
+      - ssn:hasSubSystem
+      - ssn:isProxyFor
+      - ssn-system:hasSystemCapability
+      - ssn-system:hasSystemProperty
+      - ssn-system:hasOperatingRange
+      - ssn-system:hasOperatingProperty
+      - ssn-system:hasSurvivalRange
+      - ssn-system:hasSurvivalProperty
+      - ssn-system:inCondition
+      - sumo:hasAcrossVariable
+      - sumo:hasAccount
+      - sumo:hasAward
+      - sumo:hasDependency
+      - sumo:hasDimension
+      - sumo:hasExpertise
+      - sumo:hasGUEState
+      - sumo:hasOccupation
+      - sumo:hasPurpose
+      - sumo:hasPurposeForAgent
+      - sumo:hasSkill
+      - sumo:hasThroughVariable
+      - sumo:hasUniform
+      - sumo:hasVariable
+      - sumo:holdsRight
+      - SWO:9001002   # has clause
+      - SWO:0004001   # has interface
+      - SWO:9000067   # has declared status
+      - SWO:0004002   # has format specification
+      - SWO:0000087   # has specified data output
+      - SWO:0000086   # has specified data input
+      - SWO:0004004   # is published by
+      - SWO:0000741   # is encoded by
+      - SWO:0004002   # has format specification
+      - SWO:3000054   # is alternate format of
+      - SWO:0004000   # has version
+
+  hasAttributeType:
+    description: >-
+      connects an attribute to a class that describes it
+    domain: Attribute
+    range: OntologyClass
+    multivalued: false
+    required: true
+    close_mappings:
+      - sumo:havePartTypes
+    exact_mappings:
+      - AML:hasAttributeDataType
+
+  hasQualitativeValue:
+    description: >-
+      connects an attribute to a value
+    domain: Attribute
+    range: NamedThing
+    multivalued: false
+    close_mappings:
+      - schema:QualitativeValue
+      - sumo:greaterThanByQuality
+    narrow_mappings:
+      - AML:hasAttributeValue
+      - IAO:0000221   # is quality measurement of
+      - gr:hasMaxValue
+      - gr:hasMinValue
+      - SIO:000216    # has measurement value
+
+  hasQuantitativeValue:
+    description: >-
+      Connects an attribute to a value
+    domain: Attribute
+    range: QuantityValue
+    multivalued: true
+    broad_mappings:
+      - NCIT:C70589    # Abundance
+    exact_mappings:
+      - CTRL:hasQuantity
+      - gr:QuantitativeValue
+      - OM:hasQuantity
+      - qud:quantityValue
+      - schema:QuantitativeValue
+      - wikidata:Q17627912    # quantitative value
+    narrow_mappings:
+      - gr:QuantitativeValueFloat
+      - gr:QuantitativeValueInteger
+      - OM:hasBaseQuantity
+      - OM:hasDerivedQuantity
+
+  hasNumericValue:
+    description: >-
+      connects a quantity value to a number
+    domain: QuantityValue
+    range: double
+    multivalued: false
+    broad_mappings:
+      - NCIT:C81274    # numeric value
+      - schema:Number
+      - qud:numericValue
+      - sumo:number
+    exact_mappings:
+      - qud:quantityValue
+    narrow_mappings:
+      - CTRL:Quantity
+      - gr:weight
+      - gr:width
+      - sumo:age
+      - sumo:diameter
+      - sumo:duration
+      - sumo:FiniteQuantity
+      - sumo:InfiniteQuantity
+      - sumo:length
+      - sumo:memorySize
+      - sumo:netAmount
+      - sumo:netWorth
+      - sumo:publishedPrice
+      - sumo:Quantity
+      - sumo:QuantityChange
+      - sumo:radius
+      - sumo:totalFacilityTypeInArea
+      - sumo:unitNumber
+      - sumo:unitPrice
+      - gr:weight
+      - gr:width
+
+  hasUnit:
+    description: >-
+      connects a quantity value to a unit
+    domain: QuantityValue
+    range: unit
+    multivalued: false
+    close_mappings:
+      - EFO:0001697    # semantic inverse, 'is unit of'
+      - UO:is_unit_of
+    exact_mappings:
+      - AML:hasUnit
+      - CTRL:unit
+      - CTRL:hasUnit
+      - IAO:0000039    # has unit
+      - OM:hasUnit
+      - qud:unit
+      - SIO:000221  # has unit
+      - sumo:UnitFn
+    narrow_mappings:
+      - gr:hasUnitOfMeasurement
+
+  ## --------------------
+  ## NODE PROPERTY SLOTS
+  ## --------------------
+
+  nodeProperty:
+    description: >-
+      A grouping for any property that holds between a node and a value
+    domain: NamedThing
+
+  id:
+    identifier: true
+    domain: Entity
+    description: >-
+      A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
+    required: true
+    broad_mappings:
+      - CSO:catalogue_identifiers
+      - IAO:0000603    # is allocated id range
+      - IAO:0000119    # definition source
+      - sumo:identityElement
+    exact_mappings:
+      - dcterms:identifier
+      - edam.data:0842  # identifier
+      - EFO:id
+      # DB_Object_ID
+      - REPR:id
+      - schema:identifier
+      - SIO:000115          # identifier
+      - sumo:Identifier
+      - uco-types:identifier
+    narrow_mappings:
+      - dcterms:eventID
+      - dcterms:parentEventID
+      - dcterms:identificationID
+      - dcterms:systemID
+      - CSO:bicm-id
+      - SIO:000672    # is identifier for
+      - SIO:000674    # is unique identifier for
+      - NCIT:C94069   # resource provider identifier
+      - REPR:doi
+      - SIO:000328    # positional identifier
+      - SIO:000729    # record identifier
+      - schema:productID
+      - schema:taxID
+      - sumo:AccountID
+      - sumo:AlphaIDString
+      - sumo:AlphaNumericIDString
+      - sumo:AgentID
+      - sumo:CountryID
+      - sumo:CustomerID
+      - sumo:currencyCode
+      - sumo:DistrictID
+      - sumo:EmployeeID
+      - sumo:IsoCode
+      - sumo:LocalizablePlaceID
+      - sumo:userIDString
+      - sumo:urlString
+      - sumo:UniformResourceLocator
+      - wikidata.property:P3743   # ITU/ISO/IEC object identifier
+
+  iri:
+    description: >-
+      An IRI for an entity. This is determined by the id using expansion rules.
+    comments:
+      see also https://url.spec.whatwg.org/#goals
+    range: iri type
+    related_mappings:
+      - dcterms:usewithiri
+    close_mappings:
+      - NCIT:C165071        # resource identifier
+      - sumo:UniformResourceLocator
+      - uco-observable:url
+    exact_mappings:
+      - rr:IRI
+      - wikidata.property:P854
+      - wikidata:Q424583    # Internationalized Resource Identifier
+      - XAPI:IRI
+    narrow_mappings:
+      - RO:0002617    # is representative IRI for equivalence set
+
+  type:
+    description: >-
+      Anchoring point (of a name) in taxonomy
+    slot_uri: rdf:type
+    broad_mappings:
+      - SIO:000011    # is attribute of
+      - RO:0002473    # composed primarily of
+      - IAO:0006011   # may be identical to
+    exact_mappings:
+      - dcterms:type
+      # DB_Object_Type
+      - IAO:0000219    # denotes
+      - NCIT:C25284  # type
+      - schema:type
+      - SWO:type
+      - sumo:Class
+      - wikidata:Q21146257    # type
+      - wikidata.property:P427  # type
+    narrow_mappings:
+      - ctrl:DataType
+      - ctrl:SemanticType
+      - dcterms:measurementType
+      - GR:typeOfGood
+      - IAO:0000411   # is denotator type
+      - sumo:hardwareType
+      - wikidata:Q190087  # data type
+
+  category:
+    is_a: type
+    domain: Entity
+    range: category type
+    designates_type: true
+    description: >-
+      Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+       * In a neo4j database this MAY correspond to the neo4j label tag.
+       * In an RDF database it should be a universal model class URI.
+      This field is multi-valued. It should include values for ancestors of the universal class.
+
+      In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.
+    is_class_field: true
+    multivalued: true
+    exact_mappings:
+      - gr:category
+      - schema:category
+    narrow_mappings:
+      - CSO:access_category
+      - schema:CategoryCode
+
+  name:
+    aliases: ['label','display name','title']
+    description: >-
+      A human-readable name for an attribute or entity.
+    range: label type
+    slot_uri: rdfs:label
+    broad_mappings:
+      - CSO:named_entity
+    exact_mappings:
+      - CSO:named_entity
+      # DB_Object_Name
+      - gr:name
+      - OM:name
+      - REPR:name
+      - schema:name
+
+  description:
+    aliases: ['definition']
+    range: narrative text
+    description: >-
+      a human-readable description of an entity
+    slot_uri: dcterms:description
+    exact_mappings:
+      - dcterms:description
+      - IAO:0000115    # definition
+      - schema:description
+      - skos:definitions
+      - sumo:NarrativeText
+      - wikidata:Q1200750    # Description
+    close_mappings:
+      - sumo:Descriptor
+    narrow_mappings:
+      - csrc:architecture_description
+      - CSO:architecture_description
+      - CSO:concept_description
+      - CSO:shape_description
+      - OM:longcomment
+
+  xref:
+    is_a: nodeProperty
+    aliases: ['dbxref', 'Dbxref', 'DbXref']
+    domain: NamedThing
+    range: uriorcurie
+    description: >-
+      Alternate CURIEs for a thing
+    multivalued: true
+    broad_mappings:
+      - uco-core:ExternalReference
+    exact_mappings:
+      - wikidata:Q1302249    # cross-reference
+    narrow_mappings:
+      - dcterms:identificationReferences
+      - gr:relatedWebService
+      - NCIT:hasDbXref
+
+  # description:
+
+  affiliation:
+    is_a: nodeProperty
+    description: >-
+      a professional relationship between one provider (x) within another provider (often an organization). Target provider identity should be specified by a CURIE. Providers may have multiple affiliations.
+    domain: Agent
+    range: uriorcurie
+    multivalued: true
+    exact_mappings:
+      - NCIT:C25412   # affiliation
+      - schema:affiliation
+      - SIO:000173    # affiliation
+      - wikidata.property:P1268
+    related_mappings:
+      - uco-identity:AffiliationFacet
+
+  # uco-identity  address:
+  address:
+    slot_uri: uco-identity:address
+    description: >-
+      Collection of information that describes the location of a building, apartment, or other structure
+    exact_mappings:
+      # lm_core:Address
+      - wikidata:Q64826646
+    narrow_mappings:
+      - NCIT:C25407
+      - sumo:AddressFn
+
+  # uco-observable creationDate: is_a: nodeProperty
+  creationDate:
+    slot_uri: uco-observable:creationDate
+    is_a: nodeProperty
+    aliases: ['publicationDate']
+    range: date
+    description: >-
+      date on which an entity was created. This can be applied to nodes or edges
+    broad_mappings:
+      - sumo:date
+    exact_mappings:
+      - dcterms:createdOn
+      - schema:dateCreated
+      - dwc:dateIdentified
+      - schema:datePublished
+      - sumo:dateEstablished
+      - wikidata.property:P577   # publication date
+    narrow_mappings:
+      - dwc:eventDate
+      - dwc:verbatimEventDate
+      - dwc:relationshipEstablishedDate
+
+  providedBy:
+    is_a: nodeProperty
+    description: >-
+      The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.
+    multivalued: true
+    exact_mappings:
+      - pav:providedBy
+      - wikidata:Q68974939
+
+  inTaxon:
+    aliases:
+    is_a: relatedToAtInstanceLevel
+    domain: ThingWithTaxon
+    range: NamedThing
+    annotations:
+      canonical_predicate: true
+    description: >-
+      connects an entity to its taxonomic classification. Only certain kinds
+      of entities can be taxonomically classified; see 'ThingWithTaxon'
+    exact_mappings:
+      - RO:0002162    # in taxon
+      - wikidata.property:P703    # found in taxon
+    narrow_mappings:
+      - RO:0002160    # only in taxon
+
+  taxonOf:
+    description: >-
+      Taxon of entity
+    is_a: relatedToAtInstanceLevel
+    inverse: inTaxon
+    domain: NamedThing
+    range: ThingWithTaxon
+
+  ## --------------------
+  ## ASSOCIATION SLOTS
+  ## --------------------
+
+  associationSlot:
+    abstract: true
+    domain: Association
+    aliases: ['edge property', 'statement property']
+    description: >-
+      any slot that relates an association to another entity
+
+  ## --------------------
+  ## PREDICATES/RELATIONS
+  ## --------------------
+
+  relatedTo:
+    description: >-
+      A relationship that is asserted between two named things
+    domain: NamedThing
+    range: NamedThing
+    multivalued: true
+    inherited: true
+    symmetric: true
+    annotations:
+      canonical_predicate: true
+    exact_mappings:
+      - csrc:Association
+      - gvp:aat2000_related_to
+      - skos:relatedMatch
+      - schema:relatedTo
+      - schema:isRelatedTo
+      - SIO:000001    # is related to
+      - sumo:relatedTo
+    broad_mappings:
+      - ECO:0000041    # similarity evidence
+      - owl:topObjectProperty
+      - gvp:aat2900_miscellaneous_relationship
+      - schema:isSimilarTo
+      - SWO:topObjectProperty
+    close_mappings:
+      - dwc:ResourceRelationship
+    narrow_mappings:
+      - AML:contains
+      - BFO:0000054    # realized in
+      - CSO:semantic_relatedness
+      - csrc:Relatively_prime
+      - CTRL:isConnectedTo
+      - CTRL:isSupervisedBy
+      - CTRL:supervises
+      - dcterms:isReferencedBy
+      - dcterms:isReplacedBy
+      - dcterms:isRequiredBy
+      - dwc:identifiedBy
+      - EFO:0006351    # has_about_it
+      - gr:closes
+      - gr:offers
+      - gr:opens
+      - gr:owns
+      - gr:predecessorOf
+      - gr:seeks
+      - gr:includes
+      - gvp:aat2000_reflects
+      - NCIT:is_related_to_endogenous_product
+      - PATO:decreased_in_magnitude_relative_to
+      - PATO:has_cross_section
+      - PATO:has_relative_magnitude
+      - PATO:increased_in_magnitude_relative_to
+      - PATO:reciprocal_of
+      - RO:0002337    # related via localization to
+      - RO:0000052    # inheres in
+      - RO:0002001    # aligned with
+      - RO:0002002    # has 2d boundary
+      - RO:0002003    # electrically_synapsed_to
+      - RO:0002008    # coincident with
+      - RO:0002134    # innervates
+      - RO:0002150    # continious with
+      - RO:0002159    # serially homologous to
+      - RO:0002176    # connects
+      - RO:0002177    # attached to part of
+      - RO:0002178    # supplies
+      - RO:0002179    # drains
+      - RO:0002314    # inheres in part of
+      - RO:0002322    # confers advantage in
+      - RO:0002328    # functionally related to
+      - RO:0002332    # regulates levels of
+      - RO:0002338    # has target start location
+      - RO:0002339    # has target end location
+      - RO:0002341    # results in transport along
+      - RO:0002342    # results in transport across
+      - RO:0002344    # results in transport to form or in
+      - RO:0002348    # results in commitment to
+      - RO:0002349    # results in determination of
+      - RO:0002356    # results in specification of
+      - RO:0002371    # attached to
+      - RO:0002374    # derived from ancestoral fusion of
+      - RO:0002385    # has potential to developmentally contribute to
+      - RO:0002387    # has potential to develop into
+      - RO:0002451    # transmitted by
+      - RO:0002494    # transformation of
+      - RO:0002495    # immediate transformation of
+      - RO:0002573    # has modifier
+      - RO:0009004    # has consumer
+      - SAN:actsOn
+      - SAN:isPropertyOf
+      - SAN:controlledBy
+      - SAN:isImpactedUponBy
+      - SAN:isActedUponBy
+      - schema:branchOf
+      - schema:founder
+      - schema:greater
+      - schema:lesser
+      - schema:userLikes
+      - SIO:000699    # is greater than or equal to
+      - SIO:000733    # is lesser than or equal to
+      - SIO:000734    # is greater than
+      - SIO:000735    # is lesser than
+      - SIO:000774    # is refuted by
+      - SIO:000207    # is disputed by
+      - SIO:000248    # precedes
+      - SIO:000202    # contains
+      - sosa:implements
+      - sosa:isActedOnBy
+      - sosa:isFeatureOfInterestOf
+      - sosa:isHostedBy
+      - sosa:isObservedBy
+      - sosa:isObservedBy
+      - sosa:actsOnProperty
+      - ssn:isPropertyOf
+      - ssn:isProxyFor
+      - sosa:sensor
+      - sumo:Above
+      - sumo:actedIn
+      - sumo:Adjacent
+      - sumo:associateWithStatus
+      - sumo:associatedFunctionality
+      - sumo:Below
+      - sumo:benefits
+      - sumo:between
+      - sumo:connects
+      - sumo:covers
+      - sumo:during
+      - sumo:enjoys
+      - sumo:employs
+      - sumo:enemy
+      - sumo:increasesLikelihood
+      - sumo:inScopeOfInterest
+      - sumo:inList
+      - sumo:inside
+      - sumo:managedBy
+      - sumo:nearOrientation
+      - sumo:orbits
+      - sumo:overlapsPartially
+      - sumo:overlapsSpatially
+      - sumo:relatedTo
+      - sumo:relative
+      - sumo:RelationalAttribute
+      - ssn:wasOriginatedBy
+      - uberon:protects
+      # several of the following terms mapped here by RTX
+      - BFO:0000068   # begins to exist during
+      - BFO:0000069   # ceases to exist during
+      - BTO:related_to
+      - schema:addOn
+      - EFO:0006351    # has_about_it
+      - gvp:aat2805_contextualized_in
+      - gvp:tgn3103_located_on
+      - gvp:ulan1000_related_to
+      - gvp:ulan2778_owner_of
+      - schema:connectedTo
+      - sumo:conjugate
+      # RTX contributed terms, perhaps belong elsewhere with more precise semantics?
+      - IAO:0000136    # is_about
+      - PATO:decreased_in_magnitude_relative_to
+      - PATO:has_cross_section
+      - PATO:has_relative_magnitude
+      - PATO:increased_in_magnitude_relative_to
+      - PATO:reciprocal_of
+      - RO:0000052   # inheres in
+      - RO:0002001   # aligned with
+      - RO:0002002   # has 2d boundary
+      - RO:0002008   # coincident with
+      - RO:0002150   # continuous with
+      - RO:0002159   # serially homologous to
+      - RO:0002176   # connects
+      - RO:0002177   # attached to part of
+      - RO:0002178   # supplies
+      - RO:0002179   # drains
+      - RO:0002314   # inheres in part of
+      - RO:0002322   # confers advantage in
+      - RO:0002328   # functionally related to
+      - RO:0002332   # regulates levels of
+      - RO:0002338   # has target start location
+      - RO:0002339   # has target end location
+      - RO:0002341   # results in transport along
+      - RO:0002342   # results in transport across
+      - RO:0002344   # results in transport to, from, or in
+      - RO:0002348   # results in commitment to
+      - RO:0002349   # results in determination of
+      - RO:0002356   # results in specification of
+      - RO:0002371   # attached to
+      - RO:0002374   # derived from ancestral fusion of
+      - RO:0002385   # has potential to developmentally contribute to
+      - RO:0002451   # transmitted by
+      - RO:0002494   # transformation of
+      - RO:0002495   # immediate transformation of
+      - RO:0002573   # has modifier
+      - RO:0009004   # has consumer
+      - sosa:usedProcedure
+      - ssn:detects
+      - sumo:displayedUpon
+      - sumo:hostedOn
+      - sumo:hostOf
+      - sumo:initiallyContainsPart
+      - sumo:interiorPart
+      - sumo:Increasing
+      - sumo:parallel
+      - sumo:runningOn
+      - sumo:runsOn
+      - sumo:underlier
+      - sumo:Working
+      - wikidata:Q1360012    # variant
+
+  relatedToAtInstanceLevel:
+    is_a: relatedTo
+    description: >-
+      Represents a relationship held between two instances of a data classes. Much like an assertion component, in an ABox, these represent facts associated with the conceptual model
+    annotations:
+      canonical_predicate: true
+    symmetric: true
+
+  image:
+    description: >-
+      artifact that depicts or records visual perception
+    exact_mappings:
+      - wikidata:Q4787987
+
+  etc_hosts:
+    description: >-
+      Computer configuration file to map hostnames to IP addresses
+    exact_mappings:
+      - wikidata:Q1149007
+
+  container:
+    description: >-
+      Software class, data structure, or abstract data type (ADT) whose instances are collections of other objects
+    exact_mappings:
+      - wikidata:Q1643805
+
+  build:
+    description: >-
+      Complete process of converting source code into software artifacts
+    exact_mappings:
+      - wikidata:Q1362142  # software build
+
+  # uco-observable data:
+  data:
+    slot_uri: uco-observable:data
+    description: >-
+      Information arranged for automatic processing
+    exact_mappings:
+      - wikidata:Q42848
+
+  executable:
+    description: >-
+      file that can be directly run by a computer
+    exact_mappings:
+      - ONTOAVIDA:00000002
+      - wikidata:Q778586
+
+  # uco-observable state:
+  state:
+    slot_uri: uco-observable:state
+    description: >-
+      The way something is with respect to its main attributes.
+    is_a: associationSlot
+    exact_mappings:
+      - NCIT:C25687
+
+  annotation:
+    description: >-
+      piece of metadata attached to a document or other entity
+    exact_mappings:
+      - NCIT:C44272
+      - SIO:001166
+      - wikidata:Q857525
+
+  authfile:
+    description: >-
+      A file used for authentication
+
+  auth_file:
+    description: >-
+      A file used for authentication
+
+  tag:
+    description: >-
+      Metadata used for classifications or adding of informations
+    exact_mappings:
+      - wikidata:Q658349
+
+  cgroups:
+    description: >-
+      Resource limit method in Linux
+    exact_mappings:
+      - wikidata:Q307299
+
+  cmd_args:
+    description: >-
+      Additional data that was passed as an argument to a subroutine
+    multivalued: true
+    broad_mappings:
+      - wikidata:Q1410440  # parameters
+    exact_mappings:
+      - MS:1001885  # command line parameters
+
+  command:
+    description: >-
+      Directive to a computer program
+    exact_mappings:
+      - wikidata:Q1079196
+
+  cpus:
+    description: >-
+      Number of CPUs.
+
+  debug:
+    description: >-
+      Return additional information which can be helpful for investigations.
+    exact_mappings:
+      - wikidata:Q845566
+
+  device:
+    description: >-
+      System device
+    exact_mappings:
+      - NCIT:C62103
+
+  dns:
+    description: >-
+      Domain name service servers
+    multivalued: true
+    aliases:
+      - dns_servers
+
+  dns_option:
+    description: >-
+      DNS options
+    aliases:
+      - dns_opts
+
+  dns_opt:
+    description: >-
+      DNS options
+
+  dns_search:
+    description: >-
+      DNS search domains.
+    aliases:
+      - dns_search_domains
+
+  env:
+    description: >-
+      Set environment variables.
+
+  env_file:
+    description: >-
+      Line delimited file of environment variables.
+
+  # uco-observable path:
+  path:
+    slot_uri: uco-observable:path
+    description: >-
+      general form of the name of a file or directory; resources can be represented by either absolute or relative paths
+    exact_mappings:
+      - wikidata:Q817765
+
+  # time:
+  # description: >-
+  #   Dimension in which events can be ordered from the past through the present into the future
+
+  names:
+    description: >-
+      Names of entites
+
+  separator:
+    description: >-
+      Sequence of one or more characters used to specify the boundary between separate, independent regions in plain text or other data streams; one of various means to specify boundaries in a data stream
+    aliases:
+      - delimiter
+    exact_mappings:
+      - wikidata:Q1641420
+
+  share:
+    description: >-
+      Computer resource made available from one host to other hosts on a computer network
+    exact_mappings:
+      - wikidata:Q1172305
+
+  new:
+    description: >-
+      Produced, introduced, or discovered recently or now for the first time; not existing before.
+
+  after:
+    description: >-
+      At a later or future time; afterwards.
+
+  healthcheck:
+    description: >-
+      Set or alter a healthcheck command
+
+  healthcheck_interval:
+    description: >-
+      Set an interval for the healthchecks.
+
+  healthcheck_retries:
+    description: >-
+      The number of retries allowed before a healthcheck is considered unhealthy.
+    range: integer
+    ifabsent: int(3)
+
+  healthcheck_timeout:
+    description: >-
+      The maximum time allowed to complete the healthcheck before an interval is considered failed. The default value is 30s
+    ifabsent: string(30s)
+
+  # uco-observable hostname:
+  hostname:
+    slot_uri: uco-observable:hostname
+    description: >-
+      label assigned to a device connected to a computer network
+    exact_mappings:
+      - wikidata:Q1073408
+
+  http_proxy:
+    description: >-
+      The https_proxy environment variable holds the hostname or IP address of your proxy server. https_proxy is a standard environment variable.
+    broad_mappings:
+      - wikidata:Q11189  # proxy server
+      - wikidata:Q15907015
+
+  init:
+    description: >-
+      UNIX system component; 1st process started during booting of the computer system; daemon process that continues running until the system is shut down; direct or indirect ancestor of all other processes; automatically adopts all orphaned processes
+    broad_mappings:
+      - wikidata:Q529711  # beginning
+    exact_mappings:
+      - wikidata:Q261918
+
+  interactive:
+    description: >-
+      Allow flow of information between a computer and a computer-user; responding to a user’s input.
+    range: boolean
+    ifabsent: false
+
+  # uco-observable ip:
+  ip:
+    slot_uri: uco-observable:ip
+    description: >-
+      Principal communications protocol used for relaying datagrams (also known as network packets) across an internetwork
+    exact_mappings:
+      - wikidata:Q8795
+
+  label:
+    description: >-
+      Word or phrase used for identification
+    aliases:
+      - labels
+    exact_mappings:
+      - wikidata:Q82799
+
+  log_driver:
+    description: >-
+      Driver used for logging.
+    narrow_mappings:
+      - wikidata:Q117466422  # js log-driver
+
+  log_level:
+    description: >-
+        Message logging level
+    narrow_mappings:
+      - wikidata:Q95953500  # js loglevel
+
+  max_size:
+    description: >-
+      Maximum size of an entity.
+
+  # tag:
+
+  mac_address:
+    description: >-
+      Unique identifier assigned to network interfaces for communications on the physical network segment. Must be unique within one Ethernet network.
+
+  memory:
+    description: >-
+      Storage of digital data readable by computers
+
+  mount:
+    description: >-
+      Directory over which a filesystem is mounted
+    multivalued: true
+    aliases:
+      - mounts
+
+  # uco-observable  network:
+  network:
+    slot_uri: uco-observable:network
+    description: >-
+      Network that allows computers to share resources and communicate with each other
+    exact_mappings:
+      - wikidata:Q1301371
+
+  # uco-observable pid:
+  pid:
+    slot_uri: uco-observable:pid
+    description: >-
+      number to identify each process running on a computer
+    exact_mappings:
+      - wikidata:Q1541645
+
+  privileged:
+    description: >-
+      Delegated authority to perform security-relevant functions on a system
+    range: boolean
+    ifabsent: false
+
+  publish:
+    description: >-
+      Publish things to make something externally available
+    multivalued: true
+    aliases:
+      - ports
+      - published
+      - published_ports
+
+  read_only:
+    description: >-
+      Can be accessed but not modified. Default is false
+    range: boolean
+    ifabsent: false
+
+  recreate:
+    description: >-
+      Create again.
+    range: boolean
+    ifabsent: false
+
+  rm:
+    description: >-
+      Automatically remove the entity when it exits. The default is false.
+    range: boolean
+    aliases:
+      - remove
+      - auto_remove
+
+  rootfs:
+    description: >-
+      Root filesystem at the top of the hierarchical file tree (also known as ‘/’).
+
+  secrets:
+    description: >-
+      information that is hidden from someone.
+    multivalued: true
+
+  sysctl:
+    description: >-
+      Unix-like software that manages kernel attributes
+    exact_mappings:
+      - wikidata:Q3509049
+
+  systemd:
+    description: >-
+      Init system and system/service manager for Linux systems
+    exact_mappings:
+      - wikidata:Q286124
+
+  timezone:
+    description: >-
+      Region on Earth that has a uniform standard time for legal, commercial, and social purposes.
+
+  tmpfs:
+    description: >-
+      Tmpfs (short for Temporary File System) is a temporary file storage paradigm implemented in many Unix-like operating systems. It is intended to appear as a mounted file system, but data is stored in volatile memory instead of a persistent storage device.
+    exact_mappings:
+      - wikidata:Q285946
+
+  tty:
+    aliases: ['teleprinter']
+    description: >-
+      Device for transmitting messages in written form by electrical signals
+
+  ulimit:
+    description: >-
+      User limits - limit the use of system-wide resources.
+    aliases:
+      - ulimits
+
+  user:
+    description: >-
+      Person who interacts with a system, typically through an interface, to extract some functional benefit
+    exact_mappings:
+      - wikidata:Q613354
+
+  uts:
+    description: >-
+      UTS (UNIX Time-Sharing) namespaces allow a single system to appear to have different host and domain names to different processes.
+
+  # uco-observable volume:
+  volume:
+    slot_uri: uco-observable:volume
+    is_a: nodeProperty
+    description: >-
+      volume of a book or music release in a collection/series or a published collection of journal issues in a serial publication
+    domain: Publication
+    exact_mappings:
+      - schema:PublicationVolume
+      - wikidata.property:P478    # volume
+
+  workdir:
+    description: >-
+      The currently used hierarchical file system directory associated with a running process in an operating system
+    aliases:
+      - working_dir
+
+  cert_dir:
+    description: >-
+      Use certificates at path (*.crt, *.cert, *.key)
+
+  force:
+    description: >-
+      coercion or compulsion
+
+  cache:
+    description: >-
+      Computing component that transparently stores data so that future requests for that data can be served faster
+
+  file:
+    description: >-
+      contained block of information on a computer
+    domain: Software
+    exact_mappings:
+      - wikidata:Q82753
+    broad_mappings:
+      - uco-observable:File
+
+  # uco-observable format:
+  format:
+    slot_uri: uco-observable:format
+    is_a: nodeProperty
+    domain: InformationContentEntity
+    exact_mappings:
+      - dcterms:format
+      - NCIT:C42761   # format
+      - sumo:format
+      - SWO:0004002    # has format specification
+    narrow_mappings:
+      - CSO:storage_formats
+      - REPR:ImageFormat
+      - schema:fileFormat
+      - wikidata.property:P2701    # file format
+      - wikidata:Q935809   # csv
+
+  # uco-observable password:
+  password:
+    slot_uri: uco-observable:password
+    description: >-
+      Used for user authentication to prove identity or access approval
+    exact_mappings:
+      - wikidata:Q161157
+
+  compress:
+    description: >-
+      Process of encoding information using fewer bits than original representation
+    exact_mappings:
+      - wikidata:Q2493
+    narrow_mappings:
+      - NCIT:C80222  # compression algorithm
+
+  dest:
+    description: >-
+      Location where item appears, appeared, or is intended to be after transition
+    exact_mappings:
+      - wikidata:Q23458944
+
+  transport:
+    description: >-
+      Human-directed movement of things or people between locations
+    exact_mappings:
+      - wikidata:Q7590
+
+  username:
+    description: >-
+      Identifier for a person in a computer system
+    exact_mappings:
+      - edam.data:1689
+      - wikidata:Q15901043
+
+  validate_certs:
+    description: >-
+      Validate certificates
+
+  change:
+    description: >-
+      Process, event or action that deviates from the present state
+    exact_mappings:
+      - NCIT:C25446
+      - wikidata:Q1150070
+
+  commit_message:
+    description: >-
+      One modality of communication is a commit message, in which developers describe the changes they make in a repository. Commit messages serve as an “audit trail” by which developers can understand how the source code of a project has changed—and why
+
+  # uco-observable src:
+  src:
+    slot_uri: uco-observable:src
+    aliases: ['source']
+    description: >-
+      Object (person, place, text, thing, etc.) from which something (information, goods, etc.) comes or is acquired
+    exact_mappings:
+      - wikidata:Q31464082
+
+  input:
+    description: >-
+      Input of a program or process, i.e. a command or signal from outer sources
+    aliases:
+      - path
+    exact_mappings:
+      - NCIT:C47905
+      - wikidata:Q1125955
+
+  certdir:
+    description: >-
+      Certificate directory
+
+  tlsverify:
+    description: >-
+      Require HTTPS and verify certificates
+
+  tls_verify:
+    description: >-
+      Require HTTPS and verify certificates
+
+  driver:
+    description: >-
+      Computer program that operates or controls a particular type of device
+    exact_mappings:
+      - NCIT:C49931  # device driver
+      - wikidata:Q1033951
+
+  gateway:
+    description: >-
+      Hardware or software components that connect between two network systems
+    exact_mappings:
+      - wikidata:Q487365
+
+  internal:
+    description: >-
+      Happening or arising or located within some limits, or especially, within some surface.
+    exact_mappings:
+      - NCIT:C25234
+
+  ip_range:
+    description: >-
+      Bundle of consecutive public IP addresses. The size of the IP range, is determined by the subnet mask
+
+  ipv6:
+    description: >-
+      Version 6 of the Internet Protocol
+    exact_mappings:
+      - wikidata:Q2551624
+
+  opt:
+    aliases: ['option', 'options']
+    description: >-
+      Individual item to configure a computer system or app
+    exact_mappings:
+      - wikidata:Q105029446
+
+  mtu:
+    aliases: ['maximum transmission unit']
+    description: >-
+      Size of the largest network layer protocol data unit that can be communicated in a single network transaction
+    exact_mappings:
+      - wikidata:Q1163115
+
+  vlan:
+    description: >-
+      Network communications domain that is isolated at the data link layer
+    exact_mappings:
+      - wikidata:Q16452
+
+  subnet:
+    description: >-
+      Logically visible subdivision of an IP network
+    exact_mappings:
+      - wikidata:Q11414
+
+  quiet:
+    description: >-
+      Make or become silent, calm, or still.
+
+  infra:
+    aliases: ['infrastructure']
+    description: >-
+      Fundamental facilities and systems serving a country, city, or other areas
+    exact_mappings:
+      - wikidata:Q121359
+
+  subject:
+    is_a: associationSlot
+    local_names:
+      ga4gh: annotation subject
+      neo4j: node with outgoing relationship
+    description: >-
+      Connects an association to the subject of the association. For example, in a apple-to-orange association, the apple is subject and orange is object.
+    required: true
+    range: NamedThing
+    slot_uri: rdf:subject
+    exact_mappings:
+      - owl:annotatedSource
+      - OBAN:association_has_subjec
+
+  object:
+    is_a: associationSlot
+    description: >-
+      Connects an association to the object of the association. For example, in a apple-to-orange assocation, the apple is subject and orange is object.
+    required: true
+    range: NamedThing
+    local_names:
+      ga4gh: descriptor
+      neo4j: node with incoming relationship
+    slot_uri: rdf:object
+    exact_mappings:
+      - owl:annotatedTarget
+      - OBAN:association_has_object
+
+  predicate:
+    is_a: associationSlot
+    description: >-
+      A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.
+    domain: Association
+    notes: >-
+      Has a value from the Ucs-core related_to hierarchy. In RDF, this corresponds to rdf:predicate and in Neo4j this corresponds to the relationship type. The convention is for an edge label in snake_case form. For example, schema:related_to
+    range: predicate type
+    required: true
+    local_names:
+      ga4gh: annotation predicate
+      translator: predicate
+    slot_uri: rdf:predicate
+    exact_mappings:
+      - owl:annotatedProperty
+      - OBAN:association_has_predicate
+
+  negated:
+    is_a: associationSlot
+    range: boolean
+    description: >-
+      if set to true, then the association is negated i.e. is not true
+
+  qualifiers:
+    singular_name: qualifier
+    description: >-
+      connects an association to qualifiers that modify or
+      qualify the meaning of that association
+    local_names:
+      ga4gh: annotation qualifier
+    is_a: associationSlot
+    multivalued: true
+    range: OntologyClass
+
+  publications:
+    singular_name: publication
+    description: >-
+      connects an association to publications supporting the association
+    is_a: associationSlot
+    multivalued: true
+    range: Publication
+
+  hasEvidence:
+    is_a: associationSlot
+    range: EvidenceType
+    description: >-
+      connects an association to an instance of supporting evidence
+    exact_mappings:
+      - RO:0002558
+    multivalued: true
+
+  license:
+    is_a: nodeProperty
+    domain: InformationContentEntity
+    exact_mappings:
+      - dcterms:license
+      - gr:License
+      - schema:license
+      - sumo:License
+    narrow_mappings:
+      - sumo:LicenseAgreement
+      - wikidata.property:P275      # copyright license
+      - wikidata:Q7603              # GNU
+      - wikidata.property:Q334661   # MIT
+      - wikidata.property:Q192897   # GLGPL
+      - wikidata.property:Q284742   # Creative Commons
+      - wikidata.property:Q13785927  # Apache 2.0
+      - wikidata.property:Q3238057   # Proprietary license
+
+  rights:
+    is_a: nodeProperty
+    domain: InformationContentEntity
+    exact_mappings:
+      - dcterms:rights
+      - wikidata:Q780687   # rights
+    narrow_mappings:
+      - CSO:access_rights
+      - CSO:cyber_rights
+
+  authors:
+    is_a: nodeProperty
+    singular_name: author
+    description: >-
+      Connects an publication to the list of authors who contributed to the publication. This property should be a comma-delimited list of author names. It is recommended that an author's name be formatted as "surname, firstname initial.".
+    multivalued: true
+    domain: Publication
+
+  pages:
+    is_a: nodeProperty
+    description: >-
+      Page number of source referenced for statement or publication
+    domain: Publication
+    multivalued: true
+    exact_mappings:
+      - wikidata.property:P304  # pages
+    narrow_mappings:
+      - sumo:Page
+
+  summary:
+    is_a: nodeProperty
+    # since 'abstract' is a linkML keyword denoting a non-available class or slot,
+    # it is generally recommended that knowledge graphs use 'summary' instead to tag a Publication 'abstract'
+    aliases: ['abstract']
+    description: >-
+      executive  summary of a publication
+    domain: Publication
+    exact_mappings:
+      - dcterms:abstract
+      - sumo:Summary
+      - wikidata:Q333291  # research document summary
+
+  keywords:
+    is_a: nodeProperty
+    description: >-
+      keywords tagging a publication
+    domain: Publication
+    multivalued: true
+    exact_mappings:
+      - schema:keywords
+
+  lcshTerms:
+    is_a: nodeProperty
+    description: >-
+      Library of Congress Subject Headings (LCSH) terms tagging a publication
+    domain: Publication
+    range: uriorcurie
+    values_from:
+      - LCSH
+    multivalued: true
+
+  driver_opts:
+    description: >-
+      Driver-specific options
+
+  options:
+    description: >-
+      Driver-specific options
+
+classes:
+
+  MetaObject:
+    class_uri: linkml:Any
+    description: >-
+      linkml:Any type is an experimental feature for allowing arbitrary objects
+
+  ## ----------
+  ## ATTRIBUTES
+  ## ----------
+
+  ## Ontology Classes
+
+  OntologyClass:
+    mixin: true
+    description: >-
+      A concept or class in an ontology, vocabulary or thesaurus. Note that nodes in
+      a ucs compatible KG can be considered both instances of ucs classes, and
+      OWL classes in their own right. In general you should not need to use this class directly.  Instead, use the appropriate ucs class, i.e. cso:ComputationalProcess
+    exact_mappings:
+      - owl:Class
+      - schema:Class
+    comments:
+      - >-
+         This is modeled as a mixin. 'ontology class' should not be the primary type of a node in the KG. Instead you should use an informative ucs category.
+      - >-
+         Note that formally this is a metaclass. Instances of this class are instances in the graph, but can be the object of 'type' edges.
+    examples: []
+    id_prefixes:
+      - LCSH
+
+  # uco-core Annotation:
+  Annotation:
+    class_uri: uco-core:Annotation
+    description: >-
+      Model root class for entity annotations.
+    abstract: true
+    exact_mappings:
+      - NCIT:C44272  # annotation
+      - SIO:001166  # annotation
+      - wikidata:Q857525  # annotation
+
+  QuantityValue:
+    is_a: Annotation
+    description: >-
+      A value of an attribute that is quantitative and measurable, available as a combination of a unit and a numeric value
+    slots:
+      - hasUnit
+      - hasNumericValue
+
+  Attribute:
+    is_a: Annotation
+    mixins:
+      - OntologyClass
+    description: >-
+      A property or characteristic of an entity.
+      For example, an apple may have properties such as color, shape, age, crispiness.
+      An environmental sample may have attributes such as depth, lat, long, material.
+    slots:
+      - name                   # 'attribute_name'
+      - hasAttributeType     # 'attribute_type'
+      # 'value', 'value_type', 'value_type_name'
+      # extracted from either of the next two slots
+      - hasQuantitativeValue
+      - hasQualitativeValue
+      - iri                    # 'url'
+      - src                    # 'source'
+    slot_usage:
+      name:
+        description: >-
+          The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.
+    id_prefixes:
+      - edam.data
+      - edam.format
+      - edam.operation
+      - edam.topic
+    exact_mappings:
+      - csrc:attribute
+      - SIO:000614    # attribute
+      - sumo:Attribute
+      - sumo:attribute
+      - wikidata:Q758243    # attribute
+    close_mappings:
+      - SAN:property
+      - schema:property
+      - ssn:Property
+    narrow_mappings:
+      - CSO:quantitative_attributes
+
+  ## ------
+  ## THINGS
+  ## ------
+
+  Entity:
+    description: >-
+      Root Universal Model class for all things and informational relationships, real or imagined.
+    abstract: true
+    slots:
+      - id
+      - iri
+      - category
+      - type   # rdf:type
+      - name
+      - description
+      - hasAttribute
+      # evidence code(s)?
+
+  NamedThing:
+    is_a: Entity
+    description: a databased entity or concept/class
+    class_uri: schema:Thing
+    slots:
+      - providedBy
+      - xref
+    slot_usage:
+      category:
+        required: true
+        pattern: '^ucs-core:[A-Z][A-Za-z]+$'
+    exact_mappings:
+      - BFO:0000001    # entity
+      - wikidata:Q35120    # entity
+      - dcid:Thing
+
+  ThingWithTaxon:
+    mixin: true
+    description: >-
+      A mixin that can be used on any entity that can be taxonomically classified. This includes individual entities, their products, and other operational entities and processes.
+    slots:
+      - inTaxon
+
+  ## Administrative Entities
+
+  AdministrativeEntity:
+    description: >-
+      Relating to the arrangements and work that is needed to control the operation of a plan
+    is_a: NamedThing
+    abstract: true
+
+  Agent:
+    is_a: AdministrativeEntity
+    aliases: ['group']
+    description: >-
+      person, group, organization or project that provides a piece of information (i.e. a knowledge association)
+    slots:
+      - affiliation
+      - address
+    exact_mappings:
+      - csrc:Agent
+      - CSO:single-agent
+
+  InformationContentEntity:
+    aliases: ['Information', 'InformationArtefact', 'InformationEntity']
+    abstract: true
+    is_a: NamedThing
+    description: >-
+      A piece of information that typically describes some topic of discourse or is used as support.
+    slots:
+      - license
+      - rights
+      - format
+      - creationDate
+    id_prefixes:
+      - DOI
+    exact_mappings:
+      - IAO:0000030  # information content entity
+      - uco-core:UcoObject
+      - wikidata:Q286583
+
+  Publication:
+    is_a: InformationContentEntity
+    description: >-
+      Any published piece of information. Can refer to a whole publication,
+      its encompassing publication (i.e. journal or book) or to a part of a
+      publication, if of significant knowledge scope (e.g. a figure, figure
+      legend, or section highlighted by NLP). The scope is intended to be
+      general and include information published on the web, as well as printed
+      materials, either directly or in one of the Publication Csolink
+      category subclasses.
+    slots:
+      - authors
+      - pages
+      - summary
+      - keywords
+      - lcshTerms
+      - xref
+
+  EvidenceType:
+    is_a: InformationContentEntity
+    aliases: [ 'evidenceCode' ]
+    description: >-
+      Class of evidence that supports an association
+    values_from:
+      - eco
+    exact_mappings:
+      - ECO:0000000
+
+  Project:
+    is_a: AdministrativeEntity
+    description: >-
+      Collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim
+    exact_mappings:
+      - NCIT:C47885
+      - GSSO:004441
+      - wikidata:Q170584
+
+  System:
+    is_a: NamedThing
+    description: >-
+      An entity that intends to perform some functions, interacting with other systems. Relative to a given system, the entities with which it interacts, are considered its environment. A system is structurally composed of a set of components bound together.
+    mixins:
+      - ThingWithTaxon
+    broad_mappings:
+      - wikidata:Q99527517  # collective entity
+    exact_mappings:
+      - csrc:system
+      - NCIT:C25700   # system
+      - RO:0002577   # system
+      - ssn:System
+      - wikidata:Q58778
+
+  SoftwareOrDevice:
+    is_a: System
+    mixin: true
+    description: >-
+      Either software or hardware
+
+  # uco-observable Software:
+  Software:
+    class_uri: uco-core:Software
+    is_a: SoftwareOrDevice
+    description: >-
+      A set of instructions in a computer programming language that can be executed by a computer, possibly after compilation into another programming language. The term Software includes ComputerPrograms (free-standing software), object methods, subroutines and software packages.
+    close_mappings:
+      - IAO:0000591    # software procedure
+    exact_mappings:
+      - IAO:0000010  # software
+      - sumo:Software
+      - wikidata:Q7397
+      - sumo:ComputerProgram
+
+  Hardware:
+    is_a: SoftwareOrDevice
+    description: >-
+      physical components of a computer
+    exact_mappings:
+      - wikidata:Q3966
+    narrow_mappings:
+      - NCIT:C61402  # computer hardware device
+
+  OpenSource:
+    mixin: true
+    description: >-
+      Philosophy about free redistribution and access to a product
+    exact_mappings:
+      - wikidata:Q39162
+
+  # uco-observable OperatingSystem:
+  OperatingSystem:
+    class_uri: uco-observable:OperatingSystem
+    is_a: Software
+    description:
+      An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.
+    broad_mappings:
+      - sosa:Platform
+    exact_mappings:
+      - CSO:operating_system
+      - csrc:Operations_System
+      - sumo:OperatingSystem
+
+  Solaris:
+    is_a: OperatingSystem
+    description: >-
+      Unix operating system originally developed by Sun Microsystems
+    exact_mappings:
+      - wikidata:Q14646
+
+  Linux:
+    is_a: OperatingSystem
+    mixins:
+      - OpenSource
+    description: >-
+      family of Unix-like operating systems using Linux kernel and open source
+    exact_mappings:
+      - wikidata:Q388
+
+  Windows:
+    is_a: OperatingSystem
+    description: >-
+      family of computer operating systems developed by Microsoft
+    exact_mappings:
+      - wikidata:Q1406
+
+  Virtualization:
+    mixin: true
+    description: >-
+      computing technique for setting up virtual versions of operating systems or computer resources
+    exact_mappings:
+      - wikidata:Q270471
+
+  ## ------------
+  ## ASSOCIATIONS
+  ## ------------
+
+  Association:
+    is_a: Entity
+    description: >-
+      A typed association between two entities, supported by evidence
+    slots:
+      - subject
+      - predicate
+      - object
+      - negated
+      - qualifiers
+      - publications
+      - hasEvidence
+    slot_usage:
+      type:
+        description: rdf:type of ucs-core:Association should be fixed at rdf:Statement
+      category:
+        range: category type
+        required: false
+    broad_mappings:
+      - wikidata:Q186290  # correlation
+    exact_mappings:
+      - csrc:Association
+      - rdf:Statement
+      - owl:Axiom
+    narrow_mappings:
+      - CSO:data_association
+      - wikidata:Q382571  # association (OOP)
+...

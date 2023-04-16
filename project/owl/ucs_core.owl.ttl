@@ -1,0 +1,1883 @@
+@prefix CDAO: <http://purl.obolibrary.org/obo/CDAO_> .
+@prefix CSO: <https://cso.kmi.open.ac.uk/topics/> .
+@prefix EFO: <http://identifiers.org/efo/> .
+@prefix GSSO: <http://purl.obolibrary.org/obo/GSSO_> .
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix LOINC: <http://loinc.org/rdf/> .
+@prefix MS: <http://purl.obolibrary.org/obo/MS_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix ONTOAVIDA: <http://purl.obolibrary.org/obo/ONTOAVIDA_> .
+@prefix REPR: <https://w3id.org/reproduceme#> .
+@prefix RO: <http://purl.obolibrary.org/obo/RO_> .
+@prefix SAN: <https://www.irit.fr/recherches/MELODI/ontologies/SAN.html#> .
+@prefix SIO: <http://semanticscience.org/resource/SIO_> .
+@prefix SWO: <http://purl.obolibrary.org/obo/SWO_> .
+@prefix UO: <http://purl.obolibrary.org/obo/UO_> .
+@prefix XAPI: <http://ns.inria.fr/ludo/v1/docs/xapi.html#> .
+@prefix aml: <https://w3id.org/i40/aml#> .
+@prefix core: <https://w3id.org/lmodel/ucs-core/> .
+@prefix csrc: <https://csrc.nist.gov/glossary/term/> .
+@prefix ctrl: <https://w3id.org/ibp/CTRLont#> .
+@prefix dcid: <https://datacommons.org/browser/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dwc: <https://dwc.tdwg.org/terms/#dc:> .
+@prefix edam.data: <http://edamontology.org/data_> .
+@prefix geolink: <http://schema.geolink.org/1.0/base/main.html#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix gvp: <http://vocab.getty.edu/ontology#> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix qud: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix sumo: <https://w3id.org/sumo/kb/> .
+@prefix uco-core: <https://w3id.org/lmodel/uco-core/> .
+@prefix uco-identity: <https://w3id.org/lmodel/uco-identity/> .
+@prefix uco-observable: <https://w3id.org/lmodel/uco-observable/> .
+@prefix uco-types: <https://w3id.org/lmodel/uco-types/> .
+@prefix wikidata: <http://identifiers.org/wikidata/> .
+@prefix wikidata.property: <https://www.wikidata.org/wiki/Property:> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/lmodel/ucs-core.owl.ttl> a owl:Ontology ;
+    rdfs:label "ucs-core" ;
+    IAO:0000700 core:Annotation,
+        core:Entity,
+        core:MetaObject,
+        core:OntologyClass,
+        core:OpenSource,
+        core:ThingWithTaxon,
+        core:Virtualization ;
+    linkml:classes "{'MetaObject': ClassDefinition(name='MetaObject', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/MetaObject', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='linkml:Any type is an experimental feature for allowing arbitrary objects', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=['linkml:Any'], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=[], slot_usage={}, attributes={}, class_uri='linkml:Any', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'OntologyClass': ClassDefinition(name='OntologyClass', id_prefixes=['LCSH'], definition_uri='https://w3id.org/lmodel/ucs-core/OntologyClass', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a ucs compatible KG can be considered both instances of ucs classes, and OWL classes in their own right. In general you should not need to use this class directly.  Instead, use the appropriate ucs class, i.e. cso:ComputationalProcess', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[\"This is modeled as a mixin. 'ontology class' should not be the primary type of a node in the KG. Instead you should use an informative ucs category.\", \"Note that formally this is a metaclass. Instances of this class are instances in the graph, but can be the object of 'type' edges.\"], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['owl:Class', 'schema:Class'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=True, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=[], slot_usage={}, attributes={}, class_uri='core:OntologyClass', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Annotation': ClassDefinition(name='Annotation', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Annotation', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Model root class for entity annotations.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=['uco-core:Annotation'], exact_mappings=['NCIT:C44272', 'SIO:001166', 'wikidata:Q857525'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=True, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=[], slot_usage={}, attributes={}, class_uri='uco-core:Annotation', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'QuantityValue': ClassDefinition(name='QuantityValue', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/QuantityValue', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A value of an attribute that is quantitative and measurable, available as a combination of a unit and a numeric value', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='Annotation', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['hasUnit', 'hasNumericValue'], slot_usage={}, attributes={}, class_uri='core:QuantityValue', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Attribute': ClassDefinition(name='Attribute', id_prefixes=['edam.data', 'edam.format', 'edam.operation', 'edam.topic'], definition_uri='https://w3id.org/lmodel/ucs-core/Attribute', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['csrc:attribute', 'SIO:000614', 'sumo:Attribute', 'sumo:attribute', 'wikidata:Q758243'], close_mappings=['SAN:property', 'schema:property', 'ssn:Property'], related_mappings=[], narrow_mappings=['CSO:quantitative_attributes'], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='Annotation', abstract=None, mixin=None, mixins=['OntologyClass'], apply_to=[], values_from=[], string_serialization=None, slots=['Attribute_name', 'hasAttributeType', 'hasQuantitativeValue', 'hasQualitativeValue', 'iri', 'src'], slot_usage={'name': SlotDefinition(name='name', id_prefixes=[], definition_uri=None, local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description=\"The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.\", alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema=None, imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, singular_name=None, domain=None, slot_uri=None, multivalued=None, inherited=None, readonly=None, ifabsent=None, list_elements_unique=None, list_elements_ordered=None, shared=None, key=None, identifier=None, designates_type=None, alias=None, owner=None, domain_of=[], subproperty_of=None, symmetric=None, reflexive=None, locally_reflexive=None, irreflexive=None, asymmetric=None, transitive=None, inverse=None, is_class_field=None, transitive_form_of=None, reflexive_transitive_form_of=None, role=None, is_usage_slot=None, usage_slot_name=None, relational_role=None, slot_group=None, is_grouping_slot=None, path_rule=None, disjoint_with=[], children_are_mutually_disjoint=None, union_of=[], range=None, range_expression=None, enum_range=None, required=None, recommended=None, inlined=None, inlined_as_list=None, minimum_value=None, maximum_value=None, pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, value_presence=None, equals_string=None, equals_string_in=[], equals_number=None, equals_expression=None, minimum_cardinality=None, maximum_cardinality=None, has_member=None, all_members=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[])}, attributes={}, class_uri='core:Attribute', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Entity': ClassDefinition(name='Entity', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Entity', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Root Universal Model class for all things and informational relationships, real or imagined.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=True, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'category', 'type', 'name', 'description', 'hasAttribute'], slot_usage={}, attributes={}, class_uri='core:Entity', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'NamedThing': ClassDefinition(name='NamedThing', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/NamedThing', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='a databased entity or concept/class', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=['schema:Thing'], exact_mappings=['BFO:0000001', 'wikidata:Q35120', 'dcid:Thing'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='Entity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category'], slot_usage={'category': SlotDefinition(name='category', id_prefixes=[], definition_uri=None, local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description=None, alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema=None, imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, singular_name=None, domain=None, slot_uri=None, multivalued=None, inherited=None, readonly=None, ifabsent=None, list_elements_unique=None, list_elements_ordered=None, shared=None, key=None, identifier=None, designates_type=None, alias=None, owner=None, domain_of=[], subproperty_of=None, symmetric=None, reflexive=None, locally_reflexive=None, irreflexive=None, asymmetric=None, transitive=None, inverse=None, is_class_field=None, transitive_form_of=None, reflexive_transitive_form_of=None, role=None, is_usage_slot=None, usage_slot_name=None, relational_role=None, slot_group=None, is_grouping_slot=None, path_rule=None, disjoint_with=[], children_are_mutually_disjoint=None, union_of=[], range=None, range_expression=None, enum_range=None, required=True, recommended=None, inlined=None, inlined_as_list=None, minimum_value=None, maximum_value=None, pattern='^ucs-core:[A-Z][A-Za-z]+$', structured_pattern=None, unit=None, implicit_prefix=None, value_presence=None, equals_string=None, equals_string_in=[], equals_number=None, equals_expression=None, minimum_cardinality=None, maximum_cardinality=None, has_member=None, all_members=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[])}, attributes={}, class_uri='schema:Thing', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'ThingWithTaxon': ClassDefinition(name='ThingWithTaxon', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/ThingWithTaxon', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A mixin that can be used on any entity that can be taxonomically classified. This includes individual entities, their products, and other operational entities and processes.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=True, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['inTaxon'], slot_usage={}, attributes={}, class_uri='core:ThingWithTaxon', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'AdministrativeEntity': ClassDefinition(name='AdministrativeEntity', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/AdministrativeEntity', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Relating to the arrangements and work that is needed to control the operation of a plan', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='NamedThing', abstract=True, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category'], slot_usage={}, attributes={}, class_uri='core:AdministrativeEntity', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Agent': ClassDefinition(name='Agent', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Agent', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='person, group, organization or project that provides a piece of information (i.e. a knowledge association)', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=['group'], structured_aliases={}, mappings=[], exact_mappings=['csrc:Agent', 'CSO:single-agent'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='AdministrativeEntity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'affiliation', 'address'], slot_usage={}, attributes={}, class_uri='core:Agent', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'InformationContentEntity': ClassDefinition(name='InformationContentEntity', id_prefixes=['DOI'], definition_uri='https://w3id.org/lmodel/ucs-core/InformationContentEntity', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A piece of information that typically describes some topic of discourse or is used as support.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=['Information', 'InformationArtefact', 'InformationEntity'], structured_aliases={}, mappings=[], exact_mappings=['IAO:0000030', 'uco-core:UcoObject', 'wikidata:Q286583'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='NamedThing', abstract=True, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'license', 'rights', 'format', 'creationDate'], slot_usage={}, attributes={}, class_uri='core:InformationContentEntity', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Publication': ClassDefinition(name='Publication', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Publication', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web, as well as printed materials, either directly or in one of the Publication Csolink category subclasses.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='InformationContentEntity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'NamedThing_category', 'license', 'rights', 'format', 'creationDate', 'authors', 'pages', 'summary', 'keywords', 'lcshTerms', 'xref'], slot_usage={}, attributes={}, class_uri='core:Publication', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'EvidenceType': ClassDefinition(name='EvidenceType', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/EvidenceType', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Class of evidence that supports an association', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=['evidenceCode'], structured_aliases={}, mappings=[], exact_mappings=['ECO:0000000'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='InformationContentEntity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=['eco'], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'license', 'rights', 'format', 'creationDate'], slot_usage={}, attributes={}, class_uri='core:EvidenceType', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Project': ClassDefinition(name='Project', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Project', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['NCIT:C47885', 'GSSO:004441', 'wikidata:Q170584'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='AdministrativeEntity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category'], slot_usage={}, attributes={}, class_uri='core:Project', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'System': ClassDefinition(name='System', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/System', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='An entity that intends to perform some functions, interacting with other systems. Relative to a given system, the entities with which it interacts, are considered its environment. A system is structurally composed of a set of components bound together.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['csrc:system', 'NCIT:C25700', 'RO:0002577', 'ssn:System', 'wikidata:Q58778'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=['wikidata:Q99527517'], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='NamedThing', abstract=None, mixin=None, mixins=['ThingWithTaxon'], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:System', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'SoftwareOrDevice': ClassDefinition(name='SoftwareOrDevice', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/SoftwareOrDevice', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Either software or hardware', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='System', abstract=None, mixin=True, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:SoftwareOrDevice', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Software': ClassDefinition(name='Software', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Software', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A set of instructions in a computer programming language that can be executed by a computer, possibly after compilation into another programming language. The term Software includes ComputerPrograms (free-standing software), object methods, subroutines and software packages.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=['uco-core:Software'], exact_mappings=['IAO:0000010', 'sumo:Software', 'wikidata:Q7397', 'sumo:ComputerProgram'], close_mappings=['IAO:0000591'], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='SoftwareOrDevice', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='uco-core:Software', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Hardware': ClassDefinition(name='Hardware', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Hardware', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='physical components of a computer', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q3966'], close_mappings=[], related_mappings=[], narrow_mappings=['NCIT:C61402'], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='SoftwareOrDevice', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:Hardware', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'OpenSource': ClassDefinition(name='OpenSource', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/OpenSource', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Philosophy about free redistribution and access to a product', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q39162'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=True, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=[], slot_usage={}, attributes={}, class_uri='core:OpenSource', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'OperatingSystem': ClassDefinition(name='OperatingSystem', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/OperatingSystem', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=['uco-observable:OperatingSystem'], exact_mappings=['CSO:operating_system', 'csrc:Operations_System', 'sumo:OperatingSystem'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=['sosa:Platform'], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='Software', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='uco-observable:OperatingSystem', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Solaris': ClassDefinition(name='Solaris', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Solaris', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Unix operating system originally developed by Sun Microsystems', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q14646'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='OperatingSystem', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:Solaris', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Linux': ClassDefinition(name='Linux', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Linux', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='family of Unix-like operating systems using Linux kernel and open source', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q388'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='OperatingSystem', abstract=None, mixin=None, mixins=['OpenSource'], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:Linux', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Windows': ClassDefinition(name='Windows', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Windows', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='family of computer operating systems developed by Microsoft', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q1406'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='OperatingSystem', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'type', 'name', 'description', 'hasAttribute', 'providedBy', 'xref', 'NamedThing_category', 'inTaxon'], slot_usage={}, attributes={}, class_uri='core:Windows', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Virtualization': ClassDefinition(name='Virtualization', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Virtualization', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='computing technique for setting up virtual versions of operating systems or computer resources', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['wikidata:Q270471'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=True, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=[], slot_usage={}, attributes={}, class_uri='core:Virtualization', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={}), 'Association': ClassDefinition(name='Association', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/Association', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A typed association between two entities, supported by evidence', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['csrc:Association', 'rdf:Statement', 'owl:Axiom'], close_mappings=[], related_mappings=[], narrow_mappings=['CSO:data_association', 'wikidata:Q382571'], broad_mappings=['wikidata:Q186290'], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a='Entity', abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, slots=['id', 'iri', 'name', 'description', 'hasAttribute', 'subject', 'predicate', 'object', 'negated', 'qualifiers', 'publications', 'hasEvidence', 'Association_type', 'Association_category'], slot_usage={'type': SlotDefinition(name='type', id_prefixes=[], definition_uri=None, local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='rdf:type of ucs-core:Association should be fixed at rdf:Statement', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema=None, imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, singular_name=None, domain=None, slot_uri=None, multivalued=None, inherited=None, readonly=None, ifabsent=None, list_elements_unique=None, list_elements_ordered=None, shared=None, key=None, identifier=None, designates_type=None, alias=None, owner=None, domain_of=[], subproperty_of=None, symmetric=None, reflexive=None, locally_reflexive=None, irreflexive=None, asymmetric=None, transitive=None, inverse=None, is_class_field=None, transitive_form_of=None, reflexive_transitive_form_of=None, role=None, is_usage_slot=None, usage_slot_name=None, relational_role=None, slot_group=None, is_grouping_slot=None, path_rule=None, disjoint_with=[], children_are_mutually_disjoint=None, union_of=[], range=None, range_expression=None, enum_range=None, required=None, recommended=None, inlined=None, inlined_as_list=None, minimum_value=None, maximum_value=None, pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, value_presence=None, equals_string=None, equals_string_in=[], equals_number=None, equals_expression=None, minimum_cardinality=None, maximum_cardinality=None, has_member=None, all_members=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'category': SlotDefinition(name='category', id_prefixes=[], definition_uri=None, local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description=None, alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema=None, imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, is_a=None, abstract=None, mixin=None, mixins=[], apply_to=[], values_from=[], string_serialization=None, singular_name=None, domain=None, slot_uri=None, multivalued=None, inherited=None, readonly=None, ifabsent=None, list_elements_unique=None, list_elements_ordered=None, shared=None, key=None, identifier=None, designates_type=None, alias=None, owner=None, domain_of=[], subproperty_of=None, symmetric=None, reflexive=None, locally_reflexive=None, irreflexive=None, asymmetric=None, transitive=None, inverse=None, is_class_field=None, transitive_form_of=None, reflexive_transitive_form_of=None, role=None, is_usage_slot=None, usage_slot_name=None, relational_role=None, slot_group=None, is_grouping_slot=None, path_rule=None, disjoint_with=[], children_are_mutually_disjoint=None, union_of=[], range='category type', range_expression=None, enum_range=None, required=False, recommended=None, inlined=None, inlined_as_list=None, minimum_value=None, maximum_value=None, pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, value_presence=None, equals_string=None, equals_string_in=[], equals_number=None, equals_expression=None, minimum_cardinality=None, maximum_cardinality=None, has_member=None, all_members=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[])}, attributes={}, class_uri='core:Association', subclass_of=None, union_of=[], defining_slots=[], tree_root=None, unique_keys={}, rules=[], classification_rules=[], slot_names_unique=None, represents_relationship=None, disjoint_with=[], children_are_mutually_disjoint=None, any_of=[], exactly_one_of=[], none_of=[], all_of=[], slot_conditions={})}" ;
+    linkml:enums "{}" ;
+    linkml:id "https://w3id.org/lmodel/ucs-core" ;
+    linkml:imports "linkml:types" ;
+    linkml:types "{'category type': TypeDefinition(name='category type', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/CategoryType', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A primitive type in which the value denotes a class within the universal model.  The value must be a URI or a CURIE. In a Neo4j representation, the value should be the CURIE for the universal class, for example universal:Service. For an RDF representation, the value should be a URI such as https://w3id.org/lmodel/base/vocab/Service', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['NCIT:C115618', 'schema:categoryCode', 'sumo:categoryID'], close_mappings=[], related_mappings=[], narrow_mappings=['aml:InterfaceClass', 'aml:RoleClass', 'aml:SystemUnitClass', 'schema:MapCategoryType', 'schema:occupationalCode'], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='uriorcurie', base='URIorCURIE', uri='xsd:anyURI', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'iri type': TypeDefinition(name='iri type', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/IriType', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='An IRI', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='uriorcurie', base='URIorCURIE', uri='xsd:anyURI', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'label type': TypeDefinition(name='label type', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/LabelType', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A string that provides a human-readable name for an entity', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='string', base='str', uri='xsd:string', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'predicate type': TypeDefinition(name='predicate type', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/PredicateType', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A CURIE from the csolink related_to hierarchy. For example, schema:related_to', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='uriorcurie', base='URIorCURIE', uri='xsd:anyURI', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'narrative text': TypeDefinition(name='narrative text', id_prefixes=[], definition_uri='https://w3id.org/lmodel/ucs-core/NarrativeText', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A string that provides a human-readable description of something', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['sumo:NarrativeText'], close_mappings=['geolink:description', 'schema:description'], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='string', base='str', uri='xsd:string', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'unit': TypeDefinition(name='unit', id_prefixes=['UO'], definition_uri='https://w3id.org/lmodel/ucs-core/Unit', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description=None, alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/lmodel/ucs-core', imported_from=None, source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['CTRL:Unit', 'qud:Unit', 'schema:unit', 'sumo:UnitOfInformation'], close_mappings=['SIO:000074', 'sumo:UnitOfMeasure'], related_mappings=[], narrow_mappings=['sumo:Bit', 'sumo:Byte', 'sumo:businessUnit', 'sumo:UnitFn', 'sumo:UnitOfAngularMeasure', 'sumo:UnitOfArea', 'sumo:UnitOfAtmosphericPressure', 'sumo:UnitOfCurrency', 'sumo:UnitOfDuration', 'sumo:UnitOfFrequency', 'sumo:UnitOfInformation', 'sumo:UnitOfLength', 'sumo:UnitOfMass', 'sumo:UnitOfMeasure', 'sumo:UnitOfMeasureMultiplier', 'sumo:UnitOfTemperature', 'sumo:UnitOfVolume', 'wikidata.property:P8111'], broad_mappings=['schema:unitText'], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof='string', base='str', uri='UO:0000000', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'string': TypeDefinition(name='string', id_prefixes=[], definition_uri='https://w3id.org/linkml/String', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A character string', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Text'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='str', uri='xsd:string', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'integer': TypeDefinition(name='integer', id_prefixes=[], definition_uri='https://w3id.org/linkml/Integer', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='An integer', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Integer'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='int', uri='xsd:integer', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'boolean': TypeDefinition(name='boolean', id_prefixes=[], definition_uri='https://w3id.org/linkml/Boolean', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A binary (true or false) value', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Boolean'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='Bool', uri='xsd:boolean', repr='bool', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'float': TypeDefinition(name='float', id_prefixes=[], definition_uri='https://w3id.org/linkml/Float', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A real number that conforms to the xsd:float specification', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Float'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='float', uri='xsd:float', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'double': TypeDefinition(name='double', id_prefixes=[], definition_uri='https://w3id.org/linkml/Double', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A real number that conforms to the xsd:double specification', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=['schema:Float'], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='float', uri='xsd:double', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'decimal': TypeDefinition(name='decimal', id_prefixes=[], definition_uri='https://w3id.org/linkml/Decimal', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A real number with arbitrary precision that conforms to the xsd:decimal specification', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=['schema:Number'], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='Decimal', uri='xsd:decimal', repr=None, union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'time': TypeDefinition(name='time', id_prefixes=[], definition_uri='https://w3id.org/linkml/Time', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A time object represents a (local) time of day, independent of any particular day', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=['URI is dateTime because OWL reasoners do not work with straight date or time'], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Time'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='XSDTime', uri='xsd:time', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'date': TypeDefinition(name='date', id_prefixes=[], definition_uri='https://w3id.org/linkml/Date', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='a date (year, month and day) in an idealized calendar', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[\"URI is dateTime because OWL reasoners don't work with straight date or time\"], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:Date'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='XSDDate', uri='xsd:date', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'datetime': TypeDefinition(name='datetime', id_prefixes=[], definition_uri='https://w3id.org/linkml/Datetime', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='The combination of a date and time', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=['schema:DateTime'], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='XSDDateTime', uri='xsd:dateTime', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'date_or_datetime': TypeDefinition(name='date_or_datetime', id_prefixes=[], definition_uri='https://w3id.org/linkml/DateOrDatetime', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Either a date or a datetime', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='str', uri='linkml:DateOrDatetime', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'uriorcurie': TypeDefinition(name='uriorcurie', id_prefixes=[], definition_uri='https://w3id.org/linkml/Uriorcurie', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='a URI or a CURIE', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='URIorCURIE', uri='xsd:anyURI', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'curie': TypeDefinition(name='curie', id_prefixes=[], definition_uri='https://w3id.org/linkml/Curie', local_names={}, conforms_to='https://www.w3.org/TR/curie/', implements=[], extensions={}, annotations={}, description='a compact URI', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=['in RDF serializations this MUST be expanded to a URI', 'in non-RDF serializations MAY be serialized as the compact representation'], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='Curie', uri='xsd:string', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'uri': TypeDefinition(name='uri', id_prefixes=[], definition_uri='https://w3id.org/linkml/Uri', local_names={}, conforms_to='https://www.ietf.org/rfc/rfc3987.txt', implements=[], extensions={}, annotations={}, description='a complete URI', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=['in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node'], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=['schema:URL'], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='URI', uri='xsd:anyURI', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'ncname': TypeDefinition(name='ncname', id_prefixes=[], definition_uri='https://w3id.org/linkml/Ncname', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='Prefix part of CURIE', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='NCName', uri='xsd:string', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'objectidentifier': TypeDefinition(name='objectidentifier', id_prefixes=[], definition_uri='https://w3id.org/linkml/Objectidentifier', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A URI or CURIE that represents an object in the model.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=['Used for inheritence and type checking'], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='ElementIdentifier', uri='shex:iri', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[]), 'nodeidentifier': TypeDefinition(name='nodeidentifier', id_prefixes=[], definition_uri='https://w3id.org/linkml/Nodeidentifier', local_names={}, conforms_to=None, implements=[], extensions={}, annotations={}, description='A URI, CURIE or BNODE that represents a node in a model.', alt_descriptions={}, title=None, deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[], from_schema='https://w3id.org/linkml/types', imported_from='linkml:types', source=None, in_language=None, see_also=[], deprecated_element_has_exact_replacement=None, deprecated_element_has_possible_replacement=None, aliases=[], structured_aliases={}, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[], narrow_mappings=[], broad_mappings=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None, status=None, rank=None, typeof=None, base='NodeIdentifier', uri='shex:nonLiteral', repr='str', union_of=[], pattern=None, structured_pattern=None, unit=None, implicit_prefix=None, equals_string=None, equals_string_in=[], equals_number=None, minimum_value=None, maximum_value=None, none_of=[], exactly_one_of=[], any_of=[], all_of=[])}" .
+
+core:Hardware a owl:Class ;
+    rdfs:label "Hardware" ;
+    rdfs:comment "physical components of a computer" ;
+    rdfs:subClassOf core:SoftwareOrDevice ;
+    skos:exactMatch wikidata:Q3966 ;
+    skos:narrowMatch NCIT:C61402 ;
+    linkml:attributes "{}" ;
+    linkml:is_a "SoftwareOrDevice" .
+
+core:Linux a owl:Class ;
+    rdfs:label "Linux" ;
+    rdfs:comment "family of Unix-like operating systems using Linux kernel and open source" ;
+    rdfs:subClassOf core:OpenSource,
+        core:OperatingSystem ;
+    skos:exactMatch wikidata:Q388 ;
+    linkml:attributes "{}" ;
+    linkml:is_a "OperatingSystem" ;
+    linkml:mixins "OpenSource" .
+
+core:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "Collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim" ;
+    rdfs:subClassOf core:AdministrativeEntity ;
+    skos:exactMatch wikidata:Q170584,
+        GSSO:004441,
+        NCIT:C47885 ;
+    linkml:attributes "{}" ;
+    linkml:is_a "AdministrativeEntity" .
+
+core:Solaris a owl:Class ;
+    rdfs:label "Solaris" ;
+    rdfs:comment "Unix operating system originally developed by Sun Microsystems" ;
+    rdfs:subClassOf core:OperatingSystem ;
+    skos:exactMatch wikidata:Q14646 ;
+    linkml:attributes "{}" ;
+    linkml:is_a "OperatingSystem" .
+
+core:Windows a owl:Class ;
+    rdfs:label "Windows" ;
+    rdfs:comment "family of computer operating systems developed by Microsoft" ;
+    rdfs:subClassOf core:OperatingSystem ;
+    skos:exactMatch wikidata:Q1406 ;
+    linkml:attributes "{}" ;
+    linkml:is_a "OperatingSystem" .
+
+core:after a owl:DatatypeProperty ;
+    rdfs:label "after" ;
+    rdfs:comment "At a later or future time; afterwards." ;
+    rdfs:range xsd:string .
+
+core:annotation a owl:DatatypeProperty ;
+    rdfs:label "annotation" ;
+    rdfs:comment "piece of metadata attached to a document or other entity" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q857525,
+        NCIT:C44272,
+        SIO:001166 .
+
+core:auth_file a owl:DatatypeProperty ;
+    rdfs:label "auth_file" ;
+    rdfs:comment "A file used for authentication" ;
+    rdfs:range xsd:string .
+
+core:authfile a owl:DatatypeProperty ;
+    rdfs:label "authfile" ;
+    rdfs:comment "A file used for authentication" ;
+    rdfs:range xsd:string .
+
+core:build a owl:DatatypeProperty ;
+    rdfs:label "build" ;
+    rdfs:comment "Complete process of converting source code into software artifacts" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1362142 .
+
+core:cache a owl:DatatypeProperty ;
+    rdfs:label "cache" ;
+    rdfs:comment "Computing component that transparently stores data so that future requests for that data can be served faster" ;
+    rdfs:range xsd:string .
+
+core:cert_dir a owl:DatatypeProperty ;
+    rdfs:label "cert_dir" ;
+    rdfs:comment "Use certificates at path (*.crt, *.cert, *.key)" ;
+    rdfs:range xsd:string .
+
+core:certdir a owl:DatatypeProperty ;
+    rdfs:label "certdir" ;
+    rdfs:comment "Certificate directory" ;
+    rdfs:range xsd:string .
+
+core:cgroups a owl:DatatypeProperty ;
+    rdfs:label "cgroups" ;
+    rdfs:comment "Resource limit method in Linux" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q307299 .
+
+core:change a owl:DatatypeProperty ;
+    rdfs:label "change" ;
+    rdfs:comment "Process, event or action that deviates from the present state" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1150070,
+        NCIT:C25446 .
+
+core:cmd_args a owl:DatatypeProperty ;
+    rdfs:label "cmd_args" ;
+    rdfs:comment "Additional data that was passed as an argument to a subroutine" ;
+    rdfs:range xsd:string ;
+    skos:broadMatch wikidata:Q1410440 ;
+    skos:exactMatch MS:1001885 .
+
+core:command a owl:DatatypeProperty ;
+    rdfs:label "command" ;
+    rdfs:comment "Directive to a computer program" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1079196 .
+
+core:commit_message a owl:DatatypeProperty ;
+    rdfs:label "commit_message" ;
+    rdfs:comment "One modality of communication is a commit message, in which developers describe the changes they make in a repository. Commit messages serve as an “audit trail” by which developers can understand how the source code of a project has changed—and why" ;
+    rdfs:range xsd:string .
+
+core:compress a owl:DatatypeProperty ;
+    rdfs:label "compress" ;
+    rdfs:comment "Process of encoding information using fewer bits than original representation" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q2493 ;
+    skos:narrowMatch NCIT:C80222 .
+
+core:container a owl:DatatypeProperty ;
+    rdfs:label "container" ;
+    rdfs:comment "Software class, data structure, or abstract data type (ADT) whose instances are collections of other objects" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1643805 .
+
+core:cpus a owl:DatatypeProperty ;
+    rdfs:label "cpus" ;
+    rdfs:comment "Number of CPUs." ;
+    rdfs:range xsd:string .
+
+core:debug a owl:DatatypeProperty ;
+    rdfs:label "debug" ;
+    rdfs:comment "Return additional information which can be helpful for investigations." ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q845566 .
+
+core:dest a owl:DatatypeProperty ;
+    rdfs:label "dest" ;
+    rdfs:comment "Location where item appears, appeared, or is intended to be after transition" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q23458944 .
+
+core:device a owl:DatatypeProperty ;
+    rdfs:label "device" ;
+    rdfs:comment "System device" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch NCIT:C62103 .
+
+core:dns a owl:DatatypeProperty ;
+    rdfs:label "dns" ;
+    rdfs:comment "Domain name service servers" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "dns_servers" .
+
+core:dns_opt a owl:DatatypeProperty ;
+    rdfs:label "dns_opt" ;
+    rdfs:comment "DNS options" ;
+    rdfs:range xsd:string .
+
+core:dns_option a owl:DatatypeProperty ;
+    rdfs:label "dns_option" ;
+    rdfs:comment "DNS options" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "dns_opts" .
+
+core:dns_search a owl:DatatypeProperty ;
+    rdfs:label "dns_search" ;
+    rdfs:comment "DNS search domains." ;
+    rdfs:range xsd:string ;
+    skos:altLabel "dns_search_domains" .
+
+core:driver a owl:DatatypeProperty ;
+    rdfs:label "driver" ;
+    rdfs:comment "Computer program that operates or controls a particular type of device" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1033951,
+        NCIT:C49931 .
+
+core:driver_opts a owl:DatatypeProperty ;
+    rdfs:label "driver_opts" ;
+    rdfs:comment "Driver-specific options" ;
+    rdfs:range xsd:string .
+
+core:env a owl:DatatypeProperty ;
+    rdfs:label "env" ;
+    rdfs:comment "Set environment variables." ;
+    rdfs:range xsd:string .
+
+core:env_file a owl:DatatypeProperty ;
+    rdfs:label "env_file" ;
+    rdfs:comment "Line delimited file of environment variables." ;
+    rdfs:range xsd:string .
+
+core:etc_hosts a owl:DatatypeProperty ;
+    rdfs:label "etc_hosts" ;
+    rdfs:comment "Computer configuration file to map hostnames to IP addresses" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1149007 .
+
+core:executable a owl:DatatypeProperty ;
+    rdfs:label "executable" ;
+    rdfs:comment "file that can be directly run by a computer" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q778586,
+        ONTOAVIDA:00000002 .
+
+core:file a owl:DatatypeProperty ;
+    rdfs:label "file" ;
+    rdfs:comment "contained block of information on a computer" ;
+    rdfs:domain core:Software ;
+    rdfs:range xsd:string ;
+    skos:broadMatch uco-observable:File ;
+    skos:exactMatch wikidata:Q82753 .
+
+core:force a owl:DatatypeProperty ;
+    rdfs:label "force" ;
+    rdfs:comment "coercion or compulsion" ;
+    rdfs:range xsd:string .
+
+core:gateway a owl:DatatypeProperty ;
+    rdfs:label "gateway" ;
+    rdfs:comment "Hardware or software components that connect between two network systems" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q487365 .
+
+core:healthcheck a owl:DatatypeProperty ;
+    rdfs:label "healthcheck" ;
+    rdfs:comment "Set or alter a healthcheck command" ;
+    rdfs:range xsd:string .
+
+core:healthcheck_interval a owl:DatatypeProperty ;
+    rdfs:label "healthcheck_interval" ;
+    rdfs:comment "Set an interval for the healthchecks." ;
+    rdfs:range xsd:string .
+
+core:healthcheck_retries a owl:DatatypeProperty ;
+    rdfs:label "healthcheck_retries" ;
+    rdfs:comment "The number of retries allowed before a healthcheck is considered unhealthy." ;
+    rdfs:range xsd:integer .
+
+core:healthcheck_timeout a owl:DatatypeProperty ;
+    rdfs:label "healthcheck_timeout" ;
+    rdfs:comment "The maximum time allowed to complete the healthcheck before an interval is considered failed. The default value is 30s" ;
+    rdfs:range xsd:string .
+
+core:http_proxy a owl:DatatypeProperty ;
+    rdfs:label "http_proxy" ;
+    rdfs:comment "The https_proxy environment variable holds the hostname or IP address of your proxy server. https_proxy is a standard environment variable." ;
+    rdfs:range xsd:string ;
+    skos:broadMatch wikidata:Q11189,
+        wikidata:Q15907015 .
+
+core:image a owl:DatatypeProperty ;
+    rdfs:label "image" ;
+    rdfs:comment "artifact that depicts or records visual perception" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q4787987 .
+
+core:infra a owl:DatatypeProperty ;
+    rdfs:label "infra" ;
+    rdfs:comment "Fundamental facilities and systems serving a country, city, or other areas" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "infrastructure" ;
+    skos:exactMatch wikidata:Q121359 .
+
+core:init a owl:DatatypeProperty ;
+    rdfs:label "init" ;
+    rdfs:comment "UNIX system component; 1st process started during booting of the computer system; daemon process that continues running until the system is shut down; direct or indirect ancestor of all other processes; automatically adopts all orphaned processes" ;
+    rdfs:range xsd:string ;
+    skos:broadMatch wikidata:Q529711 ;
+    skos:exactMatch wikidata:Q261918 .
+
+core:input a owl:DatatypeProperty ;
+    rdfs:label "input" ;
+    rdfs:comment "Input of a program or process, i.e. a command or signal from outer sources" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "path" ;
+    skos:exactMatch wikidata:Q1125955,
+        NCIT:C47905 .
+
+core:interactive a owl:DatatypeProperty ;
+    rdfs:label "interactive" ;
+    rdfs:comment "Allow flow of information between a computer and a computer-user; responding to a user’s input." ;
+    rdfs:range xsd:boolean .
+
+core:internal a owl:DatatypeProperty ;
+    rdfs:label "internal" ;
+    rdfs:comment "Happening or arising or located within some limits, or especially, within some surface." ;
+    rdfs:range xsd:string ;
+    skos:exactMatch NCIT:C25234 .
+
+core:ip_range a owl:DatatypeProperty ;
+    rdfs:label "ip_range" ;
+    rdfs:comment "Bundle of consecutive public IP addresses. The size of the IP range, is determined by the subnet mask" ;
+    rdfs:range xsd:string .
+
+core:ipv6 a owl:DatatypeProperty ;
+    rdfs:label "ipv6" ;
+    rdfs:comment "Version 6 of the Internet Protocol" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q2551624 .
+
+core:label a owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:comment "Word or phrase used for identification" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "labels" ;
+    skos:exactMatch wikidata:Q82799 .
+
+core:log_driver a owl:DatatypeProperty ;
+    rdfs:label "log_driver" ;
+    rdfs:comment "Driver used for logging." ;
+    rdfs:range xsd:string ;
+    skos:narrowMatch wikidata:Q117466422 .
+
+core:log_level a owl:DatatypeProperty ;
+    rdfs:label "log_level" ;
+    rdfs:comment "Message logging level" ;
+    rdfs:range xsd:string ;
+    skos:narrowMatch wikidata:Q95953500 .
+
+core:mac_address a owl:DatatypeProperty ;
+    rdfs:label "mac_address" ;
+    rdfs:comment "Unique identifier assigned to network interfaces for communications on the physical network segment. Must be unique within one Ethernet network." ;
+    rdfs:range xsd:string .
+
+core:max_size a owl:DatatypeProperty ;
+    rdfs:label "max_size" ;
+    rdfs:comment "Maximum size of an entity." ;
+    rdfs:range xsd:string .
+
+core:memory a owl:DatatypeProperty ;
+    rdfs:label "memory" ;
+    rdfs:comment "Storage of digital data readable by computers" ;
+    rdfs:range xsd:string .
+
+core:mount a owl:DatatypeProperty ;
+    rdfs:label "mount" ;
+    rdfs:comment "Directory over which a filesystem is mounted" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "mounts" .
+
+core:mtu a owl:DatatypeProperty ;
+    rdfs:label "mtu" ;
+    rdfs:comment "Size of the largest network layer protocol data unit that can be communicated in a single network transaction" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "maximum transmission unit" ;
+    skos:exactMatch wikidata:Q1163115 .
+
+core:names a owl:DatatypeProperty ;
+    rdfs:label "names" ;
+    rdfs:comment "Names of entites" ;
+    rdfs:range xsd:string .
+
+core:new a owl:DatatypeProperty ;
+    rdfs:label "new" ;
+    rdfs:comment "Produced, introduced, or discovered recently or now for the first time; not existing before." ;
+    rdfs:range xsd:string .
+
+core:opt a owl:DatatypeProperty ;
+    rdfs:label "opt" ;
+    rdfs:comment "Individual item to configure a computer system or app" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "option",
+        "options" ;
+    skos:exactMatch wikidata:Q105029446 .
+
+core:options a owl:DatatypeProperty ;
+    rdfs:label "options" ;
+    rdfs:comment "Driver-specific options" ;
+    rdfs:range xsd:string .
+
+core:privileged a owl:DatatypeProperty ;
+    rdfs:label "privileged" ;
+    rdfs:comment "Delegated authority to perform security-relevant functions on a system" ;
+    rdfs:range xsd:boolean .
+
+core:publish a owl:DatatypeProperty ;
+    rdfs:label "publish" ;
+    rdfs:comment "Publish things to make something externally available" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "ports",
+        "published",
+        "published_ports" .
+
+core:quiet a owl:DatatypeProperty ;
+    rdfs:label "quiet" ;
+    rdfs:comment "Make or become silent, calm, or still." ;
+    rdfs:range xsd:string .
+
+core:read_only a owl:DatatypeProperty ;
+    rdfs:label "read_only" ;
+    rdfs:comment "Can be accessed but not modified. Default is false" ;
+    rdfs:range xsd:boolean .
+
+core:recreate a owl:DatatypeProperty ;
+    rdfs:label "recreate" ;
+    rdfs:comment "Create again." ;
+    rdfs:range xsd:boolean .
+
+core:rm a owl:DatatypeProperty ;
+    rdfs:label "rm" ;
+    rdfs:comment "Automatically remove the entity when it exits. The default is false." ;
+    rdfs:range xsd:boolean ;
+    skos:altLabel "auto_remove",
+        "remove" .
+
+core:rootfs a owl:DatatypeProperty ;
+    rdfs:label "rootfs" ;
+    rdfs:comment "Root filesystem at the top of the hierarchical file tree (also known as ‘/’)." ;
+    rdfs:range xsd:string .
+
+core:secrets a owl:DatatypeProperty ;
+    rdfs:label "secrets" ;
+    rdfs:comment "information that is hidden from someone." ;
+    rdfs:range xsd:string .
+
+core:separator a owl:DatatypeProperty ;
+    rdfs:label "separator" ;
+    rdfs:comment "Sequence of one or more characters used to specify the boundary between separate, independent regions in plain text or other data streams; one of various means to specify boundaries in a data stream" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "delimiter" ;
+    skos:exactMatch wikidata:Q1641420 .
+
+core:share a owl:DatatypeProperty ;
+    rdfs:label "share" ;
+    rdfs:comment "Computer resource made available from one host to other hosts on a computer network" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1172305 .
+
+core:subnet a owl:DatatypeProperty ;
+    rdfs:label "subnet" ;
+    rdfs:comment "Logically visible subdivision of an IP network" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q11414 .
+
+core:sysctl a owl:DatatypeProperty ;
+    rdfs:label "sysctl" ;
+    rdfs:comment "Unix-like software that manages kernel attributes" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q3509049 .
+
+core:systemd a owl:DatatypeProperty ;
+    rdfs:label "systemd" ;
+    rdfs:comment "Init system and system/service manager for Linux systems" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q286124 .
+
+core:tag a owl:DatatypeProperty ;
+    rdfs:label "tag" ;
+    rdfs:comment "Metadata used for classifications or adding of informations" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q658349 .
+
+core:timezone a owl:DatatypeProperty ;
+    rdfs:label "timezone" ;
+    rdfs:comment "Region on Earth that has a uniform standard time for legal, commercial, and social purposes." ;
+    rdfs:range xsd:string .
+
+core:tls_verify a owl:DatatypeProperty ;
+    rdfs:label "tls_verify" ;
+    rdfs:comment "Require HTTPS and verify certificates" ;
+    rdfs:range xsd:string .
+
+core:tlsverify a owl:DatatypeProperty ;
+    rdfs:label "tlsverify" ;
+    rdfs:comment "Require HTTPS and verify certificates" ;
+    rdfs:range xsd:string .
+
+core:tmpfs a owl:DatatypeProperty ;
+    rdfs:label "tmpfs" ;
+    rdfs:comment "Tmpfs (short for Temporary File System) is a temporary file storage paradigm implemented in many Unix-like operating systems. It is intended to appear as a mounted file system, but data is stored in volatile memory instead of a persistent storage device." ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q285946 .
+
+core:transport a owl:DatatypeProperty ;
+    rdfs:label "transport" ;
+    rdfs:comment "Human-directed movement of things or people between locations" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q7590 .
+
+core:tty a owl:DatatypeProperty ;
+    rdfs:label "tty" ;
+    rdfs:comment "Device for transmitting messages in written form by electrical signals" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "teleprinter" .
+
+core:ulimit a owl:DatatypeProperty ;
+    rdfs:label "ulimit" ;
+    rdfs:comment "User limits - limit the use of system-wide resources." ;
+    rdfs:range xsd:string ;
+    skos:altLabel "ulimits" .
+
+core:user a owl:DatatypeProperty ;
+    rdfs:label "user" ;
+    rdfs:comment "Person who interacts with a system, typically through an interface, to extract some functional benefit" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q613354 .
+
+core:username a owl:DatatypeProperty ;
+    rdfs:label "username" ;
+    rdfs:comment "Identifier for a person in a computer system" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch edam.data:1689,
+        wikidata:Q15901043 .
+
+core:uts a owl:DatatypeProperty ;
+    rdfs:label "uts" ;
+    rdfs:comment "UTS (UNIX Time-Sharing) namespaces allow a single system to appear to have different host and domain names to different processes." ;
+    rdfs:range xsd:string .
+
+core:validate_certs a owl:DatatypeProperty ;
+    rdfs:label "validate_certs" ;
+    rdfs:comment "Validate certificates" ;
+    rdfs:range xsd:string .
+
+core:vlan a owl:DatatypeProperty ;
+    rdfs:label "vlan" ;
+    rdfs:comment "Network communications domain that is isolated at the data link layer" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q16452 .
+
+core:workdir a owl:DatatypeProperty ;
+    rdfs:label "workdir" ;
+    rdfs:comment "The currently used hierarchical file system directory associated with a running process in an operating system" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "working_dir" .
+
+uco-observable:data a owl:DatatypeProperty ;
+    rdfs:label "data" ;
+    rdfs:comment "Information arranged for automatic processing" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q42848,
+        uco-observable:data .
+
+uco-observable:hostname a owl:DatatypeProperty ;
+    rdfs:label "hostname" ;
+    rdfs:comment "label assigned to a device connected to a computer network" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1073408,
+        uco-observable:hostname .
+
+uco-observable:ip a owl:DatatypeProperty ;
+    rdfs:label "ip" ;
+    rdfs:comment "Principal communications protocol used for relaying datagrams (also known as network packets) across an internetwork" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q8795,
+        uco-observable:ip .
+
+uco-observable:network a owl:DatatypeProperty ;
+    rdfs:label "network" ;
+    rdfs:comment "Network that allows computers to share resources and communicate with each other" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1301371,
+        uco-observable:network .
+
+uco-observable:password a owl:DatatypeProperty ;
+    rdfs:label "password" ;
+    rdfs:comment "Used for user authentication to prove identity or access approval" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q161157,
+        uco-observable:password .
+
+uco-observable:path a owl:DatatypeProperty ;
+    rdfs:label "path" ;
+    rdfs:comment "general form of the name of a file or directory; resources can be represented by either absolute or relative paths" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q817765,
+        uco-observable:path .
+
+uco-observable:pid a owl:DatatypeProperty ;
+    rdfs:label "pid" ;
+    rdfs:comment "number to identify each process running on a computer" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q1541645,
+        uco-observable:pid .
+
+uco-observable:state a owl:DatatypeProperty ;
+    rdfs:label "state" ;
+    rdfs:comment "The way something is with respect to its main attributes." ;
+    rdfs:domain core:Association ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:associationSlot ;
+    skos:exactMatch NCIT:C25687,
+        uco-observable:state ;
+    linkml:is_a "associationSlot" .
+
+uco-observable:volume a owl:DatatypeProperty ;
+    rdfs:label "volume" ;
+    rdfs:comment "volume of a book or music release in a collection/series or a published collection of journal issues in a serial publication" ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch schema1:PublicationVolume,
+        uco-observable:volume,
+        wikidata.property:P478 ;
+    linkml:is_a "nodeProperty" .
+
+core:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "person, group, organization or project that provides a piece of information (i.e. a knowledge association)" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty uco-identity:address ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty core:affiliation ],
+        core:AdministrativeEntity ;
+    skos:altLabel "group" ;
+    skos:exactMatch CSO:single-agent,
+        csrc:Agent ;
+    linkml:attributes "{}" ;
+    linkml:is_a "AdministrativeEntity" .
+
+core:MetaObject a owl:Class ;
+    rdfs:label "MetaObject" ;
+    rdfs:comment "linkml:Any type is an experimental feature for allowing arbitrary objects" ;
+    skos:exactMatch linkml:Any ;
+    linkml:attributes "{}" .
+
+core:System a owl:Class ;
+    rdfs:label "System" ;
+    rdfs:comment "An entity that intends to perform some functions, interacting with other systems. Relative to a given system, the entities with which it interacts, are considered its environment. A system is structurally composed of a set of components bound together." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom core:NamedThing ;
+            owl:onProperty core:inTaxon ],
+        core:NamedThing,
+        core:ThingWithTaxon ;
+    skos:broadMatch wikidata:Q99527517 ;
+    skos:exactMatch wikidata:Q58778,
+        NCIT:C25700,
+        RO:0002577,
+        ssn:System,
+        csrc:system ;
+    linkml:attributes "{}" ;
+    linkml:is_a "NamedThing" ;
+    linkml:mixins "ThingWithTaxon" .
+
+core:Virtualization a owl:Class ;
+    rdfs:label "Virtualization" ;
+    rdfs:comment "computing technique for setting up virtual versions of operating systems or computer resources" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:exactMatch wikidata:Q270471 ;
+    linkml:attributes "{}" .
+
+core:affiliation a owl:DatatypeProperty ;
+    rdfs:label "affiliation" ;
+    rdfs:comment "a professional relationship between one provider (x) within another provider (often an organization). Target provider identity should be specified by a CURIE. Providers may have multiple affiliations." ;
+    rdfs:domain core:Agent ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch NCIT:C25412,
+        schema1:affiliation,
+        SIO:000173,
+        wikidata.property:P1268 ;
+    skos:relatedMatch uco-identity:AffiliationFacet ;
+    linkml:is_a "nodeProperty" .
+
+core:authors a owl:DatatypeProperty ;
+    rdfs:label "authors" ;
+    rdfs:comment "Connects an publication to the list of authors who contributed to the publication. This property should be a comma-delimited list of author names. It is recommended that an author's name be formatted as \"surname, firstname initial.\"." ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    linkml:is_a "nodeProperty" .
+
+core:hasAttribute a owl:ObjectProperty ;
+    rdfs:label "hasAttribute" ;
+    rdfs:comment "connects any entity to an attribute" ;
+    rdfs:domain core:Entity ;
+    rdfs:range core:Attribute ;
+    skos:closeMatch sumo:hasVariable,
+        sumo:property ;
+    skos:exactMatch SIO:000008,
+        ssn:hasProperty,
+        aml:hasAttribute,
+        ctrl:hasParameter ;
+    skos:narrowMatch EFO:0006351,
+        EFO:is_executed_in,
+        LOINC:has_action_guidance,
+        LOINC:has_adjustment,
+        LOINC:has_aggregation_view,
+        LOINC:has_approach_guidance,
+        LOINC:has_divisor,
+        LOINC:has_exam,
+        LOINC:has_method,
+        LOINC:has_modality_subtype,
+        LOINC:has_object_guidance,
+        LOINC:has_scale,
+        LOINC:has_suffix,
+        LOINC:has_time_aspect,
+        LOINC:has_time_modifier,
+        LOINC:has_timing_of,
+        CDAO:has_Annotation,
+        CDAO:has_Change_Component,
+        CDAO:has_Character,
+        CDAO:has_Coordinate,
+        CDAO:has_Datum,
+        CDAO:has_Element,
+        CDAO:has_First_Coordinate_Item,
+        CDAO:has_Node,
+        CDAO:has_Remaining_Coordinate_List,
+        CDAO:has_Root,
+        CDAO:has_State,
+        IAO:0000039,
+        IAO:0000407,
+        NCIT:C62618,
+        NCIT:has_data_element,
+        NCIT:is_qualified_by,
+        NCIT:qualifier_applies_to,
+        NCIT:role_has_domain,
+        NCIT:role_has_range,
+        RO:0000053,
+        RO:0000086,
+        RO:0000087,
+        RO:0002002,
+        RO:0002013,
+        RO:0002016,
+        RO:0002017,
+        RO:0002018,
+        RO:0002025,
+        RO:0002338,
+        RO:0002339,
+        RO:0002348,
+        RO:0002520,
+        RO:0002521,
+        RO:0002566,
+        RO:0002573,
+        RO:0009004,
+        SWO:0000086,
+        SWO:0000087,
+        SWO:0000741,
+        SWO:0004000,
+        SWO:0004001,
+        SWO:0004002,
+        SWO:0004004,
+        SWO:3000054,
+        SWO:9000067,
+        SWO:9001002,
+        dcterms:hasFormat,
+        dcterms:hasPart,
+        dcterms:hasVersion,
+        gr:hasBrand,
+        gr:hasBusinessFunction,
+        gr:hasCurrency,
+        gr:hasEligibleQuantity,
+        gr:hasGlobalLocationNumber,
+        gr:hasInventoryLevel,
+        gr:hasMakeAndModel,
+        gr:hasManufacturer,
+        gr:hasNext,
+        gr:hasPrevious,
+        gr:hasUnitOfMeasurement,
+        gr:hasValue,
+        geolink:hasAffiliation,
+        geolink:hasAuthor,
+        geolink:hasAuthoritativeDigitalRepository,
+        geolink:hasCollectionEndDate,
+        geolink:hasCollectionStartDate,
+        geolink:hasCollector,
+        geolink:hasContact,
+        geolink:hasContributor,
+        geolink:hasCreator,
+        geolink:hasDataset,
+        geolink:hasEditor,
+        geolink:hasEducator,
+        geolink:hasFirstAppearance,
+        geolink:hasIdentifierScheme,
+        geolink:hasObservationArea,
+        geolink:hasObserver,
+        geolink:hasOwner,
+        geolink:hasPart,
+        geolink:hasParticipant,
+        geolink:hasParticipationEndTime,
+        geolink:hasParticipationStartTime,
+        geolink:hasPublicationDate,
+        geolink:hasRegistrationDate,
+        geolink:hasRelatedSample,
+        geolink:hasRepository,
+        geolink:hasRightsHolder,
+        geolink:hasScheduler,
+        geolink:hasStartDate,
+        geolink:hasTimeStamp,
+        geolink:hasVendor,
+        schema1:hasPart,
+        SIO:000008,
+        SIO:000011,
+        SIO:000028,
+        SIO:000053,
+        SIO:000054,
+        SIO:000059,
+        SIO:000066,
+        SIO:000132,
+        SIO:000139,
+        SIO:000145,
+        SIO:000217,
+        SIO:000221,
+        SIO:000223,
+        SIO:000225,
+        SIO:000228,
+        SIO:000229,
+        SIO:000230,
+        SIO:000234,
+        SIO:000235,
+        SIO:000253,
+        SIO:000255,
+        SIO:000273,
+        SIO:000291,
+        SIO:000300,
+        SIO:000312,
+        SIO:000364,
+        SIO:000369,
+        SIO:000420,
+        SIO:000552,
+        SIO:000553,
+        SIO:000586,
+        SIO:000635,
+        SIO:000641,
+        SIO:000644,
+        SIO:000671,
+        SIO:000673,
+        SIO:000679,
+        SIO:000680,
+        SIO:000681,
+        SIO:000772,
+        SIO:000900,
+        SIO:000905,
+        SIO:000971,
+        SIO:000972,
+        SIO:000974,
+        SIO:001277,
+        SIO:001278,
+        SIO:001279,
+        om:hasPhenomenon,
+        sosa:hasFeatureOfInterest,
+        sosa:hasSample,
+        ssn:hasSubSystem,
+        ssn:isProxyFor,
+        ssn-system:hasOperatingProperty,
+        ssn-system:hasOperatingRange,
+        ssn-system:hasSurvivalProperty,
+        ssn-system:hasSurvivalRange,
+        ssn-system:hasSystemCapability,
+        ssn-system:hasSystemProperty,
+        ssn-system:inCondition,
+        aml:hasAttributeName,
+        aml:hasDescription,
+        aml:hasICID,
+        aml:hasName,
+        aml:hasProject,
+        aml:hasSchemaVersion,
+        aml:hasUnit,
+        aml:hasVersionSUC,
+        aml:hasWriterVersion,
+        ctrl:hasApplicationLogic,
+        ctrl:hasInput,
+        ctrl:hasMedium,
+        ctrl:hasOutput,
+        ctrl:isConnectedTo,
+        ctrl:isSupervisedBy,
+        sumo:hasAccount,
+        sumo:hasAcrossVariable,
+        sumo:hasAward,
+        sumo:hasDependency,
+        sumo:hasDimension,
+        sumo:hasExpertise,
+        sumo:hasGUEState,
+        sumo:hasOccupation,
+        sumo:hasPurpose,
+        sumo:hasPurposeForAgent,
+        sumo:hasSkill,
+        sumo:hasThroughVariable,
+        sumo:hasUniform,
+        sumo:hasVariable,
+        sumo:holdsRight,
+        SAN:hasActuatingCapability,
+        SAN:hasActuatingProperty,
+        SAN:hasDateTime,
+        SAN:hasEffect,
+        SAN:hasWriter .
+
+core:hasAttributeType a owl:ObjectProperty ;
+    rdfs:label "hasAttributeType" ;
+    rdfs:comment "connects an attribute to a class that describes it" ;
+    rdfs:domain core:Attribute ;
+    rdfs:range core:OntologyClass ;
+    skos:closeMatch sumo:havePartTypes ;
+    skos:exactMatch aml:hasAttributeDataType .
+
+core:hasEvidence a owl:ObjectProperty ;
+    rdfs:label "hasEvidence" ;
+    rdfs:comment "connects an association to an instance of supporting evidence" ;
+    rdfs:domain core:Association ;
+    rdfs:range core:EvidenceType ;
+    rdfs:subPropertyOf core:associationSlot ;
+    skos:exactMatch RO:0002558 ;
+    linkml:is_a "associationSlot" .
+
+core:hasNumericValue a owl:DatatypeProperty ;
+    rdfs:label "hasNumericValue" ;
+    rdfs:comment "connects a quantity value to a number" ;
+    rdfs:domain core:QuantityValue ;
+    rdfs:range xsd:double ;
+    skos:broadMatch NCIT:C81274,
+        qud:numericValue,
+        schema1:Number,
+        sumo:number ;
+    skos:exactMatch qud:quantityValue ;
+    skos:narrowMatch gr:weight,
+        gr:width,
+        ctrl:Quantity,
+        sumo:FiniteQuantity,
+        sumo:InfiniteQuantity,
+        sumo:Quantity,
+        sumo:QuantityChange,
+        sumo:age,
+        sumo:diameter,
+        sumo:duration,
+        sumo:length,
+        sumo:memorySize,
+        sumo:netAmount,
+        sumo:netWorth,
+        sumo:publishedPrice,
+        sumo:radius,
+        sumo:totalFacilityTypeInArea,
+        sumo:unitNumber,
+        sumo:unitPrice .
+
+core:hasQualitativeValue a owl:ObjectProperty ;
+    rdfs:label "hasQualitativeValue" ;
+    rdfs:comment "connects an attribute to a value" ;
+    rdfs:domain core:Attribute ;
+    rdfs:range core:NamedThing ;
+    skos:closeMatch schema1:QualitativeValue,
+        sumo:greaterThanByQuality ;
+    skos:narrowMatch IAO:0000221,
+        gr:hasMaxValue,
+        gr:hasMinValue,
+        SIO:000216,
+        aml:hasAttributeValue .
+
+core:hasQuantitativeValue a owl:ObjectProperty ;
+    rdfs:label "hasQuantitativeValue" ;
+    rdfs:comment "Connects an attribute to a value" ;
+    rdfs:domain core:Attribute ;
+    rdfs:range core:QuantityValue ;
+    skos:broadMatch NCIT:C70589 ;
+    skos:exactMatch wikidata:Q17627912,
+        gr:QuantitativeValue,
+        qud:quantityValue,
+        schema1:QuantitativeValue,
+        om:hasQuantity,
+        ctrl:hasQuantity ;
+    skos:narrowMatch gr:QuantitativeValueFloat,
+        gr:QuantitativeValueInteger,
+        om:hasBaseQuantity,
+        om:hasDerivedQuantity .
+
+core:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "hasUnit" ;
+    rdfs:comment "connects a quantity value to a unit" ;
+    rdfs:domain core:QuantityValue ;
+    rdfs:range UO:0000000 ;
+    skos:closeMatch EFO:0001697,
+        UO:is_unit_of ;
+    skos:exactMatch IAO:0000039,
+        qud:unit,
+        SIO:000221,
+        om:hasUnit,
+        aml:hasUnit,
+        ctrl:hasUnit,
+        ctrl:unit,
+        sumo:UnitFn ;
+    skos:narrowMatch gr:hasUnitOfMeasurement .
+
+core:id a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:comment "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+    rdfs:domain core:Entity ;
+    rdfs:range xsd:string ;
+    skos:broadMatch IAO:0000119,
+        IAO:0000603,
+        CSO:catalogue_identifiers,
+        sumo:identityElement ;
+    skos:exactMatch edam.data:0842,
+        EFO:id,
+        dcterms:identifier,
+        schema1:identifier,
+        SIO:000115,
+        uco-types:identifier,
+        REPR:id,
+        sumo:Identifier ;
+    skos:narrowMatch NCIT:C94069,
+        dcterms:eventID,
+        dcterms:identificationID,
+        dcterms:parentEventID,
+        dcterms:systemID,
+        schema1:productID,
+        schema1:taxID,
+        SIO:000328,
+        SIO:000672,
+        SIO:000674,
+        SIO:000729,
+        CSO:bicm-id,
+        REPR:doi,
+        sumo:AccountID,
+        sumo:AgentID,
+        sumo:AlphaIDString,
+        sumo:AlphaNumericIDString,
+        sumo:CountryID,
+        sumo:CustomerID,
+        sumo:DistrictID,
+        sumo:EmployeeID,
+        sumo:IsoCode,
+        sumo:LocalizablePlaceID,
+        sumo:UniformResourceLocator,
+        sumo:currencyCode,
+        sumo:urlString,
+        sumo:userIDString,
+        wikidata.property:P3743 .
+
+core:keywords a owl:DatatypeProperty ;
+    rdfs:label "keywords" ;
+    rdfs:comment "keywords tagging a publication" ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch schema1:keywords ;
+    linkml:is_a "nodeProperty" .
+
+core:lcshTerms a owl:DatatypeProperty ;
+    rdfs:label "lcshTerms" ;
+    rdfs:comment "Library of Congress Subject Headings (LCSH) terms tagging a publication" ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    linkml:is_a "nodeProperty" .
+
+core:license a owl:DatatypeProperty ;
+    rdfs:label "license" ;
+    rdfs:domain core:InformationContentEntity ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch dcterms:license,
+        gr:License,
+        schema1:license,
+        sumo:License ;
+    skos:narrowMatch wikidata:Q7603,
+        sumo:LicenseAgreement,
+        wikidata.property:P275,
+        wikidata.property:Q13785927,
+        wikidata.property:Q192897,
+        wikidata.property:Q284742,
+        wikidata.property:Q3238057,
+        wikidata.property:Q334661 ;
+    linkml:is_a "nodeProperty" .
+
+core:negated a owl:DatatypeProperty ;
+    rdfs:label "negated" ;
+    rdfs:comment "if set to true, then the association is negated i.e. is not true" ;
+    rdfs:domain core:Association ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf core:associationSlot ;
+    linkml:is_a "associationSlot" .
+
+core:pages a owl:DatatypeProperty ;
+    rdfs:label "pages" ;
+    rdfs:comment "Page number of source referenced for statement or publication" ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch wikidata.property:P304 ;
+    skos:narrowMatch sumo:Page ;
+    linkml:is_a "nodeProperty" .
+
+core:providedBy a owl:DatatypeProperty ;
+    rdfs:label "providedBy" ;
+    rdfs:comment "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch wikidata:Q68974939,
+        pav:providedBy ;
+    linkml:is_a "nodeProperty" .
+
+core:publications a owl:ObjectProperty ;
+    rdfs:label "publications" ;
+    rdfs:comment "connects an association to publications supporting the association" ;
+    rdfs:domain core:Association ;
+    rdfs:range core:Publication ;
+    rdfs:subPropertyOf core:associationSlot ;
+    linkml:is_a "associationSlot" .
+
+core:qualifiers a owl:ObjectProperty ;
+    rdfs:label "qualifiers" ;
+    rdfs:comment "connects an association to qualifiers that modify or qualify the meaning of that association" ;
+    rdfs:domain core:Association ;
+    rdfs:range core:OntologyClass ;
+    rdfs:subPropertyOf core:associationSlot ;
+    linkml:is_a "associationSlot" .
+
+core:relatedTo a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "relatedTo" ;
+    rdfs:comment "A relationship that is asserted between two named things" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range core:NamedThing ;
+    skos:broadMatch <http://purl.obolibrary.org/obo/ECO_0000041>,
+        SWO:topObjectProperty,
+        schema1:isSimilarTo,
+        gvp:aat2900_miscellaneous_relationship,
+        owl:topObjectProperty ;
+    skos:closeMatch dwc:ResourceRelationship ;
+    skos:exactMatch schema1:isRelatedTo,
+        schema1:relatedTo,
+        SIO:000001,
+        gvp:aat2000_related_to,
+        skos:relatedMatch,
+        csrc:Association,
+        sumo:relatedTo ;
+    skos:narrowMatch EFO:0006351,
+        wikidata:Q1360012,
+        <http://purl.obolibrary.org/obo/BFO_0000054>,
+        <http://purl.obolibrary.org/obo/BFO_0000068>,
+        <http://purl.obolibrary.org/obo/BFO_0000069>,
+        <http://purl.obolibrary.org/obo/BTO_related_to>,
+        IAO:0000136,
+        NCIT:is_related_to_endogenous_product,
+        <http://purl.obolibrary.org/obo/PATO_decreased_in_magnitude_relative_to>,
+        <http://purl.obolibrary.org/obo/PATO_has_cross_section>,
+        <http://purl.obolibrary.org/obo/PATO_has_relative_magnitude>,
+        <http://purl.obolibrary.org/obo/PATO_increased_in_magnitude_relative_to>,
+        <http://purl.obolibrary.org/obo/PATO_reciprocal_of>,
+        RO:0000052,
+        RO:0002001,
+        RO:0002002,
+        RO:0002003,
+        RO:0002008,
+        RO:0002134,
+        RO:0002150,
+        RO:0002159,
+        RO:0002176,
+        RO:0002177,
+        RO:0002178,
+        RO:0002179,
+        RO:0002314,
+        RO:0002322,
+        RO:0002328,
+        RO:0002332,
+        RO:0002337,
+        RO:0002338,
+        RO:0002339,
+        RO:0002341,
+        RO:0002342,
+        RO:0002344,
+        RO:0002348,
+        RO:0002349,
+        RO:0002356,
+        RO:0002371,
+        RO:0002374,
+        RO:0002385,
+        RO:0002387,
+        RO:0002451,
+        RO:0002494,
+        RO:0002495,
+        RO:0002573,
+        RO:0009004,
+        <http://purl.obolibrary.org/obo/UBERON_protects>,
+        dcterms:isReferencedBy,
+        dcterms:isReplacedBy,
+        dcterms:isRequiredBy,
+        gr:closes,
+        gr:includes,
+        gr:offers,
+        gr:opens,
+        gr:owns,
+        gr:predecessorOf,
+        gr:seeks,
+        schema1:addOn,
+        schema1:branchOf,
+        schema1:connectedTo,
+        schema1:founder,
+        schema1:greater,
+        schema1:lesser,
+        schema1:userLikes,
+        SIO:000202,
+        SIO:000207,
+        SIO:000248,
+        SIO:000699,
+        SIO:000733,
+        SIO:000734,
+        SIO:000735,
+        SIO:000774,
+        gvp:aat2000_reflects,
+        gvp:aat2805_contextualized_in,
+        gvp:tgn3103_located_on,
+        gvp:ulan1000_related_to,
+        gvp:ulan2778_owner_of,
+        sosa:actsOnProperty,
+        sosa:implements,
+        sosa:isActedOnBy,
+        sosa:isFeatureOfInterestOf,
+        sosa:isHostedBy,
+        sosa:isObservedBy,
+        sosa:sensor,
+        sosa:usedProcedure,
+        ssn:detects,
+        ssn:isPropertyOf,
+        ssn:isProxyFor,
+        ssn:wasOriginatedBy,
+        CSO:semantic_relatedness,
+        csrc:Relatively_prime,
+        dwc:identifiedBy,
+        aml:contains,
+        ctrl:isConnectedTo,
+        ctrl:isSupervisedBy,
+        ctrl:supervises,
+        sumo:Above,
+        sumo:Adjacent,
+        sumo:Below,
+        sumo:Increasing,
+        sumo:RelationalAttribute,
+        sumo:Working,
+        sumo:actedIn,
+        sumo:associateWithStatus,
+        sumo:associatedFunctionality,
+        sumo:benefits,
+        sumo:between,
+        sumo:conjugate,
+        sumo:connects,
+        sumo:covers,
+        sumo:displayedUpon,
+        sumo:during,
+        sumo:employs,
+        sumo:enemy,
+        sumo:enjoys,
+        sumo:hostOf,
+        sumo:hostedOn,
+        sumo:inList,
+        sumo:inScopeOfInterest,
+        sumo:increasesLikelihood,
+        sumo:initiallyContainsPart,
+        sumo:inside,
+        sumo:interiorPart,
+        sumo:managedBy,
+        sumo:nearOrientation,
+        sumo:orbits,
+        sumo:overlapsPartially,
+        sumo:overlapsSpatially,
+        sumo:parallel,
+        sumo:relatedTo,
+        sumo:relative,
+        sumo:runningOn,
+        sumo:runsOn,
+        sumo:underlier,
+        SAN:actsOn,
+        SAN:controlledBy,
+        SAN:isActedUponBy,
+        SAN:isImpactedUponBy,
+        SAN:isPropertyOf ;
+    core:canonical_predicate "True" .
+
+core:rights a owl:DatatypeProperty ;
+    rdfs:label "rights" ;
+    rdfs:domain core:InformationContentEntity ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch wikidata:Q780687,
+        dcterms:rights ;
+    skos:narrowMatch CSO:access_rights,
+        CSO:cyber_rights ;
+    linkml:is_a "nodeProperty" .
+
+core:summary a owl:DatatypeProperty ;
+    rdfs:label "summary" ;
+    rdfs:comment "executive  summary of a publication" ;
+    rdfs:domain core:Publication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:altLabel "abstract" ;
+    skos:exactMatch wikidata:Q333291,
+        dcterms:abstract,
+        sumo:Summary ;
+    linkml:is_a "nodeProperty" .
+
+core:taxonOf a owl:ObjectProperty ;
+    rdfs:label "taxonOf" ;
+    rdfs:comment "Taxon of entity" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range core:ThingWithTaxon ;
+    rdfs:subPropertyOf core:relatedToAtInstanceLevel ;
+    owl:inverseOf core:inTaxon ;
+    linkml:is_a "relatedToAtInstanceLevel" .
+
+core:xref a owl:DatatypeProperty ;
+    rdfs:label "xref" ;
+    rdfs:comment "Alternate CURIEs for a thing" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:altLabel "DbXref",
+        "Dbxref",
+        "dbxref" ;
+    skos:broadMatch uco-core:ExternalReference ;
+    skos:exactMatch wikidata:Q1302249 ;
+    skos:narrowMatch NCIT:hasDbXref,
+        dcterms:identificationReferences,
+        gr:relatedWebService ;
+    linkml:is_a "nodeProperty" .
+
+dcterms:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    rdfs:comment "a human-readable description of an entity" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "definition" ;
+    skos:closeMatch sumo:Descriptor ;
+    skos:exactMatch wikidata:Q1200750,
+        IAO:0000115,
+        dcterms:description,
+        schema1:description,
+        skos:definitions,
+        sumo:NarrativeText ;
+    skos:narrowMatch om:longcomment,
+        CSO:architecture_description,
+        CSO:concept_description,
+        CSO:shape_description,
+        csrc:architecture_description .
+
+rdf:object a owl:ObjectProperty ;
+    rdfs:label "object" ;
+    rdfs:comment "Connects an association to the object of the association. For example, in a apple-to-orange assocation, the apple is subject and orange is object." ;
+    rdfs:domain core:Association ;
+    rdfs:range core:NamedThing ;
+    rdfs:subPropertyOf core:associationSlot ;
+    skos:exactMatch <http://purl.org/oban/association_has_object>,
+        rdf:object,
+        owl:annotatedTarget ;
+    linkml:is_a "associationSlot" .
+
+rdf:predicate a owl:DatatypeProperty ;
+    rdfs:label "predicate" ;
+    rdfs:comment "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes." ;
+    rdfs:domain core:Association ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf core:associationSlot ;
+    skos:exactMatch <http://purl.org/oban/association_has_predicate>,
+        rdf:predicate,
+        owl:annotatedProperty ;
+    linkml:is_a "associationSlot" .
+
+rdf:subject a owl:ObjectProperty ;
+    rdfs:label "subject" ;
+    rdfs:comment "Connects an association to the subject of the association. For example, in a apple-to-orange association, the apple is subject and orange is object." ;
+    rdfs:domain core:Association ;
+    rdfs:range core:NamedThing ;
+    rdfs:subPropertyOf core:associationSlot ;
+    skos:exactMatch <http://purl.org/oban/association_has_subjec>,
+        rdf:subject,
+        owl:annotatedSource ;
+    linkml:is_a "associationSlot" .
+
+uco-identity:address a owl:DatatypeProperty ;
+    rdfs:label "address" ;
+    rdfs:comment "Collection of information that describes the location of a building, apartment, or other structure" ;
+    rdfs:range xsd:string ;
+    skos:exactMatch wikidata:Q64826646,
+        uco-identity:address ;
+    skos:narrowMatch NCIT:C25407,
+        sumo:AddressFn .
+
+uco-observable:creationDate a owl:DatatypeProperty ;
+    rdfs:label "creationDate" ;
+    rdfs:comment "date on which an entity was created. This can be applied to nodes or edges" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:altLabel "publicationDate" ;
+    skos:broadMatch sumo:date ;
+    skos:exactMatch dcterms:createdOn,
+        schema1:dateCreated,
+        schema1:datePublished,
+        dwc:dateIdentified,
+        uco-observable:creationDate,
+        sumo:dateEstablished,
+        wikidata.property:P577 ;
+    skos:narrowMatch dwc:eventDate,
+        dwc:relationshipEstablishedDate,
+        dwc:verbatimEventDate ;
+    linkml:is_a "nodeProperty" .
+
+uco-observable:format a owl:DatatypeProperty ;
+    rdfs:label "format" ;
+    rdfs:domain core:InformationContentEntity ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf core:nodeProperty ;
+    skos:exactMatch NCIT:C42761,
+        SWO:0004002,
+        dcterms:format,
+        uco-observable:format,
+        sumo:format ;
+    skos:narrowMatch wikidata:Q935809,
+        schema1:fileFormat,
+        CSO:storage_formats,
+        REPR:ImageFormat,
+        wikidata.property:P2701 ;
+    linkml:is_a "nodeProperty" .
+
+uco-observable:src a owl:DatatypeProperty ;
+    rdfs:label "src" ;
+    rdfs:comment "Object (person, place, text, thing, etc.) from which something (information, goods, etc.) comes or is acquired" ;
+    rdfs:range xsd:string ;
+    skos:altLabel "source" ;
+    skos:exactMatch wikidata:Q31464082,
+        uco-observable:src .
+
+core:AdministrativeEntity a owl:Class ;
+    rdfs:label "AdministrativeEntity" ;
+    rdfs:comment "Relating to the arrangements and work that is needed to control the operation of a plan" ;
+    rdfs:subClassOf core:NamedThing ;
+    linkml:attributes "{}" ;
+    linkml:is_a "NamedThing" .
+
+core:EvidenceType a owl:Class ;
+    rdfs:label "EvidenceType" ;
+    rdfs:comment "Class of evidence that supports an association" ;
+    rdfs:subClassOf core:InformationContentEntity ;
+    skos:altLabel "evidenceCode" ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ECO_0000000> ;
+    linkml:attributes "{}" ;
+    linkml:is_a "InformationContentEntity" .
+
+core:OpenSource a owl:Class ;
+    rdfs:label "OpenSource" ;
+    rdfs:comment "Philosophy about free redistribution and access to a product" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:exactMatch wikidata:Q39162 ;
+    linkml:attributes "{}" .
+
+core:Software a owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:comment "A set of instructions in a computer programming language that can be executed by a computer, possibly after compilation into another programming language. The term Software includes ComputerPrograms (free-standing software), object methods, subroutines and software packages." ;
+    rdfs:subClassOf core:SoftwareOrDevice ;
+    skos:closeMatch IAO:0000591 ;
+    skos:exactMatch wikidata:Q7397,
+        IAO:0000010,
+        uco-core:Software,
+        sumo:ComputerProgram,
+        sumo:Software ;
+    linkml:attributes "{}" ;
+    linkml:is_a "SoftwareOrDevice" .
+
+core:SoftwareOrDevice a owl:Class ;
+    rdfs:label "SoftwareOrDevice" ;
+    rdfs:comment "Either software or hardware" ;
+    rdfs:subClassOf linkml:mixin,
+        core:System ;
+    linkml:attributes "{}" ;
+    linkml:is_a "System" .
+
+core:iri a owl:DatatypeProperty ;
+    rdfs:label "iri" ;
+    rdfs:comment "An IRI for an entity. This is determined by the id using expansion rules." ;
+    rdfs:range xsd:anyURI ;
+    skos:closeMatch NCIT:C165071,
+        uco-observable:url,
+        sumo:UniformResourceLocator ;
+    skos:exactMatch wikidata:Q424583,
+        XAPI:IRI,
+        rr:IRI,
+        wikidata.property:P854 ;
+    skos:narrowMatch RO:0002617 ;
+    skos:relatedMatch dcterms:usewithiri .
+
+core:relatedToAtInstanceLevel a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "relatedToAtInstanceLevel" ;
+    rdfs:comment "Represents a relationship held between two instances of a data classes. Much like an assertion component, in an ABox, these represent facts associated with the conceptual model" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range core:NamedThing ;
+    rdfs:subPropertyOf core:relatedTo ;
+    linkml:is_a "relatedTo" ;
+    core:canonical_predicate "True" .
+
+rdfs:label a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:comment "A human-readable name for an attribute or entity." ;
+    rdfs:range xsd:string ;
+    skos:altLabel "display name",
+        "label",
+        "title" ;
+    skos:broadMatch CSO:named_entity ;
+    skos:exactMatch gr:name,
+        schema1:name,
+        om:name,
+        rdfs:label,
+        CSO:named_entity,
+        REPR:name .
+
+core:Annotation a owl:Class ;
+    rdfs:label "Annotation" ;
+    rdfs:comment "Model root class for entity annotations." ;
+    skos:exactMatch wikidata:Q857525,
+        NCIT:C44272,
+        SIO:001166,
+        uco-core:Annotation ;
+    linkml:attributes "{}" .
+
+core:OperatingSystem a owl:Class ;
+    rdfs:label "OperatingSystem" ;
+    rdfs:comment "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs." ;
+    rdfs:subClassOf core:Software ;
+    skos:broadMatch sosa:Platform ;
+    skos:exactMatch CSO:operating_system,
+        csrc:Operations_System,
+        uco-observable:OperatingSystem,
+        sumo:OperatingSystem ;
+    linkml:attributes "{}" ;
+    linkml:is_a "Software" .
+
+core:inTaxon a owl:ObjectProperty ;
+    rdfs:label "inTaxon" ;
+    rdfs:comment "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+    rdfs:domain core:ThingWithTaxon ;
+    rdfs:range core:NamedThing ;
+    rdfs:subPropertyOf core:relatedToAtInstanceLevel ;
+    owl:inverseOf core:taxonOf ;
+    skos:exactMatch RO:0002162,
+        wikidata.property:P703 ;
+    skos:narrowMatch RO:0002160 ;
+    linkml:is_a "relatedToAtInstanceLevel" ;
+    core:canonical_predicate "True" .
+
+rdf:type a owl:DatatypeProperty ;
+    rdfs:label "type" ;
+    rdfs:comment "Anchoring point (of a name) in taxonomy" ;
+    rdfs:range xsd:string ;
+    skos:broadMatch IAO:0006011,
+        RO:0002473,
+        SIO:000011 ;
+    skos:exactMatch wikidata:Q21146257,
+        IAO:0000219,
+        NCIT:C25284,
+        SWO:type,
+        dcterms:type,
+        schema1:type,
+        rdf:type,
+        sumo:Class,
+        wikidata.property:P427 ;
+    skos:narrowMatch wikidata:Q190087,
+        IAO:0000411,
+        dcterms:measurementType,
+        gr:typeOfGood,
+        ctrl:DataType,
+        ctrl:SemanticType,
+        sumo:hardwareType .
+
+core:QuantityValue a owl:Class ;
+    rdfs:label "QuantityValue" ;
+    rdfs:comment "A value of an attribute that is quantitative and measurable, available as a combination of a unit and a numeric value" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange UO:0000000 ;
+            owl:onProperty core:hasUnit ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty core:hasNumericValue ],
+        core:Annotation ;
+    linkml:attributes "{}" ;
+    linkml:is_a "Annotation" .
+
+core:ThingWithTaxon a owl:Class ;
+    rdfs:label "ThingWithTaxon" ;
+    rdfs:comment "A mixin that can be used on any entity that can be taxonomically classified. This includes individual entities, their products, and other operational entities and processes." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom core:NamedThing ;
+            owl:onProperty core:inTaxon ],
+        linkml:mixin ;
+    linkml:attributes "{}" .
+
+core:category a owl:DatatypeProperty ;
+    rdfs:label "category" ;
+    rdfs:comment """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+    rdfs:domain core:Entity ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf rdf:type ;
+    skos:exactMatch gr:category,
+        schema1:category ;
+    skos:narrowMatch schema1:CategoryCode,
+        CSO:access_category ;
+    linkml:is_a "type" .
+
+core:Attribute a owl:Class ;
+    rdfs:label "Attribute" ;
+    rdfs:comment "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty core:iri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty uco-observable:src ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass core:NamedThing ;
+            owl:onProperty core:hasQualitativeValue ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty rdfs:label ],
+        [ a owl:Restriction ;
+            owl:onClass core:OntologyClass ;
+            owl:onProperty core:hasAttributeType ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom core:QuantityValue ;
+            owl:onProperty core:hasQuantitativeValue ],
+        core:Annotation,
+        core:OntologyClass ;
+    skos:closeMatch schema1:property,
+        ssn:Property,
+        SAN:property ;
+    skos:exactMatch wikidata:Q758243,
+        SIO:000614,
+        csrc:attribute,
+        sumo:Attribute,
+        sumo:attribute ;
+    skos:narrowMatch CSO:quantitative_attributes ;
+    linkml:attributes "{}" ;
+    linkml:is_a "Annotation" ;
+    linkml:mixins "OntologyClass" .
+
+core:InformationContentEntity a owl:Class ;
+    rdfs:label "InformationContentEntity" ;
+    rdfs:comment "A piece of information that typically describes some topic of discourse or is used as support." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty core:license ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty core:rights ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty uco-observable:creationDate ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty uco-observable:format ],
+        core:NamedThing ;
+    skos:altLabel "Information",
+        "InformationArtefact",
+        "InformationEntity" ;
+    skos:exactMatch wikidata:Q286583,
+        IAO:0000030,
+        uco-core:UcoObject ;
+    linkml:attributes "{}" ;
+    linkml:is_a "NamedThing" .
+
+core:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "Root Universal Model class for all things and informational relationships, real or imagined." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty core:iri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty rdfs:label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom core:Attribute ;
+            owl:onProperty core:hasAttribute ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty rdf:type ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty core:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty dcterms:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty core:category ] ;
+    linkml:attributes "{}" .
+
+core:OntologyClass a owl:Class ;
+    rdfs:label "OntologyClass" ;
+    rdfs:comment "A concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a ucs compatible KG can be considered both instances of ucs classes, and OWL classes in their own right. In general you should not need to use this class directly.  Instead, use the appropriate ucs class, i.e. cso:ComputationalProcess" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:exactMatch schema1:Class,
+        owl:Class ;
+    linkml:attributes "{}" .
+
+core:Publication a owl:Class ;
+    rdfs:label "Publication" ;
+    rdfs:comment "Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web, as well as printed materials, either directly or in one of the Publication Csolink category subclasses." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty core:summary ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty core:authors ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty core:lcshTerms ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty core:pages ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty core:keywords ],
+        core:InformationContentEntity ;
+    linkml:attributes "{}" ;
+    linkml:is_a "InformationContentEntity" .
+
+core:associationSlot a owl:DatatypeProperty ;
+    rdfs:label "associationSlot" ;
+    rdfs:comment "any slot that relates an association to another entity" ;
+    rdfs:domain core:Association ;
+    rdfs:range xsd:string ;
+    skos:altLabel "edge property",
+        "statement property" .
+
+core:Association a owl:Class ;
+    rdfs:label "Association" ;
+    rdfs:comment "A typed association between two entities, supported by evidence" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass core:NamedThing ;
+            owl:onProperty rdf:subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom core:EvidenceType ;
+            owl:onProperty core:hasEvidence ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom core:Publication ;
+            owl:onProperty core:publications ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty rdf:type ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty rdf:predicate ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom core:OntologyClass ;
+            owl:onProperty core:qualifiers ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty core:category ],
+        [ a owl:Restriction ;
+            owl:onClass core:NamedThing ;
+            owl:onProperty rdf:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty core:negated ],
+        core:Entity ;
+    skos:broadMatch wikidata:Q186290 ;
+    skos:exactMatch rdf:Statement,
+        owl:Axiom,
+        csrc:Association ;
+    skos:narrowMatch wikidata:Q382571,
+        CSO:data_association ;
+    linkml:attributes "{}" ;
+    linkml:is_a "Entity" .
+
+core:nodeProperty a owl:DatatypeProperty ;
+    rdfs:label "nodeProperty" ;
+    rdfs:comment "A grouping for any property that holds between a node and a value" ;
+    rdfs:domain core:NamedThing ;
+    rdfs:range xsd:string .
+
+core:NamedThing a owl:Class ;
+    rdfs:label "NamedThing" ;
+    rdfs:comment "a databased entity or concept/class" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty core:providedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty core:xref ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom xsd:anyURI ;
+                        owl:onProperty core:category ] [ a owl:Restriction ;
+                        owl:onProperty core:category ;
+                        owl:someValuesFrom xsd:anyURI ] ) ],
+        core:Entity ;
+    skos:exactMatch wikidata:Q35120,
+        <http://purl.obolibrary.org/obo/BFO_0000001>,
+        schema1:Thing,
+        dcid:Thing ;
+    linkml:attributes "{}" ;
+    linkml:is_a "Entity" .
+

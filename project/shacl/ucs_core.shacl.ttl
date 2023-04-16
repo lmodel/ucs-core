@@ -1,0 +1,1026 @@
+@prefix core: <https://w3id.org/lmodel/ucs-core/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix uco-core: <https://w3id.org/lmodel/uco-core/> .
+@prefix uco-identity: <https://w3id.org/lmodel/uco-identity/> .
+@prefix uco-observable: <https://w3id.org/lmodel/uco-observable/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+linkml:Any a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "linkml:Any type is an experimental feature for allowing arbitrary objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass linkml:Any .
+
+uco-core:Annotation a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Model root class for entity annotations." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass uco-core:Annotation .
+
+uco-core:Software a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A set of instructions in a computer programming language that can be executed by a computer, possibly after compilation into another programming language. The term Software includes ComputerPrograms (free-standing software), object methods, subroutines and software packages." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ] ;
+    sh:targetClass uco-core:Software .
+
+uco-observable:OperatingSystem a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ] ;
+    sh:targetClass uco-observable:OperatingSystem .
+
+core:AdministrativeEntity a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Relating to the arrangements and work that is needed to control the operation of a plan" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path dcterms:description ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path core:iri ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path rdf:type ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path core:id ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdfs:label ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 0 ;
+            sh:path core:providedBy ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path core:hasAttribute ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 1 ;
+            sh:path core:xref ] ;
+    sh:targetClass core:AdministrativeEntity .
+
+core:Agent a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "person, group, organization or project that provides a piece of information (i.e. a knowledge association)" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path core:iri ],
+        [ sh:description "a professional relationship between one provider (x) within another provider (often an organization). Target provider identity should be specified by a CURIE. Providers may have multiple affiliations." ;
+            sh:order 0 ;
+            sh:path core:affiliation ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "Collection of information that describes the location of a building, apartment, or other structure" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path uco-identity:address ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdf:type ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 3 ;
+            sh:path core:xref ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path core:id ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path dcterms:description ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 2 ;
+            sh:path core:providedBy ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 6 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass core:Agent .
+
+core:Association a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A typed association between two entities, supported by evidence" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:order 9 ;
+            sh:path core:category ],
+        [ sh:class core:EvidenceType ;
+            sh:description "connects an association to an instance of supporting evidence" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path core:hasEvidence ],
+        [ sh:class schema1:Thing ;
+            sh:description "Connects an association to the subject of the association. For example, in a apple-to-orange association, the apple is subject and orange is object." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path rdf:subject ],
+        [ sh:class core:Publication ;
+            sh:description "connects an association to publications supporting the association" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path core:publications ],
+        [ sh:description "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path rdf:predicate ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path core:iri ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path dcterms:description ],
+        [ sh:class core:OntologyClass ;
+            sh:description "connects an association to qualifiers that modify or qualify the meaning of that association" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path core:qualifiers ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path rdfs:label ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 7 ;
+            sh:path core:id ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "if set to true, then the association is negated i.e. is not true" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path core:negated ],
+        [ sh:class schema1:Thing ;
+            sh:description "Connects an association to the object of the association. For example, in a apple-to-orange assocation, the apple is subject and orange is object." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path rdf:object ],
+        [ sh:description "rdf:type of ucs-core:Association should be fixed at rdf:Statement" ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path rdf:type ] ;
+    sh:targetClass core:Association .
+
+core:Entity a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Root Universal Model class for all things and informational relationships, real or imagined." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:order 2 ;
+            sh:path core:category ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path core:id ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rdf:type ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path dcterms:description ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path core:iri ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass core:Entity .
+
+core:Hardware a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "physical components of a computer" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass core:Hardware .
+
+core:InformationContentEntity a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A piece of information that typically describes some topic of discourse or is used as support." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path dcterms:description ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 6 ;
+            sh:path core:id ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path core:iri ],
+        [ sh:description "date on which an entity was created. This can be applied to nodes or edges" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco-observable:creationDate ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path core:rights ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path core:license ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 5 ;
+            sh:path core:xref ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 4 ;
+            sh:path core:providedBy ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path uco-observable:format ] ;
+    sh:targetClass core:InformationContentEntity .
+
+core:Linux a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "family of Unix-like operating systems using Linux kernel and open source" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ] ;
+    sh:targetClass core:Linux .
+
+core:OpenSource a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Philosophy about free redistribution and access to a product" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass core:OpenSource .
+
+core:Project a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path core:hasAttribute ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path core:iri ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path rdf:type ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 1 ;
+            sh:path core:xref ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdfs:label ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path dcterms:description ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path core:id ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 0 ;
+            sh:path core:providedBy ] ;
+    sh:targetClass core:Project .
+
+core:SoftwareOrDevice a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Either software or hardware" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ] ;
+    sh:targetClass core:SoftwareOrDevice .
+
+core:Solaris a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Unix operating system originally developed by Sun Microsystems" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ] ;
+    sh:targetClass core:Solaris .
+
+core:System a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An entity that intends to perform some functions, interacting with other systems. Relative to a given system, the entities with which it interacts, are considered its environment. A system is structurally composed of a set of components bound together." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ] ;
+    sh:targetClass core:System .
+
+core:ThingWithTaxon a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A mixin that can be used on any entity that can be taxonomically classified. This includes individual entities, their products, and other operational entities and processes." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ] ;
+    sh:targetClass core:ThingWithTaxon .
+
+core:Virtualization a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "computing technique for setting up virtual versions of operating systems or computer resources" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass core:Virtualization .
+
+core:Windows a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "family of computer operating systems developed by Microsoft" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class schema1:Thing ;
+            sh:description "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'ThingWithTaxon'" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path core:inTaxon ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rdfs:label ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 1 ;
+            sh:path core:providedBy ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path core:id ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 2 ;
+            sh:path core:xref ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdf:type ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path dcterms:description ] ;
+    sh:targetClass core:Windows .
+
+core:EvidenceType a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Class of evidence that supports an association" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path rdf:type ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 4 ;
+            sh:path core:providedBy ],
+        [ sh:description "date on which an entity was created. This can be applied to nodes or edges" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco-observable:creationDate ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path core:license ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path uco-observable:format ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 5 ;
+            sh:path core:xref ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path dcterms:description ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 6 ;
+            sh:path core:id ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path core:iri ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path core:rights ] ;
+    sh:targetClass core:EvidenceType .
+
+core:Publication a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web, as well as printed materials, either directly or in one of the Publication Csolink category subclasses." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "executive  summary of a publication" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path core:summary ],
+        [ sh:description "Library of Congress Subject Headings (LCSH) terms tagging a publication" ;
+            sh:order 4 ;
+            sh:path core:lcshTerms ],
+        [ sh:description "date on which an entity was created. This can be applied to nodes or edges" ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path uco-observable:creationDate ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 15 ;
+            sh:path rdfs:label ],
+        [ sh:description "keywords tagging a publication" ;
+            sh:order 3 ;
+            sh:path core:keywords ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 16 ;
+            sh:path dcterms:description ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 5 ;
+            sh:path core:xref ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 10 ;
+            sh:path core:providedBy ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 13 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path core:license ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 14 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path uco-observable:format ],
+        [ sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path core:rights ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path core:iri ],
+        [ sh:description "Page number of source referenced for statement or publication" ;
+            sh:order 1 ;
+            sh:path core:pages ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 11 ;
+            sh:path core:id ],
+        [ sh:description "Connects an publication to the list of authors who contributed to the publication. This property should be a comma-delimited list of author names. It is recommended that an author's name be formatted as \"surname, firstname initial.\"." ;
+            sh:order 0 ;
+            sh:path core:authors ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 17 ;
+            sh:path core:hasAttribute ] ;
+    sh:targetClass core:Publication .
+
+core:QuantityValue a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A value of an attribute that is quantitative and measurable, available as a combination of a unit and a numeric value" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "connects a quantity value to a number" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path core:hasNumericValue ],
+        [ sh:description "connects a quantity value to a unit" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path core:hasUnit ] ;
+    sh:targetClass core:QuantityValue .
+
+core:OntologyClass a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a ucs compatible KG can be considered both instances of ucs classes, and OWL classes in their own right. In general you should not need to use this class directly.  Instead, use the appropriate ucs class, i.e. cso:ComputationalProcess" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass core:OntologyClass .
+
+schema1:Thing a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "a databased entity or concept/class" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path core:iri ],
+        [ sh:description """Name of the high level OntologyClass in which this entity is categorized. Corresponds to the label for the base entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a universal model class URI.
+This field is multi-valued. It should include values for ancestors of the universal class.
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific base class, or potentially to a class more specific than something in base.""" ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path core:category ;
+            sh:pattern "^ucs-core:[A-Z][A-Za-z]+$" ],
+        [ sh:description "Alternate CURIEs for a thing" ;
+            sh:order 1 ;
+            sh:path core:xref ],
+        [ sh:description "Anchoring point (of a name) in taxonomy" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path rdf:type ],
+        [ sh:class core:Attribute ;
+            sh:description "connects any entity to an attribute" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path core:hasAttribute ],
+        [ sh:description "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path core:id ],
+        [ sh:description "A human-readable name for an attribute or entity." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rdfs:label ],
+        [ sh:description "The value in this nodeProperty represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph." ;
+            sh:order 0 ;
+            sh:path core:providedBy ],
+        [ sh:description "a human-readable description of an entity" ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path dcterms:description ] ;
+    sh:targetClass schema1:Thing .
+
+core:Attribute a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class core:OntologyClass ;
+            sh:description "connects an attribute to a class that describes it" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path core:hasAttributeType ],
+        [ sh:description "An IRI for an entity. This is determined by the id using expansion rules." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path core:iri ],
+        [ sh:class core:QuantityValue ;
+            sh:description "Connects an attribute to a value" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path core:hasQuantitativeValue ],
+        [ sh:class schema1:Thing ;
+            sh:description "connects an attribute to a value" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path core:hasQualitativeValue ],
+        [ sh:description "The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rdfs:label ],
+        [ sh:description "Object (person, place, text, thing, etc.) from which something (information, goods, etc.) comes or is acquired" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco-observable:src ] ;
+    sh:targetClass core:Attribute .
+

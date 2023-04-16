@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/lmodel/linkml-project-cookiecutter",
+  "commit": "43a022899db3daa8a39efe12790993be652a59bb",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "ucs-core",
+      "__project_slug": "ucs_core",
+      "github_org": "lmodel",
+      "__source_path": "src/ucs_core/schema/ucs_core.yaml",
+      "project_description": "Classes and Properties shared across Usecases Framework",
+      "full_name": "Noel McLoughlin",
+      "email": "noel.mcloughlin@gmail.com",
+      "__author": "Noel McLoughlin <noel.mcloughlin@gmail.com>",
+      "license": "Apache Software License 2.0",
+      "main_schema_class": "System",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "system enums",
+      "__google_sheet_module": "system_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/lmodel/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
